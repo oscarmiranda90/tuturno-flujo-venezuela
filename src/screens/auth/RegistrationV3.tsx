@@ -60,18 +60,45 @@ type Sheet = "country" | "providers" | "privacy" | null;
 const navy = "#0B1340",
   blue = "#0023D1",
   green = "#20D672";
+// Cinco historias de la página venezolana, con fotografías originales de la comunidad.
 const people = [
   {
-    image: require("../../../assets/registration-v3/mary-reference.png"),
-    quote: "Con mi turno compré el horno y hoy vendo mis postres.",
+    image: require("../../../assets/registration-v3/testimonios/mary-delgado.jpg"),
+    portraitScale: 1,
+    portraitY: 0,
+    quote: "Con mi turno compré los materiales para arrancar con mis arepas. El sazón lo pongo yo.",
     name: "Mary Delgado · Caracas",
   },
   {
-    image: require("../../../assets/registration-v3/daniela-reference.png"),
-    quote: "Con mi turno surtí mi venta de ropa y ya tengo clientas fijas.",
-    name: "Daniela Castro · Zulia",
+    image: require("../../../assets/registration-v3/testimonios/carolina-nieves.jpg"),
+    portraitScale: 1,
+    portraitY: -160,
+    quote: "La receta ya la tenía. Con mi turno armé el kit para mis pizzas.",
+    name: "Carolina Nieves · Caracas",
+  },
+  {
+    image: require("../../../assets/registration-v3/testimonios/deivy-marquez.jpg"),
+    portraitScale: 0.9,
+    portraitY: 0,
+    quote: "Con mi turno reuní para los termos y el café. ¡Listo para acompañar la mañana de mis panas!",
+    name: "Deivy Márquez · Miranda",
+  },
+  {
+    image: require("../../../assets/registration-v3/testimonios/bernardo-caldeira.jpg"),
+    portraitScale: 1.4,
+    portraitY: -220,
+    quote: "¡Con TuTurno completé para invertir en mi negocio!",
+    name: "Bernardo Caldeira · Caracas",
+  },
+  {
+    image: require("../../../assets/registration-v3/testimonios/yenifer-abreu.jpg"),
+    portraitScale: 1,
+    portraitY: 0,
+    quote: "Con ese SAN pude comprar mi primer kit para hacer manos y pies.",
+    name: "Yenifer Abreu · Anzoátegui",
   },
 ];
+
 const fixture: RegistrationServices = {
   lookupEmail: async () => "new",
   requestOtp: async () => {},
@@ -140,13 +167,13 @@ export function RegistrationV3({
   const input = useRef<TextInput>(null);
   const insets = useSafeAreaInsets();
   useEffect(() => {
-    if (stage !== "start" || preview) return;
+    if (stage !== "start" || (preview && initialPreview !== "start")) return;
     const id = setInterval(
       () => setSlide((s) => (s + 1) % people.length),
       5000,
     );
     return () => clearInterval(id);
-  }, [stage, preview]);
+  }, [stage, preview, initialPreview]);
   const onEventRef = useRef(onEvent);
   onEventRef.current = onEvent;
   useEffect(() => {
@@ -336,9 +363,11 @@ export function RegistrationV3({
                     </Defs>
                     <SvgImage
                       href={people[slide].image}
-                      x={40}
-                      width={610}
-                      height={865}
+                      preserveAspectRatio="xMidYMin slice"
+                      x={40 - (people[slide].portraitScale - 1) * 305}
+                      y={people[slide].portraitY}
+                      width={610 * people[slide].portraitScale}
+                      height={865 * people[slide].portraitScale}
                       mask="url(#portrait-mask)"
                     />
                   </Svg>
@@ -1356,6 +1385,7 @@ const s = StyleSheet.create({
     fontFamily: "Outfit_600SemiBold",
   },
   quote: {
+    minHeight: 84,
     borderLeftWidth: 2,
     borderLeftColor: green,
     paddingLeft: 12,

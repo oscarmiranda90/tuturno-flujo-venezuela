@@ -10,6 +10,7 @@ Implementación web independiente de la guía del CEO del 17 de noviembre de 202
 - [Guía original vigente](docs/source/guide-v20.pdf)
 - [Recursos descargables](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/)
 - [Implementación pantalla por pantalla](docs/screens/)
+- [Cinco personas del inicio](docs/TESTIMONIOS-INICIO.md)
 - [Comparación entre v19 y v20](docs/COMPARISON-v19-v20.md)
 - [PDF completado](docs/delivery/TuTurno_Flujo_Venezuela_v20_Completado.pdf)
 - [PDF completado editable](docs/delivery/TuTurno_Flujo_Venezuela_v20_Completado_Editable.pdf)

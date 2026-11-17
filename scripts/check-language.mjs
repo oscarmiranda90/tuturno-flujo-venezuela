@@ -21,8 +21,8 @@ const IMPERATIVE = /\b[A-Za-zÁÉÍÓÚÑáéíóúñ]{3,}[áí](?![A-Za-zÁÉÍ
 const ALLOWED = new Set([
   // Palabras comunes que terminan en vocal acentuada.
   'está', 'aquí', 'allí', 'ahí', 'así', 'día', 'país', 'maní', 'aún',
-  // Pasado de primera persona del testimonio aprobado; no es un imperativo.
-  'surtí',
+  // Pasados de primera persona de los testimonios aprobados; no son imperativos.
+  'surtí', 'reuní',
   // Futuro de tercera persona.
   'será', 'habrá', 'tendrá', 'podrá', 'estará', 'vendrá', 'dará',
   'aparecerá', 'aplicará', 'quedará', 'llegará', 'seguirá', 'irá',

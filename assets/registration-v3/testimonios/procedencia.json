@@ -1,0 +1,46 @@
+{
+  "fuente": "https://tu-turno.app/ve/",
+  "intervaloSegundos": 5,
+  "personas": [
+    {
+      "nombre": "Mary Delgado",
+      "ciudad": "Caracas",
+      "frase": "Con mi turno compré los materiales para arrancar con mis arepas. El sazón lo pongo yo.",
+      "imagen": "mary-delgado.jpg",
+      "fuenteImagen": "https://tu-turno.app/wp-content/themes/tuturno-ve/assets/_astro/mary-delgado.CydlLrpL_2gULfj.webp",
+      "sha256": "16e996b63391b618a2f4778e67f86b6138c2cbe9a2dcbd7fc1a1f2c66e56129c"
+    },
+    {
+      "nombre": "Carolina Nieves",
+      "ciudad": "Caracas",
+      "frase": "La receta ya la tenía. Con mi turno armé el kit para mis pizzas.",
+      "imagen": "carolina-nieves.jpg",
+      "fuenteImagen": "https://tu-turno.app/wp-content/themes/tuturno-ve/assets/_astro/carolina-nieves.B7MgyNNZ_Z7cJgv.webp",
+      "sha256": "616ade6e67099d50998f06804aa133b26e9de5312f796ff9872856aa8cd97b1e"
+    },
+    {
+      "nombre": "Deivy Márquez",
+      "ciudad": "Miranda",
+      "frase": "Con mi turno reuní para los termos y el café. ¡Listo para acompañar la mañana de mis panas!",
+      "imagen": "deivy-marquez.jpg",
+      "fuenteImagen": "https://tu-turno.app/wp-content/themes/tuturno-ve/assets/_astro/deivy-marquez.CxJiaRbH_ZGbe0q.webp",
+      "sha256": "e7410ede0be1737f82a1510d6077e88e42e9dd54b25d300b32eafafc46921376"
+    },
+    {
+      "nombre": "Bernardo Caldeira",
+      "ciudad": "Caracas",
+      "frase": "¡Con TuTurno completé para invertir en mi negocio!",
+      "imagen": "bernardo-caldeira.jpg",
+      "fuenteImagen": "https://tu-turno.app/wp-content/themes/tuturno-ve/assets/_astro/bernardo-caldeira.B5JQum-C_Z1F2iSy.webp",
+      "sha256": "c344d8fd94759eb15c408873b7ed8aee530d8ab68728eef9e2f858d179fc36a5"
+    },
+    {
+      "nombre": "Yenifer Abreu",
+      "ciudad": "Anzoátegui",
+      "frase": "Con ese SAN pude comprar mi primer kit para hacer manos y pies.",
+      "imagen": "yenifer-abreu.jpg",
+      "fuenteImagen": "https://tu-turno.app/wp-content/themes/tuturno-ve/assets/_astro/yenifer-abreu.DMv71B6d_Z1wCJqO.webp",
+      "sha256": "a005fb5ade17970278edad1768dddea42a76e4235bb6af1f26d75704d32b59d2"
+    }
+  ]
+}
