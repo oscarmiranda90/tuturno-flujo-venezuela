@@ -36,6 +36,12 @@ npm run android:apk
 
 El resultado queda en `descargas/TuTurno-v20-Android.apk`, junto con su archivo `.sha256`. El proyecto Android de `android/` empaqueta la compilación Vite local mediante WebViewAssetLoader; no utiliza Expo ni carga el sitio remoto para mostrar las pantallas. Respeta los márgenes de las barras del sistema y del teclado. Las claves de firma y los archivos locales de compilación se excluyen de Git.
 
+### Comprobación del APK
+
+La versión se revisa en un emulador Android, en modo avión: registro, paseo guiado, voz y silencio persistente, impresión del tiquete y confeti según la guía v20. Las [capturas y el resultado del recorrido](docs/verification/android/) quedan en el repositorio. No se ha probado en un teléfono físico.
+
+Para repetir la revisión, instala y abre el APK en un emulador, activa el modo avión y ejecuta `npm run android:verificar` con `adb` disponible. Puedes seleccionar el dispositivo con `ANDROID_SERIAL` y la ruta de `adb` con `ADB`. `:app:lintDebug` comprueba además la compatibilidad de las API de Android.
+
 ## Vista previa de las pantallas
 
 Las siguientes son las **33 referencias originales de Mauricio**, extraídas de la última guía v20. Pulsa una imagen para abrirla en su resolución completa. Debajo de cada imagen puedes abrir la pantalla interactiva y consultar su código e instrucciones.

@@ -404,6 +404,7 @@ export function TurnTicketDispenser({
       {/* Capa superior: tiquete fuera de la máquina, delante de los demás elementos. */}
       <Animated.View
         pointerEvents="none"
+        testID="closing-presented-ticket"
         style={[styles.ticketOrigin, presentStyle]}
       >
         <Ticket amount={formatted} seal={seal} pulse={v19Motion} />
@@ -664,6 +665,7 @@ function ConfettiPiece({
   });
   return (
     <Animated.View
+      testID="closing-confetti-piece"
       style={[
         styles.confetti,
         { width: piece.w, height: piece.h, backgroundColor: piece.color },

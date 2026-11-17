@@ -103,6 +103,8 @@ public final class MainActivity extends Activity {
     @Override protected void onSaveInstanceState(Bundle out) { webView.saveState(out); super.onSaveInstanceState(out); }
     @Override protected void onPause() { webView.onPause(); super.onPause(); }
     @Override protected void onResume() { super.onResume(); if (webView != null) webView.onResume(); }
+    // Compatibilidad con Android 8–12; Android 13+ usa el callback registrado arriba.
+    @android.annotation.SuppressLint("GestureBackNavigation")
     @Override public void onBackPressed() { goBack(); }
     private void goBack() {
         webView.evaluateJavascript("(()=>{const b=document.querySelector('[aria-label=\"Cerrar\"]')||document.querySelector('[aria-label=\"Volver\"]');if(b){b.click();return true}return false})()",
