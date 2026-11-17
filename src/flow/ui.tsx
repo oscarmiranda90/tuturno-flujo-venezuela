@@ -427,7 +427,7 @@ export function Frame({
     height: number;
   } | null>(null);
   const insets = useSafeAreaInsets();
-  const native = Platform.OS !== "web";
+  const native = Platform.OS !== "web" || (typeof location !== "undefined" && new URLSearchParams(location.search).get("android") === "1");
   const top = native ? insets.top : 0;
   const bottom = native ? insets.bottom : 0;
   const metrics = frameLayout(

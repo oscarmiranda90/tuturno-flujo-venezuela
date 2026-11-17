@@ -10,7 +10,9 @@
     "typecheck": "tsc --noEmit",
     "check:language": "node scripts/check-language.mjs",
     "check": "npm run typecheck && npm run check:language && node scripts/check-flow.mjs",
-    "deploy": "npm run build && wrangler deploy --config wrangler.jsonc"
+    "deploy": "npm run build && wrangler deploy --config wrangler.jsonc",
+    "android:preparar": "node scripts/prepare-android.mjs",
+    "android:apk": "node scripts/build-apk.mjs"
   },
   "dependencies": {
     "html-to-image": "1.11.13",

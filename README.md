@@ -2,6 +2,7 @@
 
 Implementación web independiente de la guía del CEO del 17 de noviembre de 2026. Incluye inicio de sesión, registro, paseo guiado de práctica, selección del San, consentimientos, acceso al pago y estados de pago fallido y recordatorio. Sigue las referencias suministradas de 360 × 800, las fuentes Outfit 400–800 e Inter para el texto legal y la paleta de la guía.
 
+- [Descargar APK para Android](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.1/TuTurno-v20-Android.apk)
 - [Ver el recorrido](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev)
 - [Storybook v20](https://tuturno-storybook.pages.dev/?path=/story/venezuela-v20-flujo-aprobado--flow)
 - [Catálogo de 33 estados](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/catalog)
@@ -12,6 +13,28 @@ Implementación web independiente de la guía del CEO del 17 de noviembre de 202
 - [Comparación entre v19 y v20](docs/COMPARISON-v19-v20.md)
 - [PDF completado](docs/delivery/TuTurno_Flujo_Venezuela_v20_Completado.pdf)
 - [PDF completado editable](docs/delivery/TuTurno_Flujo_Venezuela_v20_Completado_Editable.pdf)
+
+## App Android: descargar e instalar
+
+[**Descargar TuTurno v20 para Android (.apk)**](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.1/TuTurno-v20-Android.apk) · [Huella SHA256](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.1/TuTurno-v20-Android.apk.sha256) · [Versión y archivos de descarga](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/tag/android-v20.0.1)
+
+1. Descarga el APK desde tu teléfono Android y abre el archivo.
+2. Si Android lo solicita, permite instalar aplicaciones desde el navegador o el gestor de archivos que estés usando.
+3. Abre **TuTurno · v20**. Para probar el registro utiliza el código **482915** y crea una clave de seis dígitos, por ejemplo **628194**.
+
+El APK universal requiere Android 8.0 o posterior. Incluye las pantallas, las fuentes, las imágenes y los quince audios de este repositorio; el recorrido se puede revisar sin conexión. Los enlaces externos sí requieren internet. Conserva los adaptadores de revisión: no envía correos, no guarda el PIN ni realiza cobros. Está firmado como compilación de revisión.
+
+### Volver a generar el APK
+
+Necesitas Node.js 22.18 o posterior, JDK 17 o 21 y Android SDK con la plataforma 36 y las herramientas de compilación 36.0.0. Configura `JAVA_HOME` y `ANDROID_HOME` para esas instalaciones.
+
+```sh
+npm ci
+npm run check
+npm run android:apk
+```
+
+El resultado queda en `descargas/TuTurno-v20-Android.apk`, junto con su archivo `.sha256`. El proyecto Android de `android/` empaqueta la compilación Vite local mediante WebViewAssetLoader; no utiliza Expo ni carga el sitio remoto para mostrar las pantallas. Respeta los márgenes de las barras del sistema y del teclado. Las claves de firma y los archivos locales de compilación se excluyen de Git.
 
 ## Vista previa de las pantallas
 
@@ -170,7 +193,7 @@ npm run build
 npm run preview
 ```
 
-Usa Node.js 22.18 o posterior. Las pruebas del flujo utilizan el compilador TypeScript instalado, incluso en distribuciones de Node sin soporte nativo para TypeScript. El servidor de desarrollo escucha en el puerto 5210. React 19 y React Native Web generan la interfaz del navegador; Vite compila el sitio. React Native aporta los tipos de desarrollo de los componentes visuales compartidos. El proyecto no contiene dependencias ni API de Expo, configuración de Metro ni proyectos de iOS o Android.
+Usa Node.js 22.18 o posterior. Las pruebas del flujo utilizan el compilador TypeScript instalado, incluso en distribuciones de Node sin soporte nativo para TypeScript. El servidor de desarrollo escucha en el puerto 5210. React 19 y React Native Web generan la interfaz del navegador; Vite compila el sitio. React Native aporta los tipos de desarrollo de los componentes visuales compartidos. El proyecto no contiene dependencias ni API de Expo ni configuración de Metro. La carpeta `android/` contiene únicamente el contenedor que empaqueta esta misma web como APK; no hay proyecto de iOS.
 
 `npm run check` verifica los tipos, el español neutro, los precios, el retroceso por los pasos del paseo, la conservación de los consentimientos, los quince audios locales y la ausencia de dependencias de Expo.
 

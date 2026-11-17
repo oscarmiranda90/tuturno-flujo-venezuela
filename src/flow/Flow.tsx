@@ -380,7 +380,7 @@ export function VenezuelaFlow({
     const registration = (
       <RegistrationV3
         edition="v19"
-        referenceKeyboard={review}
+        referenceKeyboard={review && !(typeof location !== "undefined" && new URLSearchParams(location.search).get("android") === "1")}
         initialCountry="VE"
         initialEmail={review && stage === "2" ? "nuevo@ejemplo.com" : ""}
         initialPreview={
