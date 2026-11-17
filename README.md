@@ -13,6 +13,153 @@ Implementación web independiente de la guía del CEO del 17 de noviembre de 202
 - [PDF completado](docs/delivery/TuTurno_Flujo_Venezuela_v20_Completado.pdf)
 - [PDF completado editable](docs/delivery/TuTurno_Flujo_Venezuela_v20_Completado_Editable.pdf)
 
+## Vista previa de las pantallas
+
+Las siguientes son las **33 referencias originales de Mauricio**, extraídas de la última guía v20. Pulsa una imagen para abrirla en su resolución completa. Debajo de cada imagen puedes abrir la pantalla interactiva y consultar su código e instrucciones.
+
+### 1 · Inicio de sesión
+
+| Pantalla principal |
+| --- |
+| <a href="docs/references/1.png"><img src="docs/references/1.png" width="220" alt="Pantalla 1: Inicio de sesión. Pantalla principal"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=1) · [Código e instrucciones](docs/screens/1.md) |
+
+### 2 · Código de verificación
+
+| Pantalla principal |
+| --- |
+| <a href="docs/references/2.png"><img src="docs/references/2.png" width="220" alt="Pantalla 2: Código de verificación. Pantalla principal"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=2) · [Código e instrucciones](docs/screens/2.md) |
+
+### 3 · Clave de acceso
+
+| Pantalla principal |
+| --- |
+| <a href="docs/references/3.png"><img src="docs/references/3.png" width="220" alt="Pantalla 3: Clave de acceso. Pantalla principal"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=3) · [Código e instrucciones](docs/screens/3.md) |
+
+### 4a · Bienvenida e idea elegida
+
+| Pantalla principal | Idea elegida |
+| --- | --- |
+| <a href="docs/references/4a.png"><img src="docs/references/4a.png" width="220" alt="Pantalla 4a: Bienvenida e idea elegida. Pantalla principal"></a> | <a href="docs/references/4a-selected.png"><img src="docs/references/4a-selected.png" width="220" alt="Pantalla 4a: Bienvenida e idea elegida. Idea elegida"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=4a) · [Código e instrucciones](docs/screens/4a.md) | [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=4a&variant=selected) · [Código e instrucciones](docs/screens/4a-selected.md) |
+
+### 4b · Avisos
+
+| Pantalla principal |
+| --- |
+| <a href="docs/references/4b.png"><img src="docs/references/4b.png" width="220" alt="Pantalla 4b: Avisos. Pantalla principal"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=4b) · [Código e instrucciones](docs/screens/4b.md) |
+
+### 4c · Así funciona
+
+| Pantalla principal | Con guía | Guía: paso 2 |
+| --- | --- | --- |
+| <a href="docs/references/4c.png"><img src="docs/references/4c.png" width="220" alt="Pantalla 4c: Así funciona. Pantalla principal"></a> | <a href="docs/references/4c-1.png"><img src="docs/references/4c-1.png" width="220" alt="Pantalla 4c: Así funciona. Con guía"></a> | <a href="docs/references/4c-2.png"><img src="docs/references/4c-2.png" width="220" alt="Pantalla 4c: Así funciona. Guía: paso 2"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=4c) · [Código e instrucciones](docs/screens/4c.md) | [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=4c&variant=guide) · [Código e instrucciones](docs/screens/4c-1.md) | [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=4c&variant=guide2) · [Código e instrucciones](docs/screens/4c-2.md) |
+
+| Guía: paso 3 |
+| --- |
+| <a href="docs/references/4c-3.png"><img src="docs/references/4c-3.png" width="220" alt="Pantalla 4c: Así funciona. Guía: paso 3"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=4c&variant=guide3) · [Código e instrucciones](docs/screens/4c-3.md) |
+
+### 5 · Así pagas
+
+| Pantalla principal | Con guía |
+| --- | --- |
+| <a href="docs/references/5.png"><img src="docs/references/5.png" width="220" alt="Pantalla 5: Así pagas. Pantalla principal"></a> | <a href="docs/references/5-guide.png"><img src="docs/references/5-guide.png" width="220" alt="Pantalla 5: Así pagas. Con guía"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=5) · [Código e instrucciones](docs/screens/5.md) | [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=5&variant=guide) · [Código e instrucciones](docs/screens/5-guide.md) |
+
+### 6 · Reglas y rueda de práctica
+
+| Pantalla principal | Con guía | Guía: paso 2 |
+| --- | --- | --- |
+| <a href="docs/references/6.png"><img src="docs/references/6.png" width="220" alt="Pantalla 6: Reglas y rueda de práctica. Pantalla principal"></a> | <a href="docs/references/6-1.png"><img src="docs/references/6-1.png" width="220" alt="Pantalla 6: Reglas y rueda de práctica. Con guía"></a> | <a href="docs/references/6-2.png"><img src="docs/references/6-2.png" width="220" alt="Pantalla 6: Reglas y rueda de práctica. Guía: paso 2"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=6) · [Código e instrucciones](docs/screens/6.md) | [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=6&variant=guide) · [Código e instrucciones](docs/screens/6-1.md) | [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=6&variant=guide2) · [Código e instrucciones](docs/screens/6-2.md) |
+
+| Guía: paso 3 |
+| --- |
+| <a href="docs/references/6-3.png"><img src="docs/references/6-3.png" width="220" alt="Pantalla 6: Reglas y rueda de práctica. Guía: paso 3"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=6&variant=guide3) · [Código e instrucciones](docs/screens/6-3.md) |
+
+### 7 · Practica tu primer pago
+
+| Pantalla principal | Con guía |
+| --- | --- |
+| <a href="docs/references/7.png"><img src="docs/references/7.png" width="220" alt="Pantalla 7: Practica tu primer pago. Pantalla principal"></a> | <a href="docs/references/7-guide.png"><img src="docs/references/7-guide.png" width="220" alt="Pantalla 7: Practica tu primer pago. Con guía"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=7) · [Código e instrucciones](docs/screens/7.md) | [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=7&variant=guide) · [Código e instrucciones](docs/screens/7-guide.md) |
+
+### 7b · Práctica superada
+
+| Pantalla principal | Con guía |
+| --- | --- |
+| <a href="docs/references/7b.png"><img src="docs/references/7b.png" width="220" alt="Pantalla 7b: Práctica superada. Pantalla principal"></a> | <a href="docs/references/7b-guide.png"><img src="docs/references/7b-guide.png" width="220" alt="Pantalla 7b: Práctica superada. Con guía"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=7b) · [Código e instrucciones](docs/screens/7b.md) | [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=7b&variant=guide) · [Código e instrucciones](docs/screens/7b-guide.md) |
+
+### 8 · Verificación del grupo
+
+| Pantalla principal | Con guía | Verificación completada |
+| --- | --- | --- |
+| <a href="docs/references/8.png"><img src="docs/references/8.png" width="220" alt="Pantalla 8: Verificación del grupo. Pantalla principal"></a> | <a href="docs/references/8-guide.png"><img src="docs/references/8-guide.png" width="220" alt="Pantalla 8: Verificación del grupo. Con guía"></a> | <a href="docs/references/8-ready.png"><img src="docs/references/8-ready.png" width="220" alt="Pantalla 8: Verificación del grupo. Verificación completada"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=8) · [Código e instrucciones](docs/screens/8.md) | [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=8&variant=guide) · [Código e instrucciones](docs/screens/8-guide.md) | [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=8&variant=ready) · [Código e instrucciones](docs/screens/8-ready.md) |
+
+### 9 · Cierre y tiquera
+
+| Pantalla principal |
+| --- |
+| <a href="docs/references/9.png"><img src="docs/references/9.png" width="220" alt="Pantalla 9: Cierre y tiquera. Pantalla principal"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=9) · [Código e instrucciones](docs/screens/9.md) |
+
+### 10 · Escoge tu San
+
+| Pantalla principal | Otra cosa: sin frase |
+| --- | --- |
+| <a href="docs/references/10.png"><img src="docs/references/10.png" width="220" alt="Pantalla 10: Escoge tu San. Pantalla principal"></a> | <a href="docs/references/10-other.png"><img src="docs/references/10-other.png" width="220" alt="Pantalla 10: Escoge tu San. Otra cosa: sin frase"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=10) · [Código e instrucciones](docs/screens/10.md) | [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=10&variant=other) · [Código e instrucciones](docs/screens/10-other.md) |
+
+### 11 · Lo que aceptas
+
+| Pantalla principal |
+| --- |
+| <a href="docs/references/11.png"><img src="docs/references/11.png" width="220" alt="Pantalla 11: Lo que aceptas. Pantalla principal"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=11) · [Código e instrucciones](docs/screens/11.md) |
+
+### 11b · Consentimientos listos
+
+| Pantalla principal |
+| --- |
+| <a href="docs/references/11b.png"><img src="docs/references/11b.png" width="220" alt="Pantalla 11b: Consentimientos listos. Pantalla principal"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=11b) · [Código e instrucciones](docs/screens/11b.md) |
+
+### 12 · Tu primer pago
+
+| Pantalla principal | Otra cosa: sin frase |
+| --- | --- |
+| <a href="docs/references/12.png"><img src="docs/references/12.png" width="220" alt="Pantalla 12: Tu primer pago. Pantalla principal"></a> | <a href="docs/references/12-other.png"><img src="docs/references/12-other.png" width="220" alt="Pantalla 12: Tu primer pago. Otra cosa: sin frase"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=12) · [Código e instrucciones](docs/screens/12.md) | [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=12&variant=other) · [Código e instrucciones](docs/screens/12-other.md) |
+
+### 12c · Pago no completado
+
+| Pantalla principal |
+| --- |
+| <a href="docs/references/12c.png"><img src="docs/references/12c.png" width="220" alt="Pantalla 12c: Pago no completado. Pantalla principal"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=12c) · [Código e instrucciones](docs/screens/12c.md) |
+
+### 12d · Recordatorio
+
+| Pantalla principal |
+| --- |
+| <a href="docs/references/12d.png"><img src="docs/references/12d.png" width="220" alt="Pantalla 12d: Recordatorio. Pantalla principal"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=12d) · [Código e instrucciones](docs/screens/12d.md) |
+
+### 13 · ChinChin: referencia externa
+
+| Pantalla principal |
+| --- |
+| <a href="docs/references/13.png"><img src="docs/references/13.png" width="220" alt="Pantalla 13: ChinChin: referencia externa. Pantalla principal"></a> |
+| [Ver pantalla](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=13) · [Código e instrucciones](docs/screens/13.md) |
+
 ## Instalación, ejecución y verificación
 
 ```sh
