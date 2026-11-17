@@ -1,15 +1,15 @@
-# Ticket dispenser layers
+# Capas de la tiquera
 
-The approved dispenser is reused as code, never as a flattened full-screen capture.
+La tiquera aprobada se reutiliza como componente y conserva sus actores independientes.
 
-| Layer | Source / actor |
+| Capa | Recurso o comportamiento |
 |---|---|
-| Body | `assets/brand/layers/cuerpo.png` |
-| Glass | `assets/brand/layers/vidrio.png` lossless specular layer |
-| Roll | `assets/brand/layers/rollo.svg` and independently rotating paper-roll actor |
-| Mouth | `assets/brand/layers/boca.png`, slot geometry and `frente.webp` occlusion |
-| Paper | Runtime vector paper; supplied still `assets/brand/layers/papelito.png` |
-| Confetti | `assets/brand/layers/confeti.svg` preview; independent finite particles, reduced-motion aware |
-| Tutu | `assets/piggy/tutu_dance.webp` and static reduced-motion poster |
+| Cuerpo | `assets/brand/layers/cuerpo.png` |
+| Vidrio | `assets/brand/layers/vidrio.png`, reflejo extraído sin pérdida |
+| Rollo | `assets/brand/layers/rollo.svg` y cilindro de papel con giro independiente |
+| Boca | `assets/brand/layers/boca.png`, geometría de la ranura y oclusión de `frente.webp` |
+| Papel | Papel vectorial animado; referencia estática suministrada en `assets/brand/layers/papelito.png` |
+| Confeti | Vista previa vectorial en `assets/brand/layers/confeti.svg`; partículas independientes que respetan el movimiento reducido |
+| Tutu | `assets/piggy/tutu_dance.webp` y su imagen estática para movimiento reducido |
 
-[Full source](../src/components/turn/TurnTicketDispenser.tsx) · [Download assets](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/tiquetera.zip)
+[Código completo](../src/components/turn/TurnTicketDispenser.tsx) · [Descargar recursos](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/tiquetera.zip)

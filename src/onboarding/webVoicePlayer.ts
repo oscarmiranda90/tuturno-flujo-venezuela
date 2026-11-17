@@ -1,6 +1,6 @@
 export type WebVoiceStatus = { playing: boolean; blocked: boolean; error: string | null };
 
-/** Keep one media element so a click can unlock playback for subsequent tour steps. */
+/** Reutiliza un elemento de audio para que una pulsación habilite la reproducción de los siguientes pasos. */
 export function createWebVoicePlayer(
   onStatus: (status: WebVoiceStatus) => void,
   createMedia: () => HTMLAudioElement = () => new Audio(),
@@ -33,7 +33,7 @@ export function createWebVoicePlayer(
       } else {
         media.currentTime = 0;
       }
-      // Call play synchronously inside the user's click, before any await or cross-window message.
+      // Ejecuta play durante la pulsación, antes de esperar respuestas o enviar mensajes a otra ventana.
       void media.play().then(() => {
         if (token === generation) update({ playing: true, blocked: false, error: null });
       }).catch((error: Error) => {

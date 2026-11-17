@@ -1,28 +1,28 @@
-# v19 → v20
+# Comparación entre v19 y v20
 
-Baseline: native delivery 00d6a8f and its 2:18 walkthrough from 2026-11-16. Authority: v20 guide from 2026-11-17.
+Referencia anterior: entrega nativa `00d6a8f` y su video de 2:18 del 16 de noviembre de 2026. Documento vigente: guía v20 del 17 de noviembre de 2026.
 
-| Screen | Before (v19) | After (v20) | Status |
+| Pantalla | Antes (v19) | Ahora (v20) | Estado |
 |---|---|---|---|
-| 1–3 | Approved Mauricio login/OTP/PIN. | Preserved; same copy, carousel and credential flow. | Preserved |
-| 4a | Six trade-specific ideas, Daniela proof and selected-idea panel. | Six new large ideas; proof removed; check, haptic, Tutu reaction and1.5s automatic advance; small referral below. | Implemented |
-| 4b | ¿Te sigo explicando? and older permission script. | ¿Seguimos? with the new exact notification script; sheet over4c. | Implemented |
-| 4c | Small explainer panel with Cobrar mi turno. | Independent screen, three large numbered cards,290px cloud, guided highlights and back step navigation. | Implemented |
-| 5 | Servicio naming and old speech. | Garantía y servicio naming and new exact narration. | Implemented |
-| 6 | Three rules and interactive randomized wheel. | Preserved; browser web-port retains spin, repeated spins, confetti and no wheel sound. | Preserved |
-| 7 | Tu primer pago, practice warning at bottom. | Practica tu primer pago, large top warning, new guarantee/service invoice and speech. | Implemented |
-| 7b | Paid stamp and Listo. | Three bank steps automatically checked, Práctica superada stamp, Siguiente and delayed guide. | Implemented |
-| 8 | Checklist first, group below, Empezar. | New title, large group above smaller checklist, nine avatar checks before five list checks and Siguiente. | Implemented |
-| 9 | ¡Ya sabes cómo funciona! and existing dispenser. | ¡Ya sabes cómo cobrar tus €100!, new speech, layered dispenser, printer motor and replay. | Implemented |
-| 10 | Trade-specific purpose and withdrawal warning. | New purpose mapping, La más elegida on weekly, guarantee/service naming and no withdrawal warning. | Implemented |
-| 11 /11b | Read-to-end gating and three consents. | Preserved; consent unlock and gray/green Acepto. | Preserved |
-| 12 | Old idea mapping and Servicio. | New idea purpose and Garantía y servicio (con IVA); only authoritative Bs orders outside the guide sample. | Implemented |
-| 12c | Retained San after failed payment. | New idea/cost copy with frequency and accepted terms preserved. | Implemented |
-| 12d | Reminder sheet on old payment summary. | Same sheet over the new payment summary. | Implemented |
-| 13 | External ChinChin reference. | Preserved external ownership; current logo exported as SVG/PNG. | Preserved |
-| Voice | 11 clips. | 15 clips:7 reused,4 new and4 re-recorded; only selected approved voice. | Implemented |
-| Runtime | Expo native app and Storybook build. | Independent React/Vite browser repository with no Expo dependencies or imports. | Implemented |
+| 1–3 | Inicio de sesión, código y clave aprobados por Mauricio. | Se conservan los textos, el carrusel y el registro. | Conservado |
+| 4a | Seis ideas por oficio, testimonio de Daniela y panel de la idea elegida. | Seis ideas nuevas con dibujos grandes; sin testimonio; selección, vibración, reacción de Tutu y avance automático a los 1,5 s; referido pequeño al pie. | Implementado |
+| 4b | «¿Te sigo explicando?» y guion anterior de permisos. | «¿Seguimos?» y nuevo texto exacto de avisos; ventana sobre 4c. | Implementado |
+| 4c | Panel explicativo pequeño con «Cobrar mi turno». | Pantalla independiente, tres tarjetas numeradas grandes, nube de 290 px, resaltados y retroceso por pasos. | Implementado |
+| 5 | Concepto «Servicio» y voz anterior. | Concepto «Garantía y servicio» y nuevo texto exacto de voz. | Implementado |
+| 6 | Tres reglas y rueda interactiva aleatoria. | Se conservan los giros, la repetición y el confeti, sin sonido de rueda. | Conservado |
+| 7 | «Tu primer pago» y advertencia de práctica al pie. | «Practica tu primer pago», advertencia grande arriba y nuevos conceptos y narración. | Implementado |
+| 7b | Sello de pago y «Listo». | Tres pasos bancarios que se completan solos, sello «Práctica superada», «Siguiente» y guía posterior. | Implementado |
+| 8 | Lista de verificación primero, grupo debajo y «Empezar». | Nuevo título, grupo grande arriba, lista más pequeña, nueve verificaciones de avatares antes de las cinco de la lista y «Siguiente». | Implementado |
+| 9 | «¡Ya sabes cómo funciona!» y tiquera existente. | «¡Ya sabes cómo cobrar tus €100!», nueva voz, tiquera por capas, motor de impresora y repetición. | Implementado |
+| 10 | Idea por oficio y advertencia de retiro. | Idea completa, «La más elegida» en el semanal, «Garantía y servicio» y sin advertencia de retiro. «Otra cosa» elimina el encabezado de idea. | Implementado |
+| 11 / 11b | Lectura hasta el final y tres consentimientos. | Se conservan el desbloqueo de los consentimientos y los estados gris y verde de «Acepto». | Conservado |
+| 12 | Ideas anteriores y concepto «Servicio». | Idea completa y «Garantía y servicio (con IVA)»; «Otra cosa» omite su fila. Los bolívares fuera del ejemplo requieren una orden válida. | Implementado |
+| 12c | San conservado al fallar el pago. | Nueva frase de idea y conceptos, conservando frecuencia y términos aceptados. | Implementado |
+| 12d | Ventana de recordatorio sobre el resumen de pago anterior. | La misma ventana sobre el nuevo resumen del pago. | Implementado |
+| 13 | Referencia externa de ChinChin. | Se conserva la responsabilidad del proveedor; logo actual en SVG y PNG. | Conservado |
+| Voz | 11 audios. | 15 audios: 7 reutilizados, 4 nuevos y 4 regrabados, con la voz elegida. | Implementado |
+| Ejecución | App nativa con Expo y compilación de Storybook. | Repositorio web independiente con React y Vite, sin dependencias ni importaciones de Expo. Storybook muestra el mismo flujo publicado. | Implementado |
 
-## Latest same-version PDF revision
+## Última revisión del PDF v20
 
-The final v20 PDF replaces abbreviated purposes with the complete selected idea on10/12/12c/12d. Other has no phrase or drawing. Screen10 uses two lines and removes its entire idea heading for Other; payment retains its ticket/€100 heading. The reminder sheet, pricing and all narrations are unchanged. Applied to the isolated runtime and the public Storybook that embeds it. Source SHA256: 8bdd318eb8a0bd575534d2bb595d9e0163853d3cef397e3b8be2eb26eb004515.
+La revisión final sustituye las frases abreviadas por la idea completa en 10, 12, 12c y 12d. «Otra cosa» no lleva frase ni dibujo. La 10 utiliza dos líneas y elimina todo el encabezado de idea en ese caso; el pago conserva el tiquete y el título de €100. La ventana de recordatorio, los precios y las narraciones se conservan. Está aplicado al repositorio aislado y al Storybook público. Huella SHA256 del documento: `8bdd318eb8a0bd575534d2bb595d9e0163853d3cef397e3b8be2eb26eb004515`.

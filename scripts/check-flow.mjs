@@ -14,5 +14,5 @@ const restored=restoreSan(accepted,'4a');assert.equal(restored.screen,'4a');asse
 assert.deepEqual(restoreSan({accepted:[true,true,true],termsRead:false},'4a').accepted,[false,false,false]);
 const scripts=JSON.parse(readFileSync('assets/audio/manifest.json','utf8'));assert.equal(scripts.voices.length,15);
 for(const voice of scripts.voices)assert(existsSync('assets/audio/'+voice.file),voice.file);
-const lock=JSON.parse(readFileSync('package-lock.json','utf8'));assert(!Object.keys(lock.packages).some(k=>/(^|\/)node_modules\/(expo(?:-[^/]+)?|@expo\/[^/]+)$/.test(k)),'Expo dependency found');
-console.log('Flow contracts passed: pricing, backward steps, retained consent/San,15 recordings and zero Expo dependencies.');
+const lock=JSON.parse(readFileSync('package-lock.json','utf8'));assert(!Object.keys(lock.packages).some(k=>/(^|\/)node_modules\/(expo(?:-[^/]+)?|@expo\/[^/]+)$/.test(k)),'Se encontró una dependencia de Expo');
+console.log('Verificación del flujo correcta: precios, retroceso, conservación de consentimientos y San, 15 audios y ninguna dependencia de Expo.');

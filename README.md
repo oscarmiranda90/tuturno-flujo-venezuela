@@ -1,17 +1,19 @@
 # TuTurno · Venezuela v20
 
-Independent browser implementation of the CEO guide dated 2026-11-17. This repository contains login, registration, the guided practice tour, plan selection, consents, payment handoff and failure/reminder states. The accepted direction is the supplied360 × 800 artwork, Outfit 400–800, Inter legal copy and the guide palette. No visual redesign or alternate tour is included.
+Implementación web independiente de la guía del CEO del 17 de noviembre de 2026. Incluye inicio de sesión, registro, paseo guiado de práctica, selección del San, consentimientos, acceso al pago y estados de pago fallido y recordatorio. Sigue las referencias suministradas de 360 × 800, las fuentes Outfit 400–800 e Inter para el texto legal y la paleta de la guía.
 
-- [Live flow](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev)
+- [Ver el recorrido](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev)
 - [Storybook v20](https://tuturno-storybook.pages.dev/?path=/story/venezuela-v20-flujo-aprobado--flow)
-- [33-state catalog](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/catalog)
-- [Editable Figma screens](https://www.figma.com/design/3xFhB0S4URrLZu0bzcqYuy?node-id=1-2)
-- [Original authoritative guide](docs/source/guide-v20.pdf)
-- [Downloadable product resources](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/)
-- [Screen-by-screen implementation map](docs/screens/)
-- [v19 → v20 comparison](docs/COMPARISON-v19-v20.md)
+- [Catálogo de 33 estados](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/catalog)
+- [Pantallas editables en Figma](https://www.figma.com/design/3xFhB0S4URrLZu0bzcqYuy?node-id=1-2)
+- [Guía original vigente](docs/source/guide-v20.pdf)
+- [Recursos descargables](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/)
+- [Implementación pantalla por pantalla](docs/screens/)
+- [Comparación entre v19 y v20](docs/COMPARISON-v19-v20.md)
+- [PDF completado](docs/delivery/TuTurno_Flujo_Venezuela_v20_Completado.pdf)
+- [PDF completado editable](docs/delivery/TuTurno_Flujo_Venezuela_v20_Completado_Editable.pdf)
 
-## Run and verify
+## Instalación, ejecución y verificación
 
 ```sh
 npm ci
@@ -21,34 +23,41 @@ npm run build
 npm run preview
 ```
 
-Use Node.js 22.18 or later. The flow contract runner uses the installed TypeScript compiler, including on Node distributions built without native TypeScript support. Development listens on port 5210. React 19 + React Native Web render browser DOM; Vite builds the site. React Native supplies development typings for the shared visual primitives. There are no Expo packages, Expo APIs, Metro configuration, iOS or Android projects. `npm run check` verifies types, neutral Spanish, pricing, backward guide steps, retained consents, fifteen local recordings and absence of Expo dependencies.
+Usa Node.js 22.18 o posterior. Las pruebas del flujo utilizan el compilador TypeScript instalado, incluso en distribuciones de Node sin soporte nativo para TypeScript. El servidor de desarrollo escucha en el puerto 5210. React 19 y React Native Web generan la interfaz del navegador; Vite compila el sitio. React Native aporta los tipos de desarrollo de los componentes visuales compartidos. El proyecto no contiene dependencias ni API de Expo, configuración de Metro ni proyectos de iOS o Android.
 
-The review adapter uses OTP `482915`. Create and repeat any valid six-digit PIN, for example `628194`. It sends no email, stores no PIN, charges nothing and never creates a paid state. Direct review links use `?screen=4c&variant=guide2`; normal reopening after registration returns to4a and retains the selected San. `?lector=1` explicitly suppresses speech for an accessible host integration. Browser autoplay can require a first tap. The mute preference persists across every scene.
+`npm run check` verifica los tipos, el español neutro, los precios, el retroceso por los pasos del paseo, la conservación de los consentimientos, los quince audios locales y la ausencia de dependencias de Expo.
 
-## Integration boundaries
+Para revisar el registro usa el código `482915`. Crea y repite cualquier clave válida de seis dígitos, por ejemplo `628194`. El entorno de revisión no envía correos, no guarda la clave, no cobra ni crea un estado de pago exitoso. Puedes abrir estados concretos con `?screen=4c&variant=guide2` y revisar una idea con `?screen=12&idea=2`. Al abrir normalmente después del registro, el recorrido vuelve a 4a y conserva el San elegido. `?lector=1` permite que una integración accesible suprima la voz. La reproducción automática del navegador puede necesitar una primera pulsación. El silencio se conserva entre pantallas.
 
-Production authentication uses `RegistrationServices`. Production payment requires an authoritative HTTPS ChinChin order and callback; no browser exchange rate is calculated. The weekly review displays the guide's sample Bs amount, while the fortnightly review waits for an actual order instead of inventing one. Friday reminders require `FlowServices.scheduleReminders`. ChinChin13 is a reference owned by its provider; its UI is not recreated. Full legal text was deferred by the owner and remains an integration responsibility.
+## Integración con producción
 
-Web browsers do not expose reliable system-ringer or screen-reader detection. Native hosts must provide those policies. Reduced motion finishes animations immediately while keeping narration available. Only narration and the proposed printer motor produce sound. The selected voice is Oscar's `J3IVA4gky83c6u110Yk6`; no credentials are shipped. Audio4a is pitch-preserving tempo-adjusted to finish before its required 1.5 s automatic transition. Other durations follow natural speech; the long 4b instruction exceeds the approximate 3–5 s target. See the audio manifest for exact durations.
+La autenticación real se conecta mediante `RegistrationServices`. El pago necesita una orden HTTPS válida de ChinChin y la confirmación de su resultado; el navegador no calcula una tasa de cambio. El ejemplo semanal muestra el importe en bolívares de la guía; el quincenal espera una orden real. Los recordatorios de los viernes requieren implementar `FlowServices.scheduleReminders`. La pantalla 13 pertenece al proveedor ChinChin y se conserva como referencia. El propietario dejó pendiente el texto legal completo, que deberá aportar la integración.
 
-The SVG merchant logo preserves the supplied raster brandmark losslessly; its wordmark is outlined vector geometry. Printer body and front retain the approved layered artwork; glass, roll, mouth, paper, confetti and Tutu are separately identifiable actors in the code and asset map.
+Los navegadores no permiten detectar de forma fiable el modo silencio del dispositivo ni el lector de pantalla. Las integraciones nativas deben aplicar esas políticas. Con movimiento reducido, las animaciones terminan de inmediato y la narración sigue disponible. Solo producen sonido la voz y el efecto propuesto del motor de la impresora. La voz elegida por Oscar es `J3IVA4gky83c6u110Yk6`; el repositorio no incluye credenciales. El audio 4a ajusta su velocidad sin cambiar el tono para terminar antes del avance automático de 1,5 segundos. Las demás duraciones siguen el habla natural; el texto de 4b supera el objetivo aproximado de 3–5 segundos. Consulta las duraciones exactas en el manifiesto de audio.
 
-## Latest v20 revision
+El logo SVG conserva sin pérdida el símbolo de la marca suministrado y utiliza trazados vectoriales para el nombre. El cuerpo y el frente de la tiquera conservan el dibujo aprobado. El vidrio, el rollo, la boca, el papel, el confeti y Tutu se identifican por separado en el código y en el mapa de recursos.
 
-The selected purpose is complete on screens10,12,12c and12d. Screen10 uses a two-line heading; Other removes that entire idea heading. Payment retains the ticket and €100 heading while omitting the idea row for Other. Narrations and pricing are unchanged. Storybook embeds this isolated runtime through an origin-checked audio/capture bridge instead of duplicating the flow.
+## Última revisión de la v20
 
-## Delivery evidence
+Las pantallas 10, 12, 12c y 12d muestran la idea completa. La 10 utiliza un encabezado de dos líneas; «Otra cosa» elimina todo ese encabezado. En el pago se conservan el tiquete y el título de €100, y se elimina la fila de la idea cuando corresponde «Otra cosa». Las narraciones y los precios no cambian. Storybook muestra este mismo código publicado mediante un puente que comprueba el origen de los mensajes de audio y captura.
 
-- `docs/reference-manifest.json`: all 33 exact embedded source rasters with page/xref and SHA256.
-- `docs/verification/interaction.json`: browser walkthrough through login, practice, consent, fortnightly payment, failure and reminder; includes mute persistence.
-- `assets/audio/manifest.json`: fifteen script/file mappings, mono audio and hashes.
-- `docs/delivery-links.json`: all PDF fields and their actual targets.
+## Evidencia de la entrega
 
-## Authoritative guide — complete transcription
+- `docs/reference-manifest.json`: las 33 imágenes originales, con página, referencia interna y huella SHA256.
+- `docs/verification/interaction.json`: recorrido completo de registro, práctica, consentimientos, pago quincenal, fallo y recordatorio; incluye la conservación del silencio.
+- `docs/verification/latest-v20/`: revisión de las 24 combinaciones de pantalla e idea a 360 × 800 y comprobación de audio, captura y contexto en Storybook.
+- `assets/audio/manifest.json`: correspondencia de los quince textos y archivos de voz, con sus duraciones, canales y huellas.
+- `docs/delivery-links.json`: valores de los campos del PDF y sus destinos reales.
 
-The following is the supplied Spanish source, preserved as product requirements. Its screen images are linked to exact exports; it supersedes v19. Form labels and repeated footer are omitted here because the deliverable PDF retains them.
+## Idioma del repositorio
 
-### Page1
+La documentación, los comentarios, las instrucciones y los mensajes propios del proyecto se mantienen en español neutro. Los nombres técnicos de bibliotecas, comandos, rutas y contratos de integración conservan su escritura para asegurar compatibilidad. Las licencias de terceros se conservan en su versión original.
+
+## Guía vigente: transcripción completa
+
+A continuación se conserva el texto suministrado como requisito del producto. Las pantallas enlazan a las imágenes originales extraídas del PDF. Esta guía sustituye a la v19. Se omiten las etiquetas del formulario y el pie repetido porque se conservan en el PDF entregable.
+
+### Página 1
 
 SOLO PARA OSCAR
 TuTurno · Venezuela · v20 · 17 de noviembre de 2026
@@ -88,7 +97,7 @@ Lo que entregas
 Si ya empezaste con la v19, mira primero la página 2: ahí está todo lo que cambió.
 No entra aquí: San Experto (segundo San) ni el flujo de Colombia; van en otra entrega.
 
-### Page2
+### Página 2
 
 Qué cambió desde la v19
 Revisión del 17-nov. Todo lo demás queda igual que en la v19.
@@ -150,7 +159,7 @@ pantalla al lanzar.
 Se quita la ventana de datos bancarios antes del pago: la cuenta
 se pide en la verificación.
 
-### Page3
+### Página 3
 
 Reglas para todas las pantallas
 Lo que vale en todo el flujo. Lo propio de cada pantalla va en su página.
@@ -203,7 +212,7 @@ Nube de Tutu
 Velo del paseo
 #060C34 · al 66 %
 
-### Page4
+### Página 4
 
 Tutu: dónde habla y qué suena
 Su cara, sus textos exactos y los dos únicos sonidos del flujo.
@@ -298,7 +307,7 @@ tutu_11_ve
 grabar todos.
 PROVISIONAL · VA LA BUENA
 
-### Page5
+### Página 5
 
 Mapa del flujo
 De la pantalla 1 al pago, en orden. Cada una tiene su página.
@@ -347,7 +356,7 @@ Camino normal
 Si algo pasa en el pago
 Paseo de práctica: 4a a 9 · Flujo real: 10 a 13
 
-### Page6
+### Página 6
 
 1
 Inicio
@@ -382,7 +391,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [1](docs/references/1.png)
 
-### Page7
+### Página 7
 
 2
 Código
@@ -414,7 +423,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [2](docs/references/2.png)
 
-### Page8
+### Página 8
 
 3
 Clave
@@ -445,7 +454,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [3](docs/references/3.png)
 
-### Page9
+### Página 9
 
 4a
 Bienvenida
@@ -485,7 +494,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [4a](docs/references/4a.png) · [4a-selected](docs/references/4a-selected.png)
 
-### Page10
+### Página 10
 
 4b
 Tutu pide los avisos
@@ -520,7 +529,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [4b](docs/references/4b.png)
 
-### Page11
+### Página 11
 
 4c
 Así funciona TuTurno
@@ -563,7 +572,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [4c](docs/references/4c.png) · [4c-1](docs/references/4c-1.png) · [4c-2](docs/references/4c-2.png) · [4c-3](docs/references/4c-3.png)
 
-### Page12
+### Página 12
 
 5
 Así pagas tu San
@@ -597,7 +606,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [5](docs/references/5.png) · [5-guide](docs/references/5-guide.png)
 
-### Page13
+### Página 13
 
 6
 Las reglas de tu San
@@ -640,7 +649,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [6](docs/references/6.png) · [6-1](docs/references/6-1.png) · [6-2](docs/references/6-2.png) · [6-3](docs/references/6-3.png)
 
-### Page14
+### Página 14
 
 7
 Practica tu primer pago
@@ -680,7 +689,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [7](docs/references/7.png) · [7-guide](docs/references/7-guide.png)
 
-### Page15
+### Página 15
 
 7b
 Práctica superada
@@ -720,7 +729,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [7b](docs/references/7b.png) · [7b-guide](docs/references/7b-guide.png)
 
-### Page16
+### Página 16
 
 8
 Aquí todos están verificados
@@ -759,7 +768,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [8](docs/references/8.png) · [8-guide](docs/references/8-guide.png) · [8-ready](docs/references/8-ready.png)
 
-### Page17
+### Página 17
 
 9
 ¡Ya sabes cómo cobrar tus €100!
@@ -794,7 +803,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [9](docs/references/9.png)
 
-### Page18
+### Página 18
 
 10
 Escoge tu San
@@ -834,7 +843,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [10](docs/references/10.png) · [10-other](docs/references/10-other.png)
 
-### Page19
+### Página 19
 
 11
 Lo que aceptas · al llegar
@@ -868,7 +877,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [11](docs/references/11.png)
 
-### Page20
+### Página 20
 
 11b
 Listo para aceptar
@@ -898,7 +907,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [11b](docs/references/11b.png)
 
-### Page21
+### Página 21
 
 12
 Tu primer pago
@@ -935,7 +944,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [12](docs/references/12.png) · [12-other](docs/references/12-other.png)
 
-### Page22
+### Página 22
 
 12c
 Si el pago no se completó
@@ -966,7 +975,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [12c](docs/references/12c.png)
 
-### Page23
+### Página 23
 
 12d
 Te lo recordamos después
@@ -998,7 +1007,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [12d](docs/references/12d.png)
 
-### Page24
+### Página 24
 
 13
 ChinChin
@@ -1028,7 +1037,7 @@ Observaciones · se evalúan con Maurizio antes de tocar
 
 [13](docs/references/13.png)
 
-### Page25
+### Página 25
 
 Lo que entregas
 Además del enlace de cada pantalla. Cuando termines, devuélvele este PDF a Maurizio con los campos llenos.

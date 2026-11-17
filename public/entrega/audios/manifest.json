@@ -1,5 +1,5 @@
 {
-  "guide": "v20 page4",
+  "guide": "v20, página 4",
   "voiceId": "J3IVA4gky83c6u110Yk6",
   "voices": [
     {
@@ -9,7 +9,7 @@
       "sha256": "52f7057f48bcc4ee8c936049ab76d8f4119f8b8c0c6512917d094cae4284a959",
       "durationSeconds": 1.417438,
       "channels": 1,
-      "timingAdaptation": "Tempo1.7 to finish before the required1.5s transition; pitch preserved."
+      "timingAdaptation": "Velocidad de 1,7 para terminar antes del avance obligatorio de 1,5 s, conservando el tono."
     },
     {
       "screen": "4b",
@@ -140,6 +140,6 @@
   ],
   "printer": {
     "file": "printer.mp3",
-    "status": "Proposed procedural printer motor for review; no third sound category."
+    "status": "Propuesta de motor de impresora generado para revisión; no se añade otra categoría de sonido."
   }
 }

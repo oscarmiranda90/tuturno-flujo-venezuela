@@ -3,9 +3,9 @@
     960,
     804
   ],
-  "reconstruction": "cuerpo + vidrio + boca exactly reconstruct the approved source pixels",
-  "glass": "Specular surface/window reflection extracted losslessly from the approved artwork; no new machine design.",
+  "reconstruction": "cuerpo + vidrio + boca reconstruyen exactamente los píxeles originales aprobados",
+  "glass": "Reflejo del vidrio extraído sin pérdida del dibujo aprobado; se conserva el diseño de la máquina.",
   "runtime": "src/components/turn/TurnTicketDispenser.tsx",
-  "paper": "The runtime paper is vector and independently animated;papelito.png is the supplied still reference.",
-  "confetti": "A static vector particle preview; runtime trajectories live in the component."
+  "paper": "El papel del componente es vectorial y tiene animación independiente; papelito.png es la referencia estática suministrada.",
+  "confetti": "Vista previa vectorial estática de las partículas; sus trayectorias están en el componente."
 }

@@ -1,15 +1,15 @@
-# Screen5-guide · v20
+# Pantalla 5-guide · v20
 
-- [Running state](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=5&variant=guide)
-- [Source and animation](../../src/flow/Flow.tsx)
-- [Shared highlights and transitions](../../src/flow/motion.tsx)
-- [Icons and palette](../../src/flow/ui.tsx)
-- [Product resources](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/)
-- [Narration manifest](../../assets/audio/manifest.json)
+- [Ver pantalla interactiva](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=5&variant=guide)
+- [Código y animación](../../src/flow/Flow.tsx)
+- [Resaltados y transiciones compartidos](../../src/flow/motion.tsx)
+- [Iconos y paleta](../../src/flow/ui.tsx)
+- [Recursos del producto](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/)
+- [Manifiesto de narración](../../assets/audio/manifest.json)
 
-![Approved source](../references/5-guide.png)
+![Referencia aprobada](../references/5-guide.png)
 
-## Approved instruction (Spanish source)
+## Instrucciones aprobadas del documento original
 
 5
 Así pagas tu San

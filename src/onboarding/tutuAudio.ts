@@ -34,7 +34,7 @@ export const APPROVED_TUTU_AUDIO:Readonly<Record<string,string>>={
  'tutu_11_ve': audio14,
 };
 const MUTE='tuturno.v20.muted';
-/** Browsers expose neither the system ringer nor screen-reader detection. Hosts can explicitly suppress speech. */
+/** El navegador no permite detectar el silencio del sistema ni el lector de pantalla. La integración puede suprimir la voz explícitamente. */
 const readerActive=()=>new URLSearchParams(location.search).get('lector')==='1'||location.pathname==='/catalog';
 export function useTutuAudio(){
  const [status,setStatus]=useState<WebVoiceStatus>({playing:false,blocked:false,error:null});

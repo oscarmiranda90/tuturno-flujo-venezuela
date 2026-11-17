@@ -7,9 +7,9 @@ import type { ClubMascotMood } from '../domain';
 
 interface TutuMascotProps {
   mood: ClubMascotMood;
-  /** Rendered width in points. Height follows the source animation. */
+  /** Ancho en puntos. La altura sigue las proporciones de la animación original. */
   size?: number;
-  /** Choose a specific welcome loop when a screen gives Tutu a fixed role. */
+  /** Permite elegir una animación de bienvenida cuando la pantalla asigna un papel concreto a Tutu. */
   idleVariant?: 'alternating' | 'one' | 'two';
 }
 
@@ -49,13 +49,7 @@ const ACCESSIBILITY_LABEL: Record<ClubMascotMood, string> = {
   idle: 'Tutu te da la bienvenida al Club TuTurno',
 };
 
-/**
- * The animated Club mascot with one asset path for Android and iOS.
- *
- * Animated WebP keeps a real alpha channel on both platforms. The original
- * MP4 files remain as source renders, but they are not used at runtime because
- * MP4 cannot carry the transparent matte consistently across both players.
- */
+/** Mascota animada del Club con una ruta de recursos compartida entre Android e iOS. WebP conserva la transparencia en ambas plataformas. Los MP4 originales se conservan como referencia, pero no se reproducen porque sus reproductores no mantienen la transparencia de forma consistente. */
 export function TutuMascot({ mood, size = 112, idleVariant = 'alternating' }: TutuMascotProps) {
   const reduceMotion = useReducedMotion();
   const preferredTalk = idleVariant === 'two' ? 1 : 0;

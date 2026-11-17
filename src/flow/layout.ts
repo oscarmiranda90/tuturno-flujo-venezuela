@@ -11,9 +11,7 @@ export interface CanvasLayout {
 }
 export type HorizontalAnchor = "auto" | "left" | "center" | "right" | "stretch";
 
-/** Keep native type/art at their authored size on wider phones. Narrow screens
- * scale uniformly; short viewports scroll instead of compressing the content.
- */
+/** Conserva el tamaño de diseño de textos e imágenes en teléfonos anchos. Las pantallas estrechas se escalan proporcionalmente y las de poca altura permiten desplazarse sin comprimir el contenido. */
 export function frameLayout(
   width: number,
   height: number,
@@ -42,7 +40,7 @@ export function frameLayout(
   };
 }
 
-/** Reflow panel bounds and anchored content, never the pixels of their children. */
+/** Adapta los límites de los paneles y el contenido anclado sin estirar sus elementos. */
 export function horizontalRect(
   layout: CanvasLayout,
   x: number,

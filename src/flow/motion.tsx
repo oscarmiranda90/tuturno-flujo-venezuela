@@ -11,7 +11,7 @@ import Animated, {
 import { View, type ViewStyle } from "react-native";
 import { C } from "./content";
 
-/** One finite wheel celebration; no frame callbacks enter the JS runtime. */
+/** Celebración de rueda con duración finita; no ejecuta funciones de JavaScript en cada fotograma. */
 export function WheelConfetti() {
   const reduced = useReducedMotion();
   const clock = useSharedValue(0);
@@ -64,9 +64,7 @@ function Piece({ i, clock }: { i: number; clock: SharedValue<number> }) {
   );
 }
 
-/** Fixed-layout entrances keep reference geometry and run on the UI thread.
- * v19 explicitly prescribes a 600ms panel and 200ms step intervals.
- */
+/** Las entradas conservan la geometría de referencia y se ejecutan en el hilo de interfaz. La v19 indica un panel de 600 ms e intervalos de 200 ms entre pasos. */
 export function Entrance({ children, delay = 0, duration = 300, distance = 8,
   disabled = false, style, pointerEvents }: {
   children: ReactNode; delay?: number; duration?: number; distance?: number;

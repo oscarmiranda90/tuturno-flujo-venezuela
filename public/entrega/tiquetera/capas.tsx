@@ -30,65 +30,43 @@ import { Text } from '../Text';
 import { practiceMoney } from '../../domain/money';
 import { fontFamily, palette } from '../../theme';
 
-/*
-  The red "tu turno" dispenser (a raster render) with a vector ticket that
-  feeds out of its blue mouth, tears off and comes forward to be read.
+/** Tiquera roja de «tu turno», con un tiquete vectorial que sale de la boca azul, se corta y avanza para poder leerlo.
 
-  The render is split in two so the paper comes from inside the machine:
-    back   the full render, mouth interior and lower lip included
-    middle the ticket while it prints
-    front  the same render with the mouth cut away below the upper rim, plus a
-           soft shadow the rim casts on the paper (turn-dispenser-front.webp)
+La composición utiliza capas: el fondo conserva la máquina completa, el tiquete se imprime entre las capas y el frente oculta el papel que todavía está dentro. El frente incluye el borde superior y su sombra suave.
 
-  The mouth is only ~14% of the render's width, so a ticket that stayed at
-  slot size would be unreadable on a phone. The ticket therefore moves in two
-  phases: it prints at slot size between the two layers (the upper rim and the
-  body hide the paper still inside), drops out of the mouth, and then a second
-  copy in front of everything grows toward the viewer. The mouth faces the camera, so
-  growing as it approaches reads as depth rather than a trick.
-*/
+La boca ocupa aproximadamente el 14 % del ancho del dibujo. El papel se imprime al tamaño de la ranura, cae fuera de la boca y una segunda copia aumenta su tamaño delante de la máquina. El avance conserva la percepción de profundidad y permite leer el tiquete en el teléfono. */
 
 const DISPENSER = require('../../../assets/brand/layers/cuerpo.png');
 const GLASS = require('../../../assets/brand/layers/vidrio.png');
 const MOUTH = require('../../../assets/brand/layers/boca.png');
 const DISPENSER_FRONT = require('../../../assets/brand/turn-dispenser-front.webp');
 
-/** Source render size; every slot coordinate below is a fraction of it. */
+/** Tamaño del dibujo original; las coordenadas de la ranura se expresan como fracciones de este tamaño. */
 const SRC_W = 1371;
 const SRC_H = 1148;
-/** The paper path inside the mouth, measured on the 1371×1148 source. */
+/** Recorrido del papel dentro de la boca, medido sobre la imagen original de 1371 × 1148. */
 const SLOT = {
-  /*
-    The paper's width at slot size, shifted left of the mouth's centre: printing
-    along the tilted axis carries the paper ~0.24 px right per px down, and its
-    right edge must stay clear of the mouth's right inner wall (x ≈ 1170, front
-    layer) until it passes the lip.
-  */
+  /** Ancho del papel en la ranura, desplazado a la izquierda del centro. El eje inclinado mueve el papel unos 0,24 px a la derecha por cada píxel de descenso. Su borde derecho debe evitar la pared interna de la boca (x ≈ 1170 en el frente) hasta superar el labio. */
   left: 948 / SRC_W,
   right: 1138 / SRC_W,
-  /** Centre of the fed paper's top edge (x ≈ 1043), just above the rim's inner
-   *  edge there (≈ 874): hidden under the rim. */
+  /** Centro del borde superior del papel (x ≈ 1043), justo sobre el borde interior (≈ 874), oculto bajo este. */
   top: 858 / SRC_H,
-  /** How far the paper slides along its own axis after printing, so its whole
-   *  top edge clears the rim (the right corner curves down to ~885) and nothing
-   *  in the front layer overlaps it when the copies swap. */
+  /** Distancia que recorre el papel después de imprimirse para que todo su borde superior supere el labio. La esquina derecha baja hasta aproximadamente 885; la capa frontal no debe superponerse al intercambiar las copias. */
   drop: 60 / SRC_H,
-  /** Top of the dark bezel over the paper path. Above it the render is
-   *  transparent, so the paper waiting inside is clipped here. */
+  /** Parte superior del borde oscuro sobre la salida del papel. La imagen es transparente por encima de este límite, donde se recorta el papel que espera dentro. */
   housing: 770 / SRC_H,
-  /** Lowest point of the blue lip; the paper must clear it before the swap. */
+  /** Punto más bajo del labio azul; el papel debe superarlo antes del intercambio. */
   lip: 984 / SRC_H,
 };
 
-/** The mouth is tilted: its rim rises 35 px over 140 px to the right (~14°).
- *  The paper prints along that axis, then straightens as it hangs. */
+/** La boca está inclinada: el borde sube 35 px en un recorrido de 140 px hacia la derecha (unos 14°). El papel se imprime sobre ese eje y luego se endereza al colgar. */
 const MOUTH_TILT = -14;
 const HANG_TILT = -3;
 const TILT_RAD = (MOUTH_TILT * Math.PI) / 180;
-/** The paper's "down" in screen space, perpendicular to the tilted rim. */
+/** Dirección descendente del papel en pantalla, perpendicular al borde inclinado. */
 const FEED_AXIS = { x: -Math.sin(TILT_RAD), y: Math.cos(TILT_RAD) };
 
-/** The ticket's own coordinate space (design size at full scale). */
+/** Coordenadas propias del tiquete, según su tamaño de diseño a escala completa. */
 const TICKET_W = 220;
 const TICKET_H = 236;
 const TEETH = 11;
@@ -102,10 +80,10 @@ const SUCCESS = palette.mint[600];
 const FEED_MS = 1150;
 const DROP_MS = 170;
 const START_DELAY_MS = 350;
-/** Motor rumble while printing: small, fast and uneven, never a wobble. */
+/** Vibración del motor al imprimir: pequeña, rápida e irregular, sin balanceo. */
 const RUMBLE_PX = 0.9;
 const RUMBLE_DEG = 0.35;
-/** Haptic ticks while the paper feeds (native only; web ignores them). */
+/** Pulsos hápticos mientras avanza el papel; solo se utilizan en la versión nativa. */
 const RUMBLE_TICK_MS = 95;
 
 const CONFETTI_COLORS = [
@@ -130,26 +108,26 @@ const CONFETTI = Array.from({ length: 26 }, (_, i) => {
 });
 
 export interface TurnTicketDispenserProps {
-  /** Stage width in points; the render and the ticket scale from it. */
+  /** Ancho de la escena en puntos; el dibujo y el tiquete se escalan a partir de este. */
   width?: number;
   country?: 'VE' | 'CO';
-  /** False restores the final pose when returning to an already viewed screen. */
+  /** El valor falso restaura la posición final al volver a una pantalla ya vista. */
   animateOnMount?: boolean;
-  /** Called when the initial print begins, including reduced motion. */
+  /** Se ejecuta al comenzar la impresión inicial, incluso con movimiento reducido. */
   onPrintStart?: () => void;
-  /** The amount on the ticket. Defaults to the country's demo amount. */
+  /** Importe del tiquete. Usa de forma predeterminada el importe de demostración del país. */
   amount?: number;
-  /** A country-specific screen can supply its approved amount format. */
+  /** Cada pantalla de país puede proporcionar su formato de importe aprobado. */
   formattedAmount?: string;
-  /** Horizontal landing adjustment for an approved reference composition. */
+  /** Ajuste horizontal de la posición final para respetar la composición aprobada. */
   ticketLandingOffsetX?: number;
-  /** Tap replays the print (useful in demos). */
+  /** Una pulsación repite la impresión, útil en demostraciones. */
   replayOnPress?: boolean;
-  /** Called once the ticket has landed in front of the viewer. */
+  /** Se ejecuta cuando el tiquete llega a su posición frente al usuario. */
   onPresented?: () => void;
-  /** Continuous celebration for the tour closing; other surfaces retain the burst. */
+  /** Celebración continua al cerrar el paseo; las demás pantallas conservan una sola ráfaga. */
   confettiMode?: 'burst' | 'rain';
-  /** Approved v19 roll and reserved-word choreography. */
+  /** Coreografía aprobada de la v19 para el rollo y la palabra «reservado». */
   v19Motion?: boolean;
 }
 
@@ -175,26 +153,26 @@ export function TurnTicketDispenser({
   const callbacks = useRef({ onPresented, onPrintStart });
   callbacks.current = { onPresented, onPrintStart };
 
-  // Stage geometry, all derived from the stage width.
-  // The render sits left so the mouth lands right of centre and the ticket,
-  // hanging from it, still fits inside the stage.
+  // Geometría de la escena derivada de su ancho.
+  // El dibujo se desplaza a la izquierda para que la boca quede a la derecha del centro y el tiquete
+  // que cuelga de ella permanezca dentro de la escena.
   const dispW = width * 0.94;
   const dispH = dispW * (SRC_H / SRC_W);
   const dispLeft = width * -0.1;
-  /** Horizontal centre of the paper path; both copies hang from it. */
+  /** Centro horizontal del recorrido del papel; ambas copias cuelgan de este punto. */
   const slotCenter = dispLeft + ((SLOT.left + SLOT.right) / 2) * dispW;
   const slotTop = SLOT.top * dispH;
   const lipY = SLOT.lip * dispH;
   const feedScale = ((SLOT.right - SLOT.left) * dispW) / TICKET_W;
   const fedH = TICKET_H * feedScale;
-  /** Fully fed, the paper's top sits under the rim; dropping it this far frees it. */
+  /** Al completar la impresión, el borde superior sigue bajo el labio; esta caída lo libera. */
   const dropBy = SLOT.drop * dispH;
-  /** Where the top centre is once it has dropped: the front copy starts here. */
+  /** Posición del centro superior después de caer; aquí comienza la copia frontal. */
   const freedX = slotCenter + FEED_AXIS.x * dropBy;
   const freedY = slotTop + FEED_AXIS.y * dropBy;
 
-  // Full size, the ticket hangs from the lip, centred on the mouth but kept
-  // inside the stage.
+  // A tamaño completo, el tiquete cuelga del labio, centrado en la boca y contenido
+  // dentro de la escena.
   const finalScale = Math.min(1, (width * 0.64) / TICKET_W);
   const finalHalf = (TICKET_W * finalScale) / 2;
   const finalCenter =
@@ -211,13 +189,13 @@ export function TurnTicketDispenser({
     height: dispH,
   };
 
-  const feed = useSharedValue(0); // 0 inside the mouth → 1 fully printed
-  const drop = useSharedValue(0); // 0 resting → 1 cleared the lip
-  const present = useSharedValue(0); // 0 at slot size → 1 in front of the viewer
-  const swapped = useSharedValue(0); // which copy is visible
-  const burst = useSharedValue(0); // confetti clock
-  const seal = useSharedValue(0); // shield stamp
-  const motor = useSharedValue(0); // linear clock of the feed, drives the rumble
+  const feed = useSharedValue(0); // 0 dentro de la boca → 1 completamente impreso
+  const drop = useSharedValue(0); // 0 en reposo → 1 fuera del labio
+  const present = useSharedValue(0); // 0 al tamaño de la ranura → 1 frente al usuario
+  const swapped = useSharedValue(0); // copia visible
+  const burst = useSharedValue(0); // reloj del confeti
+  const seal = useSharedValue(0); // sello del escudo
+  const motor = useSharedValue(0); // reloj lineal del avance que controla la vibración
 
   const [runKey, setRunKey] = useState(0);
 
@@ -313,15 +291,12 @@ export function TurnTicketDispenser({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [runKey, reduceMotion]);
 
-  /**
-   * The machine shakes while it prints, and gives one small jolt as the paper
-   * tears. All three layers move together, so the mouth keeps masking the paper.
-   */
+  /** La máquina vibra al imprimir y da un pequeño impulso cuando se corta el papel. Las tres capas se mueven juntas para que la boca siga ocultando el papel interior. */
   const rumbleStyle = useAnimatedStyle(() => {
     const m = motor.get();
     if (m > 0 && m < 1) {
       const t = (m * FEED_MS) / 1000;
-      const env = Math.min(1, m * 8, (1 - m) * 8); // ease in and out of the rumble
+      const env = Math.min(1, m * 8, (1 - m) * 8); // entrada y salida suaves de la vibración
       return {
         transform: [
           { translateX: Math.sin(t * Math.PI * 2 * 23) * RUMBLE_PX * env },
@@ -344,23 +319,23 @@ export function TurnTicketDispenser({
     };
   });
 
-  /** The copy behind the render: prints out of the mouth, then drops. */
+  /** La copia detrás del dibujo sale por la boca y luego cae. */
   const fedStyle = useAnimatedStyle(() => ({
     opacity: swapped.get() > 0.5 ? 0 : 1,
     transform: [
       { translateX: slotCenter - TICKET_W / 2 },
       { translateY: slotTop - clipTop },
-      // Tilted like the mouth, with a tiny tremble while the printer feeds.
+      // Con la inclinación de la boca y una pequeña vibración mientras avanza la impresión.
       {
         rotate: `${MOUTH_TILT + (feed.get() > 0 && feed.get() < 1 ? Math.sin(feed.get() * 60) * 0.6 : 0)}deg`,
       },
-      // After the rotation, so the paper slides along the mouth's axis.
+      // Después de la rotación, el papel avanza por el eje de la boca.
       { translateY: -fedH * (1 - feed.get()) + dropBy * drop.get() },
       { scale: feedScale },
     ],
   }));
 
-  /** The copy in front: starts exactly where the fed copy left off. */
+  /** La copia frontal comienza exactamente donde termina la copia impresa. */
   const presentStyle = useAnimatedStyle(() => {
     const p = present.get();
     return {
@@ -371,8 +346,8 @@ export function TurnTicketDispenser({
             interpolate(p, [0, 1], [freedX, finalCenter]) - TICKET_W / 2,
         },
         { translateY: interpolate(p, [0, 1], [freedY, finalTop]) },
-        // Leaves at the mouth's tilt and swings toward hanging; the spring's
-        // overshoot is the sway.
+        // Sale con la inclinación de la boca y oscila hasta quedar colgando; el exceso de recorrido
+        // del resorte produce el balanceo.
         { rotate: `${interpolate(p, [0, 1], [MOUTH_TILT, HANG_TILT])}deg` },
         { scale: interpolate(p, [0, 1], [feedScale, finalScale]) },
       ],
@@ -391,7 +366,7 @@ export function TurnTicketDispenser({
         pointerEvents="none"
         style={[StyleSheet.absoluteFill, rumbleStyle]}
       >
-        {/* Back: the whole machine, mouth interior and lower lip included. */}
+        {/* Fondo: máquina completa, interior de la boca y labio inferior. */}
         <Image
           source={DISPENSER}
           style={renderFrame}
@@ -404,7 +379,7 @@ export function TurnTicketDispenser({
 
         {v19Motion && <PaperRoll clock={motor} frame={{ left: slotCenter - dispW * 0.065,
           top: slotTop - dispW * 0.015, width: dispW * 0.13, height: dispW * 0.055 }} />}
-        {/* Middle: the ticket while it is still coming out. */}
+        {/* Capa intermedia: tiquete mientras sale de la máquina. */}
         <View
           pointerEvents="none"
           style={[
@@ -417,7 +392,7 @@ export function TurnTicketDispenser({
           </Animated.View>
         </View>
 
-        {/* Front: the upper rim and body, so the paper slides out from under them. */}
+        {/* Frente: borde superior y cuerpo, que ocultan el papel mientras sale. */}
         <Image
           source={DISPENSER_FRONT}
           style={renderFrame}
@@ -426,7 +401,7 @@ export function TurnTicketDispenser({
         />
       </Animated.View>
 
-      {/* On top: the ticket once it is out, in front of everything. */}
+      {/* Capa superior: tiquete fuera de la máquina, delante de los demás elementos. */}
       <Animated.View
         pointerEvents="none"
         style={[styles.ticketOrigin, presentStyle]}
@@ -453,7 +428,7 @@ export function TurnTicketDispenser({
   );
 }
 
-/** Independently driven paper cylinder, masked by the machine's mouth. */
+/** Cilindro de papel con movimiento independiente, recortado por la boca de la máquina. */
 function PaperRoll({ clock, frame }: { clock: SharedValue<number>;
   frame: { left: number; top: number; width: number; height: number } }) {
   const motion = useAnimatedStyle(() => ({ opacity: clock.get() > 0 && clock.get() < 1 ? 1 : 0,
@@ -466,7 +441,7 @@ function PaperRoll({ clock, frame }: { clock: SharedValue<number>;
   </Animated.View>;
 }
 
-/** The ticket at its design size (TICKET_W × TICKET_H). Shapes in SVG, copy in app Text. */
+/** Tiquete al tamaño de diseño (TICKET_W × TICKET_H). Las formas usan SVG y los textos el componente Text. */
 function Ticket({
   amount,
   seal,
@@ -509,7 +484,7 @@ function Ticket({
           stroke="#D3D9E6"
           strokeWidth={1}
         />
-        {/* The top edge where the paper was cut from the roll. */}
+        {/* Borde superior donde el papel se separa del rollo. */}
         <Rect x={0} y={0} width={TICKET_W} height={3} fill="#CBD2E1" />
         <Line
           x1={22}
@@ -565,7 +540,7 @@ function ShieldCheck() {
   );
 }
 
-/** Rectangle with a zigzag tear along the bottom. */
+/** Rectángulo con un corte en zigzag en el borde inferior. */
 function paperPath(): string {
   const tooth = TICKET_W / TEETH;
   let d = `M0 0 H${TICKET_W} V${BODY_H}`;
@@ -576,7 +551,7 @@ function paperPath(): string {
   return `${d} Z`;
 }
 
-/** One shared UI clock drives staggered falling pieces, without per-frame React work. */
+/** Un reloj compartido de interfaz controla las piezas que caen de forma escalonada, sin trabajo de React en cada fotograma. */
 function ConfettiRain({ width, height }: { width: number; height: number }) {
   const reduceMotion = useReducedMotion();
   const clock = useSharedValue(0);
@@ -677,7 +652,7 @@ function ConfettiPiece({
   const style = useAnimatedStyle(() => {
     const c = clock.get();
     if (c <= 0 || c >= 1) return { opacity: 0 };
-    const t = c * 1.7; // seconds into the burst
+    const t = c * 1.7; // segundos transcurridos de la ráfaga
     return {
       opacity: c < 0.7 ? 1 : 1 - (c - 0.7) / 0.3,
       transform: [
@@ -766,9 +741,6 @@ const styles = StyleSheet.create({
   },
 });
 
-/**
- * "La Tickera": the name the product team uses for this component. Upcoming
- * screen changes will place it by this name; see README.md in this folder.
- */
+/** «La Tickera» es el nombre que utiliza el equipo del producto para este componente. */
 export const Tickera = TurnTicketDispenser;
 export type TickeraProps = TurnTicketDispenserProps;

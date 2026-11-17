@@ -7,7 +7,7 @@ import {AlertBox} from './pieces';
 import {Entrance} from './motion';
 const sheet=(top:number)=>({left:12,top,width:336,height:788-top,backgroundColor:'white',borderRadius:28}) as const;
 
-/** Approved v20 idea selection is the only forward action on4a. */
+/** Elegir una idea aprobada de la v20 es la única acción que permite avanzar desde 4a. */
 export function WelcomeV20({idea,onIdea,showReferral,onReferral,reacting,onToggle,muted}:{idea:number|null;onIdea:(n:number)=>void;showReferral:boolean;onReferral:()=>void;reacting:boolean;onToggle:()=>void;muted:boolean}){
  const reduced=useReducedMotion();const pulse=useSharedValue(1);
  const style=useAnimatedStyle(()=>({transform:[{scale:pulse.get()}]}));
@@ -22,7 +22,7 @@ export function WelcomeV20({idea,onIdea,showReferral,onReferral,reacting,onToggl
 }
 export function HowV20(){return <><At fillToBottom style={sheet(122)}/>{illustration.how.map((art,i)=><Card key={i} x={24} y={138+i*162} w={312} h={150}><At x={14} y={59} w={30} h={30} style={{backgroundColor:C.blue,borderRadius:18,alignItems:'center',justifyContent:'center'}}><T size={17} color="white" weight={800}>{i+1}</T></At><At x={50} y={32} w={104} h={96}><Image source={art} style={{width:104,height:96}} resizeMode="contain"/></At><At x={159} y={i===0?39:52} w={146}><T size={19} weight={800}>{i===0?<>Cada semana,{'\n'}10 personas{'\n'}ponen <T size={19} weight={800} color={C.money}>€10</T></>:i===1?<>Uno cobra{'\n'}los <T size={25} weight={800} color={C.money}>€100</T></>:<>Después le toca{'\n'}al siguiente</>}</T></At></Card>)}</>}
 
-/** The practice receipt remains fixed while the three bank steps complete. */
+/** El comprobante de práctica permanece fijo mientras se completan los tres pasos bancarios. */
 export function PracticeV20({paid,complete,onComplete}:{paid:boolean;complete:boolean;onComplete:()=>void}){
  const reduced=useReducedMotion();const [steps,setSteps]=useState(paid&&(reduced||complete)?3:0);
  useEffect(()=>{if(!paid)return;if(reduced||complete){setSteps(3);onComplete();return}setSteps(0);const timers=[0,1,2].map(i=>setTimeout(()=>{setSteps(i+1);if(i===2)onComplete()},(i+1)*1000));return()=>timers.forEach(clearTimeout)},[paid,reduced,complete]);

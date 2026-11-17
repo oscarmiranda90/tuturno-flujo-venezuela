@@ -1,15 +1,15 @@
-# Screen10-other · v20
+# Pantalla 10-other · v20
 
-- [Running state](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=10&variant=other)
-- [Source and animation](../../src/flow/Flow.tsx)
-- [Shared highlights and transitions](../../src/flow/motion.tsx)
-- [Icons and palette](../../src/flow/ui.tsx)
-- [Product resources](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/)
-- [Narration manifest](../../assets/audio/manifest.json)
+- [Ver pantalla interactiva](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=10&variant=other)
+- [Código y animación](../../src/flow/Flow.tsx)
+- [Resaltados y transiciones compartidos](../../src/flow/motion.tsx)
+- [Iconos y paleta](../../src/flow/ui.tsx)
+- [Recursos del producto](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/)
+- [Manifiesto de narración](../../assets/audio/manifest.json)
 
-![Approved source](../references/10-other.png)
+![Referencia aprobada](../references/10-other.png)
 
-## Approved instruction (Spanish source)
+## Instrucciones aprobadas del documento original
 
 10
 Escoge tu San

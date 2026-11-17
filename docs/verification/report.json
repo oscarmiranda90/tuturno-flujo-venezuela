@@ -11,16 +11,16 @@
     "screenSections": 33,
     "paletteBindings": 716,
     "nextButtonInstances": 10,
-    "finalScreenshot": "Unavailable: Starter MCP quota exhausted"
+    "finalScreenshot": "No disponible: se agotó la cuota MCP del plan Starter"
   },
-  "dispenserRecomposition": "Exact source pixels, verified before runtime layer substitution",
+  "dispenserRecomposition": "Píxeles originales exactos, comprobados antes de sustituir las capas del componente",
   "checks": [
     "TypeScript",
-    "neutral Spanish",
-    "pricing/backtracking/consent state",
-    "15 mono voice assets",
-    "no Expo dependencies",
-    "full browser walkthrough"
+    "español neutro",
+    "precios, retroceso y estado de consentimientos",
+    "15 archivos de voz mono",
+    "sin dependencias de Expo",
+    "recorrido completo en navegador"
   ],
   "latestV20Revision": {
     "sourceSha256": "8bdd318eb8a0bd575534d2bb595d9e0163853d3cef397e3b8be2eb26eb004515",

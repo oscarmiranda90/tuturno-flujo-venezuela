@@ -65,13 +65,13 @@ export function previous(s: FlowState): FlowState {
   const screen = map[s.screen] ?? s.screen;
   return { ...s, screen, rule: ["4c", "6"].includes(screen) ? 2 : s.rule };
 }
-/** Payment callbacks preserve chosen frequency and accepted terms. */
+/** Las respuestas del pago conservan la frecuencia elegida y los términos aceptados. */
 export const paymentFailed = (s: FlowState): FlowState => ({
   ...s,
   screen: "12c",
 });
 
-/** Restore only validated San context; storage cannot grant consent or payment. */
+/** Restaura únicamente el contexto validado del San; el almacenamiento no puede conceder consentimientos ni pagos. */
 export function restoreSan(value: unknown, screen: Screen): FlowState {
   const base = initialState(screen);
   if (!value || typeof value !== "object") return base;

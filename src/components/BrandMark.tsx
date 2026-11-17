@@ -4,22 +4,11 @@ import { radius, borderCurve, useTheme } from '../theme';
 
 interface BrandMarkProps {
   size?: number;
-  /** Draws the navy tile behind the mark. Off when it already sits on brand. */
+  /** Dibuja el fondo azul oscuro de la marca. Se desactiva si la marca ya tiene fondo. */
   framed?: boolean;
 }
 
-/**
- * The Tu Turno mark.
- *
- * This used to be a hand-drawn SVG approximation, which was wrong in a way that
- * only the brand owner could catch: it looked like a dollar sign, but not like
- * THIS dollar sign. The real mark has the green and blue blocks crossing the S,
- * and no amount of redrawing gets a logo right — a brand mark is an asset, not
- * an interpretation.
- *
- * The source artwork already carries its navy ground, so `framed` only rounds
- * the corners rather than painting a tile behind it.
- */
+/** Marca de Tu Turno. Se utiliza el recurso original aprobado, con los bloques verdes y azules que cruzan la S. El dibujo ya incluye el fondo azul oscuro; `framed` redondea sus esquinas sin añadir otro fondo. */
 export function BrandMark({ size = 32, framed = true }: BrandMarkProps) {
   const theme = useTheme();
 

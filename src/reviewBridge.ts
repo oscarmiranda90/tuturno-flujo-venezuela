@@ -6,7 +6,7 @@ type Audio = ReturnType<typeof useTutuAudio>;
 const allowedOrigin = (origin:string) => /^https:\/\/(?:[a-z0-9-]+\.)?tuturno-storybook\.pages\.dev$/.test(origin)
   || /^http:\/\/(?:127\.0\.0\.1|localhost):\d+$/.test(origin);
 
-/** Reuse the isolated runtime inside Storybook without copying its implementation. */
+/** Reutiliza el flujo aislado dentro de Storybook sin copiar su implementación. */
 export function useReviewBridge(screen:string,variant?:string) {
   const audio=useRef<Audio|null>(null),state=useRef<FlowState|null>(null);
   const actions=useRef<string[]>([]);

@@ -269,7 +269,7 @@ export function VenezuelaFlow({
   }, [stage, returning, initialVariant, reduce, practiceCompleted]);
   useEffect(() => {
     const shouldSpeak = ["4b", "9", "10", "11"].includes(voice) || guided || (stage === "4a" && reacting);
-    // Current narration uses the approved voice and exact v19 words.
+    // La narración utiliza la voz aprobada y los textos correspondientes de la guía.
     audioRef.current.select(shouldSpeak ? matchedVoice : null);
     return () => audioRef.current.stop();
   }, [voice, guided, matchedVoice, replay, reacting]);
@@ -338,7 +338,7 @@ export function VenezuelaFlow({
         Math.abs(result.amount - terms.total) > 0.005 ||
         !/^https:\/\//.test(result.checkoutUrl)
       )
-        throw new Error("Invalid PSP order");
+        throw new Error("Orden del proveedor de pagos inválida");
       setOrder(result);
       await Linking.openURL(result.checkoutUrl);
     } catch {

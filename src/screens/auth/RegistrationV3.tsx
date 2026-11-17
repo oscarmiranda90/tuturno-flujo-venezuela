@@ -171,7 +171,7 @@ export function RegistrationV3({
     }
   };
   const requireAdapter = () => {
-    if (!adapter) throw new Error("Service unavailable");
+    if (!adapter) throw new Error("Servicio no disponible");
     return adapter;
   };
   const begin = () =>
@@ -280,7 +280,7 @@ export function RegistrationV3({
           : "Repite tu clave";
   const mainProvider: RegistrationProvider =
     Platform.OS === "ios" ? "apple" : "google";
-  // Artwork extends under the native status area; only content consumes the inset.
+  // El dibujo se extiende bajo la barra de estado nativa; solo el contenido consume el margen seguro.
   const heroInset = stage === "start" && Platform.OS !== "web" ? insets.top : 0;
   return (
     <View

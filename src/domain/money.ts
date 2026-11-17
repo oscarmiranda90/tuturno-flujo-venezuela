@@ -1,39 +1,22 @@
-/**
- * Tu Turno — Money formatting
- *
- * Every amount the user reads passes through here. Before this file the symbol
- * was typed by hand in thirty-odd places, which is why changing currency used
- * to mean touching thirty-odd files and hoping none were missed.
- *
- * Integrators changing country: change CURRENCY, and nothing else.
- */
+/** Tu Turno: formato de importes. Centraliza los importes visibles y evita escribir el símbolo manualmente en cada pantalla. Los cambios de país deben respetar la configuración de moneda del producto. */
 
-/** The symbol shown to the user. Country parameter, not a design choice. */
+/** Símbolo que ve el usuario, definido por el país y las reglas del producto. */
 const SYMBOL = '€';
 
-/**
- * A whole amount: €100. Used for SAN sizes, payouts and tier ceilings, which
- * are always round numbers by product rule.
- */
+/** Importe entero, por ejemplo €100. Se utiliza para tamaños del SAN, cobros y límites que son enteros por regla del producto. */
 export function money(amount: number): string {
   return `${SYMBOL}${amount}`;
 }
 
-/**
- * An exact amount with cents: €11,74. Used wherever the figure is a real
- * charge the user is about to transfer, where rounding would be a lie.
- *
- * The decimal separator is a comma, which is what a Venezuelan reader expects
- * and what their banking app shows them.
- */
+/** Importe exacto con céntimos, por ejemplo €11,74. Los cobros que el usuario va a transferir no se redondean. Se utiliza la coma decimal que muestran las aplicaciones bancarias venezolanas. */
 export function moneyExact(amount: number): string {
   return `${SYMBOL}${amount.toFixed(2).replace('.', ',')}`;
 }
 
-/** The bare symbol, for the few places that compose their own string. */
+/** Símbolo de moneda para los componentes que construyen su propio texto. */
 export const CURRENCY_SYMBOL = SYMBOL;
 
-/** v3 practice examples are per country; legacy account formatting is unchanged. */
+/** Los ejemplos de práctica v3 dependen del país; se conserva el formato de la cuenta anterior. */
 export function practiceMoney(amount: number, country: 'VE' | 'CO'): string {
   const [whole, fraction] = amount
     .toFixed(country === 'CO' || Number.isInteger(amount) ? 0 : 2)
@@ -42,13 +25,13 @@ export function practiceMoney(amount: number, country: 'VE' | 'CO'): string {
   return `$${grouped}${fraction ? `,${fraction}` : ''}`;
 }
 
-/** Exact cents for country-scoped review surfaces, including the new Home. */
+/** Céntimos exactos para las pantallas de revisión de cada país, incluido el nuevo inicio. */
 export function practiceMoneyExact(amount: number, country: 'VE' | 'CO'): string {
   if (country === 'CO') return practiceMoney(amount, country);
   return `$${amount.toFixed(2).replace('.', ',')}`;
 }
 
-/** CEO Venezuela v19 deliberately uses euros; Bs come from the PSP order. */
+/** La guía del CEO para Venezuela v19 utiliza euros; los bolívares provienen de la orden del proveedor de pagos. */
 export function v19Money(amount: number, exact = false): string {
   return `€${exact ? amount.toFixed(2).replace('.', ',') : String(amount).replace('.', ',')}`;
 }

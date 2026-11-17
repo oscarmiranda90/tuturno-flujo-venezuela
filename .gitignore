@@ -4,7 +4,7 @@ dist/
 !.env.example
 .DS_Store
 
-# wrangler files
+# archivos de Wrangler
 .wrangler
 .dev.vars*
 !.dev.vars.example

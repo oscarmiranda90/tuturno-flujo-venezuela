@@ -1,15 +1,15 @@
-# Screen12-other · v20
+# Pantalla 12-other · v20
 
-- [Running state](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=12&variant=other)
-- [Source and animation](../../src/flow/Flow.tsx)
-- [Shared highlights and transitions](../../src/flow/motion.tsx)
-- [Icons and palette](../../src/flow/ui.tsx)
-- [Product resources](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/)
-- [Narration manifest](../../assets/audio/manifest.json)
+- [Ver pantalla interactiva](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=12&variant=other)
+- [Código y animación](../../src/flow/Flow.tsx)
+- [Resaltados y transiciones compartidos](../../src/flow/motion.tsx)
+- [Iconos y paleta](../../src/flow/ui.tsx)
+- [Recursos del producto](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/)
+- [Manifiesto de narración](../../assets/audio/manifest.json)
 
-![Approved source](../references/12-other.png)
+![Referencia aprobada](../references/12-other.png)
 
-## Approved instruction (Spanish source)
+## Instrucciones aprobadas del documento original
 
 12
 Tu primer pago

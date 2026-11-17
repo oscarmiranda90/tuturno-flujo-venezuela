@@ -5,7 +5,7 @@ export type LoginResult = {
   country?: RegistrationCountry;
 };
 
-/** Implementations must authenticate remotely and store the PIN using encrypted storage. */
+/** Las implementaciones deben autenticar en el servidor y guardar la clave en almacenamiento cifrado. */
 export interface RegistrationServices {
   lookupEmail(email: string): Promise<"new" | "existing">;
   requestOtp(email: string): Promise<void>;
@@ -31,7 +31,7 @@ export const isWeakPin = (pin: string) =>
     "01234567890123456789".includes(pin) ||
     "98765432109876543210".includes(pin));
 
-/** Preview fixtures are available only through an explicitly enabled developer build. */
+/** Los datos de prueba solo están disponibles en una compilación de desarrollo habilitada explícitamente. */
 export function registrationPreview(
   name: string | undefined,
   devToolsEnabled: boolean,
