@@ -1,0 +1,130 @@
+{
+  "correcto": true,
+  "dispositivo": "sdk_gphone16k_arm64",
+  "android": "17",
+  "viewport": {
+    "ancho": 411,
+    "alto": 866,
+    "url": "https://appassets.androidplatform.net/app/index.html?android=1",
+    "barraFalsa": false
+  },
+  "erroresDeEjecucion": [],
+  "sinConexion": true,
+  "audio": [
+    {
+      "evento": "playing",
+      "archivo": "https://appassets.androidplatform.net/app/assets/tutu_4a_ve-CsBA9BHv.mp3",
+      "error": null
+    },
+    {
+      "evento": "playing",
+      "archivo": "https://appassets.androidplatform.net/app/assets/tutu_4c_1_ve-DDGAQ-pD.mp3",
+      "error": null
+    },
+    {
+      "evento": "playing",
+      "archivo": "https://appassets.androidplatform.net/app/assets/tutu_4c_2_ve-o0Yux-zQ.mp3",
+      "error": null
+    },
+    {
+      "evento": "playing",
+      "archivo": "https://appassets.androidplatform.net/app/assets/tutu_8_ve-C97MTUOl.mp3",
+      "error": null
+    },
+    {
+      "evento": "playing",
+      "archivo": "https://appassets.androidplatform.net/app/assets/tutu_9_ve-DdjrDacM.mp3",
+      "error": null
+    }
+  ],
+  "comprobaciones": [
+    {
+      "texto": "Prueba cómo cobras tu turno",
+      "correcto": true
+    },
+    {
+      "texto": "Revisa tu correo",
+      "correcto": true
+    },
+    {
+      "texto": "Crea tu clave",
+      "correcto": true
+    },
+    {
+      "texto": "Repite tu clave",
+      "correcto": true
+    },
+    {
+      "texto": "¿Qué harías con €100",
+      "correcto": true
+    },
+    {
+      "texto": "¿Seguimos?",
+      "correcto": true
+    },
+    {
+      "texto": "Todos ponen lo mismo",
+      "correcto": true
+    },
+    {
+      "texto": "Uno cobra todo junto",
+      "correcto": true
+    },
+    {
+      "texto": "Todos cobran. Tú también.",
+      "correcto": true
+    },
+    {
+      "texto": "Garantía y servicio\nya van en tu cuota.",
+      "correcto": true
+    },
+    {
+      "texto": "De una sola cuenta",
+      "correcto": true
+    },
+    {
+      "texto": "Es por el grupo",
+      "correcto": true
+    },
+    {
+      "texto": "¡Pruébalo tú!",
+      "correcto": true
+    },
+    {
+      "texto": "Práctica · No se cobra nada",
+      "correcto": true
+    },
+    {
+      "texto": "Tu primera cuota, con\ngarantía y servicio.",
+      "correcto": true
+    },
+    {
+      "texto": "PRÁCTICA\nSUPERADA",
+      "correcto": true
+    },
+    {
+      "texto": "¡Así de fácil!",
+      "correcto": true
+    },
+    {
+      "texto": "Aquí todos están verificados",
+      "correcto": true
+    },
+    {
+      "texto": "Falta lo mejor:\ntu turno.",
+      "correcto": true
+    },
+    {
+      "texto": "¡Ya sabes cómo cobrar tus €100!",
+      "correcto": true
+    },
+    {
+      "texto": "Tiquete visible y confeti animado según v20",
+      "correcto": true
+    },
+    {
+      "texto": "para montar tu negocio",
+      "correcto": true
+    }
+  ]
+}
