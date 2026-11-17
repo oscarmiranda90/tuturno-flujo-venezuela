@@ -22,3 +22,7 @@ Baseline: native delivery 00d6a8f and its 2:18 walkthrough from 2026-11-16. Auth
 | 13 | External ChinChin reference. | Preserved external ownership; current logo exported as SVG/PNG. | Preserved |
 | Voice | 11 clips. | 15 clips:7 reused,4 new and4 re-recorded; only selected approved voice. | Implemented |
 | Runtime | Expo native app and Storybook build. | Independent React/Vite browser repository with no Expo dependencies or imports. | Implemented |
+
+## Latest same-version PDF revision
+
+The final v20 PDF replaces abbreviated purposes with the complete selected idea on10/12/12c/12d. Other has no phrase or drawing. Screen10 uses two lines and removes its entire idea heading for Other; payment retains its ticket/€100 heading. The reminder sheet, pricing and all narrations are unchanged. Applied to the isolated runtime and the public Storybook that embeds it. Source SHA256: 8bdd318eb8a0bd575534d2bb595d9e0163853d3cef397e3b8be2eb26eb004515.

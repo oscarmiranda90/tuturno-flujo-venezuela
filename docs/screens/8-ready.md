@@ -1,6 +1,6 @@
 # Screen8-ready · v20
 
-- [Running state](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=8)
+- [Running state](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=8&variant=ready)
 - [Source and animation](../../src/flow/v20.tsx)
 - [Shared highlights and transitions](../../src/flow/motion.tsx)
 - [Icons and palette](../../src/flow/ui.tsx)

@@ -3,6 +3,7 @@
 Independent browser implementation of the CEO guide dated 2026-11-17. This repository contains login, registration, the guided practice tour, plan selection, consents, payment handoff and failure/reminder states. The accepted direction is the supplied360 × 800 artwork, Outfit 400–800, Inter legal copy and the guide palette. No visual redesign or alternate tour is included.
 
 - [Live flow](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev)
+- [Storybook v20](https://tuturno-storybook.pages.dev/?path=/story/venezuela-v20-flujo-aprobado--flow)
 - [33-state catalog](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/catalog)
 - [Editable Figma screens](https://www.figma.com/design/3xFhB0S4URrLZu0bzcqYuy?node-id=1-2)
 - [Original authoritative guide](docs/source/guide-v20.pdf)
@@ -31,6 +32,10 @@ Production authentication uses `RegistrationServices`. Production payment requir
 Web browsers do not expose reliable system-ringer or screen-reader detection. Native hosts must provide those policies. Reduced motion finishes animations immediately while keeping narration available. Only narration and the proposed printer motor produce sound. The selected voice is Oscar's `J3IVA4gky83c6u110Yk6`; no credentials are shipped. Audio4a is pitch-preserving tempo-adjusted to finish before its required 1.5 s automatic transition. Other durations follow natural speech; the long 4b instruction exceeds the approximate 3–5 s target. See the audio manifest for exact durations.
 
 The SVG merchant logo preserves the supplied raster brandmark losslessly; its wordmark is outlined vector geometry. Printer body and front retain the approved layered artwork; glass, roll, mouth, paper, confetti and Tutu are separately identifiable actors in the code and asset map.
+
+## Latest v20 revision
+
+The selected purpose is complete on screens10,12,12c and12d. Screen10 uses a two-line heading; Other removes that entire idea heading. Payment retains the ticket and €100 heading while omitting the idea row for Other. Narrations and pricing are unchanged. Storybook embeds this isolated runtime through an origin-checked audio/capture bridge instead of duplicating the flow.
 
 ## Delivery evidence
 
@@ -120,10 +125,11 @@ Tiquetera
 Titular «¡Ya sabes cómo cobrar tus €100!».
 10
 Escoge tu San
-«La más elegida» en el semanal. Sale «Si te retiras». «Garantía y servicio». Frase de la idea nueva.
+«La más elegida» en el semanal. Sale «Si te retiras». «Garantía y servicio». Arriba, la idea completa:
+«Cobras €100 · para montar tu negocio».
 12
 Pago · 12c · 12d
-«Garantía y servicio (con IVA)» y la frase de la idea nueva.
+«Garantía y servicio (con IVA)» y la idea completa que tocó. Con «Otra cosa», sin frase.
 SIN CAMBIOS
 1, 2, 3, 6, 11, 11b y 13.
 AUDIOS DE TUTU
@@ -794,16 +800,17 @@ Observaciones · se evalúan con Maurizio antes de tocar
 Escoge tu San
 Reemplaza a H9 «Elige tu SAN». H10 «¿Cómo prefieres pagar tu comisión?» se quita para el nuevo.
 10 · FINAL
-10 · OTRA · SI TOCÓ «OTRA COSA»
+10 · OTRA · SI TOCÓ «OTRA COSA» (SIN FRASE)
 QUÉ HACE
 Arriba: flecha, «Escoge tu San», WhatsApp, perfil y Tutu asomado con su nube.
-Su idea, con su dibujo: «Cobras €100 para tu negocio». Frase según la idea: Montar o
-Hacer crecer mi negocio → «para tu negocio» · Comprar algo → «para lo que
-necesitas» · Salir de una deuda → «para salir de tu deuda» · Emergencia → «para tu
-emergencia» · Otra cosa → «para lo que quieras».
-Dos tarjetas: Semanal (10 personas, €10 + €1,74 = €11,74 cada semana), con la
-etiqueta «La más elegida», y Quincenal (5 personas, €20 + €3,48 = €23,48 cada
-quince días). Las dos con «Últimos puestos disponibles».
+Arriba, su idea completa con su dibujo: «Cobras €100 · para montar tu negocio».
+Frase según la idea: Montar mi negocio → «para montar tu negocio» · Hacer crecer
+mi negocio → «para hacer crecer tu negocio» · Comprar algo que necesito → «para
+comprar algo que necesitas» · Salir de una deuda → «para salir de una deuda» ·
+Resolver una emergencia → «para resolver una emergencia» · Otra cosa → sin frase.
+Dos tarjetas: Semanal (10 personas, €10 + €1,74 = €11,74 cada semana), con «La más
+elegida», y Quincenal (5 personas, €20 + €3,48 = €23,48 cada quince días). Las dos:
+«Últimos puestos disponibles».
 Al tocar «Escoger» (o la tarjeta) pasa directo a la 11.
 Abajo: «Tu turno está garantizado». Ya no va «Si te retiras, pierdes lo que pagaste».
 TUTU DICE · TEXTO EXACTO
@@ -815,8 +822,7 @@ Tutu habla al entrar; vibración suave al tocar una tarjeta.
 SONIDO
 Voz de Tutu (tutu_10). Nada más.
 ÚLTIMO CAMBIO
-«La más elegida», «Garantía y servicio», sin «Si te retiras» y frase de la idea
-nueva (17-nov).
+«La más elegida», «Garantía y servicio», sin «Si te retiras», idea completa.
 VA A
 11 · Lo que aceptas
 PARA LLENAR · OSCAR
@@ -898,11 +904,11 @@ Observaciones · se evalúan con Maurizio antes de tocar
 Tu primer pago
 Reemplaza a H12 «Resumen de Pago»
 12 · FINAL
-12 · OTRA · SI TOCÓ «OTRA COSA»
+12 · OTRA · SI TOCÓ «OTRA COSA» (SIN FRASE)
 QUÉ HACE
 Arriba, lo que cobra: el papelito «TU TURNO · RESERVADO · €100», «Cobras €100»,
-la frase de su idea (la misma tabla de la 10), «Tu turno está garantizado» y «El día que
-cobras, también pagas tu cuota.»
+su idea completa con su dibujo (la misma tabla de la 10; con «Otra cosa» no va), «Tu
+turno está garantizado» y «El día que cobras, también pagas tu cuota.»
 «Haz tu pago móvil»: Cuota 1 €10,00 · Garantía y servicio (con IVA) €1,74 · Pagas hoy
 €11,74 · Bs 18.523,36 (el monto en Bs sale de la orden de ChinChin).
 Si vino invitado: «Te invitó María Pérez. Al pagar, ganan los dos.»
@@ -917,7 +923,7 @@ Sin animación: es el pago real. La celebración va después de pagar.
 SONIDO
 Ninguno.
 ÚLTIMO CAMBIO
-«Garantía y servicio» en la factura y la frase de la idea nueva (17-nov).
+«Garantía y servicio» en la factura y la idea completa (17-nov).
 VA A
 13 · ChinChin
 PARA LLENAR · OSCAR
@@ -948,7 +954,7 @@ Sin animación.
 SONIDO
 Ninguno.
 ÚLTIMO CAMBIO
-«Garantía y servicio» y la frase de la idea nueva, igual que la 12 (17-nov).
+«Garantía y servicio» y la idea completa, igual que la 12 (17-nov).
 VA A
 13 · ChinChin
 PARA LLENAR · OSCAR

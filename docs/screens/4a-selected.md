@@ -1,6 +1,6 @@
 # Screen4a-selected · v20
 
-- [Running state](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=4a)
+- [Running state](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=4a&variant=selected)
 - [Source and animation](../../src/flow/v20.tsx)
 - [Shared highlights and transitions](../../src/flow/motion.tsx)
 - [Icons and palette](../../src/flow/ui.tsx)

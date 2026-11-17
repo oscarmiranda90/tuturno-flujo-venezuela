@@ -1,6 +1,6 @@
 # Screen12-other · v20
 
-- [Running state](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=12)
+- [Running state](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=12&variant=other)
 - [Source and animation](../../src/flow/Flow.tsx)
 - [Shared highlights and transitions](../../src/flow/motion.tsx)
 - [Icons and palette](../../src/flow/ui.tsx)
@@ -17,11 +17,11 @@ Reemplaza a H12 «Resumen de Pago»
 Flujo Venezuela · usuario nuevo
 v20 · 17-nov-2026 · página 21 de 25
 12 · FINAL
-12 · OTRA · SI TOCÓ «OTRA COSA»
+12 · OTRA · SI TOCÓ «OTRA COSA» (SIN FRASE)
 QUÉ HACE
 Arriba, lo que cobra: el papelito «TU TURNO · RESERVADO · €100», «Cobras €100»,
-la frase de su idea (la misma tabla de la 10), «Tu turno está garantizado» y «El día que
-cobras, también pagas tu cuota.»
+su idea completa con su dibujo (la misma tabla de la 10; con «Otra cosa» no va), «Tu
+turno está garantizado» y «El día que cobras, también pagas tu cuota.»
 «Haz tu pago móvil»: Cuota 1 €10,00 · Garantía y servicio (con IVA) €1,74 · Pagas hoy
 €11,74 · Bs 18.523,36 (el monto en Bs sale de la orden de ChinChin).
 Si vino invitado: «Te invitó María Pérez. Al pagar, ganan los dos.»
@@ -36,7 +36,7 @@ Sin animación: es el pago real. La celebración va después de pagar.
 SONIDO
 Ninguno.
 ÚLTIMO CAMBIO
-«Garantía y servicio» en la factura y la frase de la idea nueva (17-nov).
+«Garantía y servicio» en la factura y la idea completa (17-nov).
 VA A
 13 · ChinChin
 PARA LLENAR · OSCAR

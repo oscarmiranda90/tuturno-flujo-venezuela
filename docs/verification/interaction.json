@@ -3,287 +3,287 @@
   "actions": [
     {
       "action": "Continuar →",
-      "at": 1794940480141
+      "at": 1794944206808
     },
     {
       "assertion": "Revisa tu correo",
-      "at": 1794940480467
+      "at": 1794944207133
     },
     {
       "action": "Autocompletar código 482915",
-      "at": 1794940480594
+      "at": 1794944207264
     },
     {
       "assertion": "Crea tu clave",
-      "at": 1794940480911
+      "at": 1794944207597
     },
     {
       "action": "6",
-      "at": 1794940481034
+      "at": 1794944207731
     },
     {
       "action": "2",
-      "at": 1794940481348
+      "at": 1794944208058
     },
     {
       "action": "8",
-      "at": 1794940481658
+      "at": 1794944208408
     },
     {
       "action": "1",
-      "at": 1794940481972
+      "at": 1794944208736
     },
     {
       "action": "9",
-      "at": 1794940482284
+      "at": 1794944209060
     },
     {
       "action": "4",
-      "at": 1794940482604
+      "at": 1794944209392
     },
     {
       "assertion": "Repite tu clave",
-      "at": 1794940482918
+      "at": 1794944209712
     },
     {
       "action": "6",
-      "at": 1794940483043
+      "at": 1794944209837
     },
     {
       "action": "2",
-      "at": 1794940483356
+      "at": 1794944210183
     },
     {
       "action": "8",
-      "at": 1794940483670
+      "at": 1794944210506
     },
     {
       "action": "1",
-      "at": 1794940483985
+      "at": 1794944210834
     },
     {
       "action": "9",
-      "at": 1794940484303
+      "at": 1794944211158
     },
     {
       "action": "4",
-      "at": 1794940484615
+      "at": 1794944211483
     },
     {
       "assertion": "¿Qué harías con €100",
-      "at": 1794940484930
+      "at": 1794944211806
     },
     {
       "action": "Montar mi negocio",
-      "at": 1794940485064
+      "at": 1794944211931
     },
     {
       "assertion": "¡Increíble!",
-      "at": 1794940485393
+      "at": 1794944212261
     },
     {
       "assertion": "¿Seguimos?",
-      "at": 1794940486624
+      "at": 1794944213449
     },
     {
       "action": "Ahora no",
-      "at": 1794940486762
+      "at": 1794944213577
     },
     {
       "assertion": "Todos ponen lo mismo",
-      "at": 1794940487816
+      "at": 1794944214603
     },
     {
       "action": "Silenciar voz de Tutu",
-      "at": 1794940487966
+      "at": 1794944214732
     },
     {
       "action": "Siguiente",
-      "at": 1794940488284
+      "at": 1794944215059
     },
     {
       "assertion": "Uno cobra todo junto",
-      "at": 1794940488750
+      "at": 1794944215548
     },
     {
       "action": "Activar voz de Tutu",
-      "at": 1794940489005
+      "at": 1794944215794
     },
     {
       "action": "Siguiente",
-      "at": 1794940489330
+      "at": 1794944216118
     },
     {
       "assertion": "Todos cobran. Tú también.",
-      "at": 1794940489803
+      "at": 1794944216581
     },
     {
       "action": "Siguiente",
-      "at": 1794940489932
+      "at": 1794944216715
     },
     {
       "assertion": "Garantía y servicio\nya van en tu cuota.",
-      "at": 1794940491079
+      "at": 1794944217889
     },
     {
       "action": "Siguiente",
-      "at": 1794940491213
+      "at": 1794944218026
     },
     {
       "assertion": "De una sola cuenta",
-      "at": 1794940492360
+      "at": 1794944219242
     },
     {
       "action": "Siguiente",
-      "at": 1794940492491
+      "at": 1794944219371
     },
     {
       "assertion": "Es por el grupo",
-      "at": 1794940492986
+      "at": 1794944219850
     },
     {
       "action": "Siguiente",
-      "at": 1794940493118
+      "at": 1794944219982
     },
     {
       "assertion": "¡Pruébalo tú!",
-      "at": 1794940493585
+      "at": 1794944220464
     },
     {
       "action": "Siguiente",
-      "at": 1794940493715
+      "at": 1794944220589
     },
     {
       "action": "Toca para simular tu turno",
-      "at": 1794940494203
+      "at": 1794944221085
     },
     {
       "action": "Siguiente",
-      "at": 1794940496845
+      "at": 1794944223746
     },
     {
       "assertion": "Práctica · No se cobra nada",
-      "at": 1794940497332
+      "at": 1794944224241
     },
     {
       "assertion": "Tu primera cuota, con\ngarantía y servicio.",
-      "at": 1794940498140
+      "at": 1794944224767
     },
     {
       "action": "Siguiente",
-      "at": 1794940498271
+      "at": 1794944224902
     },
     {
       "action": "Pagar €11,74",
-      "at": 1794940498764
+      "at": 1794944225390
     },
     {
       "assertion": "PRÁCTICA\nSUPERADA",
-      "at": 1794940501912
+      "at": 1794944228438
     },
     {
       "assertion": "¡Así de fácil!",
-      "at": 1794940503055
+      "at": 1794944229579
     },
     {
       "action": "Siguiente",
-      "at": 1794940503211
+      "at": 1794944229716
     },
     {
       "assertion": "Aquí todos están verificados",
-      "at": 1794940503710
+      "at": 1794944230180
     },
     {
       "assertion": "Falta lo mejor:\ntu turno.",
-      "at": 1794940504544
+      "at": 1794944230986
     },
     {
       "action": "Siguiente",
-      "at": 1794940507209
+      "at": 1794944233644
     },
     {
       "action": "Siguiente",
-      "at": 1794940507703
+      "at": 1794944234147
     },
     {
       "assertion": "¡Ya sabes cómo cobrar tus €100!",
-      "at": 1794940508184
+      "at": 1794944234601
     },
     {
       "action": "Repetir animación",
-      "at": 1794940508318
+      "at": 1794944234733
     },
     {
       "action": "Cobrar mi turno",
-      "at": 1794940510056
+      "at": 1794944236524
     },
     {
       "assertion": "La más elegida",
-      "at": 1794940510373
+      "at": 1794944236852
     },
     {
       "action": "Escoger San quincenal",
-      "at": 1794940510635
+      "at": 1794944237108
     },
     {
       "assertion": "Lo que aceptas",
-      "at": 1794940510976
+      "at": 1794944237430
     },
     {
       "assertion": "Llegaste al final",
-      "at": 1794940511321
+      "at": 1794944237732
     },
     {
       "action": "A. He leído y acepto los Términos Generales de TU TURNO y los Términos y Condiciones para Venezuela, y autorizo el tratamiento de mis datos personales conforme a la Cláusula Octava, incluida su transferencia a servidores en Estados Unidos.",
-      "at": 1794940511594
+      "at": 1794944237997
     },
     {
       "action": "B. Autorizo el uso de mis datos biométricos (selfie y prueba de vida) para verificar mi identidad.",
-      "at": 1794940511917
+      "at": 1794944238326
     },
     {
       "action": "C. Acepto que el servicio empieza de inmediato.",
-      "at": 1794940512241
+      "at": 1794944238656
     },
     {
       "action": "Acepto",
-      "at": 1794940512574
+      "at": 1794944238977
     },
     {
       "assertion": "€23,48",
-      "at": 1794940512891
+      "at": 1794944239303
     },
     {
       "action": "Pagar €23,48",
-      "at": 1794940513144
+      "at": 1794944239559
     },
     {
       "assertion": "Volver al pago",
-      "at": 1794940513459
+      "at": 1794944239889
     },
     {
       "action": "Simular regreso con pago fallido",
-      "at": 1794940513588
+      "at": 1794944240024
     },
     {
       "assertion": "Tu pago no se completó.",
-      "at": 1794940513913
+      "at": 1794944240374
     },
     {
       "action": "¿Hoy no tienes la plata? Te lo recordamos después.",
-      "at": 1794940514165
+      "at": 1794944240636
     },
     {
       "assertion": "Listo, te avisamos",
-      "at": 1794940514489
+      "at": 1794944240961
     },
     {
       "action": "Entendido",
-      "at": 1794940514622
+      "at": 1794944241092
     },
     {
       "assertion": "€23,48",
-      "at": 1794940514936
+      "at": 1794944241405
     }
   ]
 }

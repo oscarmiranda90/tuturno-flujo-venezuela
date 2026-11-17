@@ -7,6 +7,7 @@ async function press(label){const expression=`(()=>{const label=${JSON.stringify
 async function until(text,ms=18000){const end=Date.now()+ms;while(Date.now()<end){if(state().includes(text)){console.log('PASS',text);out.push({assertion:text,at:Date.now()});return}await wait(200)}throw Error('Missing text '+text+' '+state().slice(-500))}
 async function next(delay=150){await press('Siguiente');await wait(delay)}
 try{
+ evaluate(`(()=>{const input=document.querySelector('input[type="email"]');if(input){Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(input,'nuevo@ejemplo.com');input.dispatchEvent(new Event('input',{bubbles:true}));}return true})()`);await wait(120);
  await press('Continuar →');await until('Revisa tu correo');await press('Autocompletar código 482915');await until('Crea tu clave');
  for(const n of '628194')await press(n);await until('Repite tu clave');for(const n of '628194')await press(n);
  await until('¿Qué harías con €100');await press('Montar mi negocio');await until('¡Increíble!');await until('¿Seguimos?');await press('Ahora no');
@@ -21,7 +22,7 @@ try{
  const scrolled=evaluate(`(()=>{const all=Array.from(document.querySelectorAll('div'));const n=all.find(e=>e.scrollHeight>e.clientHeight+50&&getComputedStyle(e).overflowY==='auto'&&e.textContent.includes('TÉRMINOS GENERALES'));if(!n)throw Error('Terms viewport missing');n.scrollTop=n.scrollHeight;n.dispatchEvent(new Event('scroll'));return true})()`);
  await until('Llegaste al final');
  const labels=evaluate(`Array.from(document.querySelectorAll('[role="checkbox"]')).map(e=>e.getAttribute('aria-label'))`);for(const label of labels)await press(label);await press('Acepto');
- await until('€23,48');if(!state().includes('para tu negocio'))throw Error('Idea not retained');await press('Pagar €23,48');await until('Volver al pago');await press('Simular regreso con pago fallido');await until('Tu pago no se completó.');
+ await until('€23,48');if(!state().includes('para montar tu negocio'))throw Error('Idea not retained');await press('Pagar €23,48');await until('Volver al pago');await press('Simular regreso con pago fallido');await until('Tu pago no se completó.');
  if(!state().includes('€23,48'))throw Error('Frequency lost after failure');await press('¿Hoy no tienes la plata? Te lo recordamos después.');await until('Listo, te avisamos');await press('Entendido');await until('€23,48');
  console.log('FULL FLOW PASS');writeFileSync('docs/verification/interaction.json',JSON.stringify({passed:true,actions:out},null,2));
 }catch(e){console.error(e);writeFileSync('docs/verification/interaction.json',JSON.stringify({passed:false,error:String(e),actions:out},null,2));process.exitCode=1}

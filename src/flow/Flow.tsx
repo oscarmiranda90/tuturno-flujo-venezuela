@@ -1079,23 +1079,24 @@ export function VenezuelaFlow({
               muted={audio.muted}
             />
             <At fillToBottom style={sheet(150)} />
-            <At
+            {PURPOSES[s.idea ?? 0] && <At
               x={41}
               y={167}
-              w={292}
-              style={{ flexDirection: "row", gap: 8, alignItems: "center" }}
+              w={278}
+              style={{ flexDirection: "row", gap: 10, alignItems: "center", justifyContent: "center" }}
             >
-              <IdeaIcon idea={s.idea ?? 0} size={28} />
-              <T size={16} weight={700}>
-                Cobras{" "}
-                <T size={16} weight={800} color={C.money}>
-                  {money(100)}
-                </T>{" "}
-                para {PURPOSES[s.idea ?? 0]}
-              </T>
-            </At>
+              <IdeaIcon idea={s.idea ?? 0} size={34} />
+              <View style={{ flexShrink: 1 }}>
+                <T size={18} weight={800}>
+                  Cobras <T size={18} weight={800} color={C.money}>{money(100)}</T>
+                </T>
+                <T size={16} weight={700} color="#414C6D" style={{ marginTop: 3 }}>
+                  para {PURPOSES[s.idea ?? 0]}
+                </T>
+              </View>
+            </At>}
             <PlanCard
-              y={213}
+              y={PURPOSES[s.idea ?? 0] ? 225 : 165}
               fortnightly={false}
               onPress={() => {
                 touch();
@@ -1103,14 +1104,14 @@ export function VenezuelaFlow({
               }}
             />
             <PlanCard
-              y={443}
+              y={PURPOSES[s.idea ?? 0] ? 463 : 403}
               fortnightly
               onPress={() => {
                 touch();
                 setS((v) => ({ ...v, frequency: "fortnightly", screen: "11" }));
               }}
             />
-            <At x={42} y={701} anchor="bottom">
+            <At x={42} y={PURPOSES[s.idea ?? 0] ? 705 : 645} anchor="bottom">
               <Guarantee small boxed />
             </At>
           </>
@@ -1648,7 +1649,9 @@ function RealPayment({
   onSupport: () => void;
 }) {
   const top = failed ? 206 : 118;
-  const heroH = failed ? 247 : 311;
+  const purpose = PURPOSES[idea];
+  const purposeOffset = purpose ? 0 : 34;
+  const heroH = (failed ? 247 : 311) - purposeOffset;
   return (
     <>
       {failed && (
@@ -1700,10 +1703,10 @@ function RealPayment({
             {money(100)}
           </T>
         </At>
-        <At
-          x={39}
+        {purpose && <At
+          x={14}
           y={failed ? 132 : 182}
-          w={231}
+          w={276}
           style={{
             flexDirection: "row",
             alignItems: "center",
@@ -1713,15 +1716,15 @@ function RealPayment({
         >
           <IdeaIcon idea={idea} size={25} />
           <T size={16} weight={700} style={{ flexShrink: 1 }}>
-            para {PURPOSES[idea]}
+            para {purpose}
           </T>
-        </At>
-        <At x={failed ? 48 : 53} y={failed ? 166 : 216} w={failed ? 208 : 198}>
+        </At>}
+        <At x={failed ? 48 : 53} y={(failed ? 166 : 216) - purposeOffset} w={failed ? 208 : 198}>
           <Guarantee small />
         </At>
         <At
           x={18}
-          y={failed ? 190 : 246}
+          y={(failed ? 190 : 246) - purposeOffset}
           w={268}
           h={1}
           style={{
@@ -1730,18 +1733,18 @@ function RealPayment({
             borderStyle: "dashed",
           }}
         />
-        <At x={18} y={failed ? 199 : 258} w={268}>
+        <At x={18} y={(failed ? 199 : 258) - purposeOffset} w={268}>
           <CalendarNote small />
         </At>
       </At>
-      <At x={29} y={failed ? 467 : 446}>
+      <At x={29} y={(failed ? 467 : 446) - purposeOffset}>
         <T size={19} weight={800}>
           Haz tu pago móvil
         </T>
       </At>
       <At
         x={29}
-        y={failed ? 499 : 479}
+        y={(failed ? 499 : 479) - purposeOffset}
         w={302}
         style={{ flexDirection: "row", justifyContent: "space-between" }}
       >
@@ -1754,7 +1757,7 @@ function RealPayment({
       </At>
       <At
         x={29}
-        y={failed ? 520 : 500}
+        y={(failed ? 520 : 500) - purposeOffset}
         w={302}
         style={{ flexDirection: "row", justifyContent: "space-between" }}
       >
@@ -1767,14 +1770,14 @@ function RealPayment({
       </At>
       <At
         x={29}
-        y={failed ? 544 : 522}
+        y={(failed ? 544 : 522) - purposeOffset}
         w={302}
         h={1}
         style={{ backgroundColor: "#E0E4EB" }}
       />
       <At
         x={29}
-        y={failed ? 553 : 531}
+        y={(failed ? 553 : 531) - purposeOffset}
         w={302}
         style={{ flexDirection: "row", justifyContent: "space-between" }}
       >

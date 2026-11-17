@@ -11,7 +11,7 @@ export const C = {
   veil: "#060C34",
 } as const;
 export const IDEAS = ["Montar mi negocio", "Hacer crecer mi negocio", "Comprar algo que necesito", "Salir de una deuda", "Resolver una emergencia", "Otra cosa"] as const;
-export const PURPOSES = ["tu negocio", "tu negocio", "lo que necesitas", "salir de tu deuda", "tu emergencia", "lo que quieras"] as const;
+export const PURPOSES = ["montar tu negocio", "hacer crecer tu negocio", "comprar algo que necesitas", "salir de una deuda", "resolver una emergencia", null] as const;
 export const VOICE = {
  "4a":["¡Increíble!","Lo vas a lograr."],
  "4b":["¿Seguimos?","Activa los avisos y te acompaño paso a paso, hasta el día que te toca cobrar."],

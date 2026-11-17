@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "storyUrl": "https://tuturno-storybook.pages.dev/?path=/story/venezuela-v20-flujo-aprobado--choose",
+  "shareUrl": "https://tuturno-storybook.pages.dev/review/fd132f35-5417-43df-a94e-10d4d543564e",
+  "width": 390,
+  "height": 844,
+  "initialState": "v20:10:live",
+  "audioKey": "tutu_10_ve",
+  "visibleText": "Escoge tu San\n¡Ahora sí, el de verdad!\nCobras €100\npara montar tu negocio\n★ La más elegida\n7\nSemanal\nCobras\n€100\n10 personas\nÚltimos puestos disponibles\nCuota\n€10,00\nGarantía y servicio (con IVA)\n€1,74\nPagas cada semana\n€11,74\nEscoger\n15\nQuincenal\nCobras\n€100\n5 personas\nÚltimos puestos disponibles\nCuota\n€20,00\nGarantía y servicio (con IVA)\n€3,48\nPagas cada quince días\n€23,48\nEscoger\nTu turno está garantizado\n9:30",
+  "sourceFiles": [
+    "https://github.com/oscarmiranda90/tuturno-flujo-venezuela",
+    "src/flow/Flow.tsx",
+    "src/flow/v20.tsx",
+    "src/flow/content.ts",
+    "src/flow/state.ts",
+    "src/flow/ui.tsx",
+    "src/flow/pieces.tsx",
+    "src/reviewBridge.ts",
+    "docs/source/guide-v20.pdf",
+    "docs/reference-manifest.json"
+  ],
+  "audioStates": [
+    {
+      "key": "tutu_10_ve",
+      "muted": true,
+      "playing": false
+    },
+    {
+      "key": "tutu_10_ve",
+      "muted": false,
+      "playing": false
+    },
+    {
+      "key": "tutu_10_ve",
+      "muted": false,
+      "playing": true
+    },
+    {
+      "key": "tutu_10_ve",
+      "muted": false,
+      "playing": false
+    }
+  ],
+  "audioBridgePassed": true,
+  "oldV19LinksRedirect": true
+}

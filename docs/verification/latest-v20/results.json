@@ -1,0 +1,273 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "screen": "10",
+      "idea": 0,
+      "expected": "para montar tu negocio",
+      "passed": true,
+      "rect": {
+        "bottom": 211.484375,
+        "left": 115.8984375,
+        "right": 288.09375,
+        "top": 191.9609375
+      }
+    },
+    {
+      "screen": "10",
+      "idea": 1,
+      "expected": "para hacer crecer tu negocio",
+      "passed": true,
+      "rect": {
+        "bottom": 211.484375,
+        "left": 97.3125,
+        "right": 306.6796875,
+        "top": 191.9609375
+      }
+    },
+    {
+      "screen": "10",
+      "idea": 2,
+      "expected": "para comprar algo que necesitas",
+      "passed": true,
+      "rect": {
+        "bottom": 231.0078125,
+        "left": 85,
+        "right": 319,
+        "top": 191.9609375
+      }
+    },
+    {
+      "screen": "10",
+      "idea": 3,
+      "expected": "para salir de una deuda",
+      "passed": true,
+      "rect": {
+        "bottom": 211.484375,
+        "left": 116.4140625,
+        "right": 287.5859375,
+        "top": 191.9609375
+      }
+    },
+    {
+      "screen": "10",
+      "idea": 4,
+      "expected": "para resolver una emergencia",
+      "passed": true,
+      "rect": {
+        "bottom": 211.484375,
+        "left": 92.5234375,
+        "right": 311.4765625,
+        "top": 191.9609375
+      }
+    },
+    {
+      "screen": "10",
+      "idea": 5,
+      "expected": null,
+      "passed": true,
+      "rect": null
+    },
+    {
+      "screen": "12",
+      "idea": 0,
+      "expected": "para montar tu negocio",
+      "passed": true,
+      "rect": {
+        "bottom": 323.2578125,
+        "left": 110.8984375,
+        "right": 283.09375,
+        "top": 303.734375
+      }
+    },
+    {
+      "screen": "12",
+      "idea": 1,
+      "expected": "para hacer crecer tu negocio",
+      "passed": true,
+      "rect": {
+        "bottom": 323.2578125,
+        "left": 92.3125,
+        "right": 301.6796875,
+        "top": 303.734375
+      }
+    },
+    {
+      "screen": "12",
+      "idea": 2,
+      "expected": "para comprar algo que necesitas",
+      "passed": true,
+      "rect": {
+        "bottom": 323.2578125,
+        "left": 77.40625,
+        "right": 316.59375,
+        "top": 303.734375
+      }
+    },
+    {
+      "screen": "12",
+      "idea": 3,
+      "expected": "para salir de una deuda",
+      "passed": true,
+      "rect": {
+        "bottom": 323.2578125,
+        "left": 111.4140625,
+        "right": 282.5859375,
+        "top": 303.734375
+      }
+    },
+    {
+      "screen": "12",
+      "idea": 4,
+      "expected": "para resolver una emergencia",
+      "passed": true,
+      "rect": {
+        "bottom": 323.2578125,
+        "left": 87.5234375,
+        "right": 306.4765625,
+        "top": 303.734375
+      }
+    },
+    {
+      "screen": "12",
+      "idea": 5,
+      "expected": null,
+      "passed": true,
+      "rect": null
+    },
+    {
+      "screen": "12c",
+      "idea": 0,
+      "expected": "para montar tu negocio",
+      "passed": true,
+      "rect": {
+        "bottom": 361.2578125,
+        "left": 110.8984375,
+        "right": 283.09375,
+        "top": 341.734375
+      }
+    },
+    {
+      "screen": "12c",
+      "idea": 1,
+      "expected": "para hacer crecer tu negocio",
+      "passed": true,
+      "rect": {
+        "bottom": 361.2578125,
+        "left": 92.3125,
+        "right": 301.6796875,
+        "top": 341.734375
+      }
+    },
+    {
+      "screen": "12c",
+      "idea": 2,
+      "expected": "para comprar algo que necesitas",
+      "passed": true,
+      "rect": {
+        "bottom": 361.2578125,
+        "left": 77.40625,
+        "right": 316.59375,
+        "top": 341.734375
+      }
+    },
+    {
+      "screen": "12c",
+      "idea": 3,
+      "expected": "para salir de una deuda",
+      "passed": true,
+      "rect": {
+        "bottom": 361.2578125,
+        "left": 111.4140625,
+        "right": 282.5859375,
+        "top": 341.734375
+      }
+    },
+    {
+      "screen": "12c",
+      "idea": 4,
+      "expected": "para resolver una emergencia",
+      "passed": true,
+      "rect": {
+        "bottom": 361.2578125,
+        "left": 87.5234375,
+        "right": 306.4765625,
+        "top": 341.734375
+      }
+    },
+    {
+      "screen": "12c",
+      "idea": 5,
+      "expected": null,
+      "passed": true,
+      "rect": null
+    },
+    {
+      "screen": "12d",
+      "idea": 0,
+      "expected": "para montar tu negocio",
+      "passed": true,
+      "rect": {
+        "bottom": 323.2578125,
+        "left": 110.8984375,
+        "right": 283.09375,
+        "top": 303.734375
+      }
+    },
+    {
+      "screen": "12d",
+      "idea": 1,
+      "expected": "para hacer crecer tu negocio",
+      "passed": true,
+      "rect": {
+        "bottom": 323.2578125,
+        "left": 92.3125,
+        "right": 301.6796875,
+        "top": 303.734375
+      }
+    },
+    {
+      "screen": "12d",
+      "idea": 2,
+      "expected": "para comprar algo que necesitas",
+      "passed": true,
+      "rect": {
+        "bottom": 323.2578125,
+        "left": 77.40625,
+        "right": 316.59375,
+        "top": 303.734375
+      }
+    },
+    {
+      "screen": "12d",
+      "idea": 3,
+      "expected": "para salir de una deuda",
+      "passed": true,
+      "rect": {
+        "bottom": 323.2578125,
+        "left": 111.4140625,
+        "right": 282.5859375,
+        "top": 303.734375
+      }
+    },
+    {
+      "screen": "12d",
+      "idea": 4,
+      "expected": "para resolver una emergencia",
+      "passed": true,
+      "rect": {
+        "bottom": 323.2578125,
+        "left": 87.5234375,
+        "right": 306.4765625,
+        "top": 303.734375
+      }
+    },
+    {
+      "screen": "12d",
+      "idea": 5,
+      "expected": null,
+      "passed": true,
+      "rect": null
+    }
+  ]
+}

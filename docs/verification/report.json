@@ -21,5 +21,14 @@
     "15 mono voice assets",
     "no Expo dependencies",
     "full browser walkthrough"
-  ]
+  ],
+  "latestV20Revision": {
+    "sourceSha256": "8bdd318eb8a0bd575534d2bb595d9e0163853d3cef397e3b8be2eb26eb004515",
+    "purposeCasesAt360x800": 24,
+    "otherHasNoIdea": true,
+    "storybookStories": 35,
+    "homeStoriesPreserved": 9,
+    "pdfClickableLinks": 46,
+    "publicCaptureVerified": true
+  }
 }

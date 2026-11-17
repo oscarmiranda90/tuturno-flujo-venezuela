@@ -1,6 +1,6 @@
 # Screen5-guide · v20
 
-- [Running state](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=5)
+- [Running state](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/?screen=5&variant=guide)
 - [Source and animation](../../src/flow/Flow.tsx)
 - [Shared highlights and transitions](../../src/flow/motion.tsx)
 - [Icons and palette](../../src/flow/ui.tsx)
