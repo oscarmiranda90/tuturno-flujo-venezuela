@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
-import {initialState,paymentTerms,previous,paymentFailed,restoreSan} from '../src/flow/state.ts';
+import ts from 'typescript';
+const stateSource=readFileSync(new URL('../src/flow/state.ts',import.meta.url),'utf8');
+const stateModule=ts.transpileModule(stateSource,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext}}).outputText;
+const {initialState,paymentTerms,previous,paymentFailed,restoreSan}=await import('data:text/javascript;base64,'+Buffer.from(stateModule).toString('base64'));
 assert.deepEqual(paymentTerms('weekly'),{quota:10,service:1.74,total:11.74,seats:10});
 assert.deepEqual(paymentTerms('fortnightly'),{quota:20,service:3.48,total:23.48,seats:5});
 for(const screen of ['4c','6']) for(const rule of [1,2]) assert.equal(previous({...initialState(screen),rule}).rule,rule-1);

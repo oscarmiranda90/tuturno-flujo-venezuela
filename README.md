@@ -20,7 +20,7 @@ npm run build
 npm run preview
 ```
 
-Development listens on port 5210. React 19 + React Native Web render browser DOM; Vite builds the site. React Native supplies development typings for the shared visual primitives. There are no Expo packages, Expo APIs, Metro configuration, iOS or Android projects. `npm run check` verifies types, neutral Spanish, pricing, backward guide steps, retained consents, fifteen local recordings and absence of Expo dependencies.
+Use Node.js 22.18 or later. The flow contract runner uses the installed TypeScript compiler, including on Node distributions built without native TypeScript support. Development listens on port 5210. React 19 + React Native Web render browser DOM; Vite builds the site. React Native supplies development typings for the shared visual primitives. There are no Expo packages, Expo APIs, Metro configuration, iOS or Android projects. `npm run check` verifies types, neutral Spanish, pricing, backward guide steps, retained consents, fifteen local recordings and absence of Expo dependencies.
 
 The review adapter uses OTP `482915`. Create and repeat any valid six-digit PIN, for example `628194`. It sends no email, stores no PIN, charges nothing and never creates a paid state. Direct review links use `?screen=4c&variant=guide2`; normal reopening after registration returns to4a and retains the selected San. `?lector=1` explicitly suppresses speech for an accessible host integration. Browser autoplay can require a first tap. The mute preference persists across every scene.
 
