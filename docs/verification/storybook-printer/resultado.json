@@ -1,0 +1,61 @@
+{
+  "correcto": true,
+  "url": "https://tuturno-storybook.pages.dev/?path=/story/venezuela-v20-flujo-aprobado--closing",
+  "fecha": "2026-11-17T22:35:32.501Z",
+  "early": {
+    "opacity": "0",
+    "transform": "matrix(0.13904, -0.0346666, 0.0346666, 0.13904, 41.2658, 152.021)"
+  },
+  "late": {
+    "opacity": "1",
+    "transform": "matrix(0.703035, -0.0368445, 0.0368445, 0.703035, 15.8574, 164.268)"
+  },
+  "printer": [
+    {
+      "type": "play",
+      "src": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/assets/printer-CSlGt1od.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/assets/printer-CSlGt1od.mp3",
+      "time": 0,
+      "duration": 1.02
+    },
+    {
+      "type": "ended",
+      "src": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/assets/printer-CSlGt1od.mp3",
+      "time": 1.02,
+      "duration": 1.02
+    }
+  ],
+  "voice": [
+    {
+      "type": "play",
+      "src": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/assets/tutu_9_ve-DdjrDacM.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/assets/tutu_9_ve-DdjrDacM.mp3",
+      "time": 0,
+      "duration": 2.8
+    },
+    {
+      "type": "play",
+      "src": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/assets/tutu_9_ve-DdjrDacM.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/assets/tutu_9_ve-DdjrDacM.mp3",
+      "time": 0,
+      "duration": 2.8
+    },
+    {
+      "type": "ended",
+      "src": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/assets/tutu_9_ve-DdjrDacM.mp3",
+      "time": 2.8,
+      "duration": 2.8
+    }
+  ],
+  "repeticionesCompletas": 3,
+  "errors": []
+}
