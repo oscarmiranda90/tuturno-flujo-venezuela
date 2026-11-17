@@ -9,10 +9,12 @@ Corrección del 17 de noviembre de 2026, publicada en el flujo web que integra S
 
 **Veredicto: aprobado para los casos comprobados en Chrome.** Se conserva la coreografía de la guía v20 y su soporte de movimiento reducido. No se cambiaron los tiempos ni el diseño.
 
-La comprobación usa el Storybook público, incluyendo su iframe del flujo aislado, con reproducción automática restringida. Un clic real en «Repetir animación» produce el sonido completo de la impresora (1,02 s) y la voz (2,8 s). También se comprueba repetir otra vez y volver de la pantalla 8 a la 9. El tiquete pasa de oculto a visible y no aparecen excepciones JavaScript.
+La comprobación usa el Storybook público, incluyendo su iframe del flujo aislado, con reproducción automática restringida. Un clic real en «Repetir animación» produce el sonido completo de la impresora (1,5 s) y la voz (2,8 s). También se comprueba repetir otra vez y volver de la pantalla 8 a la 9. El tiquete pasa de oculto a visible y no aparecen excepciones JavaScript.
 
 Al abrir directamente una pantalla sin haber interactuado, el navegador puede bloquear la reproducción automática. «Repetir animación» inicia la animación y su sonido mediante una pulsación.
 
 - [Resultado de la prueba](resultado.json).
 - [Captura del Storybook público](tiquetera.png).
 - [Prueba reproducible](../../../scripts/test-storybook-printer.mjs): requiere una instancia de Chrome de pruebas con `--remote-debugging-port=9234` y un perfil separado; no debe usarse una opción que desactive las restricciones de reproducción automática. `CHROME_DEBUG_URL` permite cambiar la dirección del depurador.
+
+El sonido vigente es el fragmento **6,00–7,50 s** del [video elegido por Oscar](https://www.youtube.com/shorts/ImvTCMCx51E), de We Fix Stupid Computers. La prueba comprueba también que el archivo publicado tenga la misma huella SHA256 que el [manifiesto de audio](../../../assets/audio/manifest.json).

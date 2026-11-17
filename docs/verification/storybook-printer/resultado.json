@@ -1,7 +1,7 @@
 {
   "correcto": true,
   "url": "https://tuturno-storybook.pages.dev/?path=/story/venezuela-v20-flujo-aprobado--closing",
-  "fecha": "2026-11-17T22:35:32.501Z",
+  "fecha": "2026-11-17T22:41:38.116Z",
   "early": {
     "opacity": "0",
     "transform": "matrix(0.13904, -0.0346666, 0.0346666, 0.13904, 41.2658, 152.021)"
@@ -13,19 +13,19 @@
   "printer": [
     {
       "type": "play",
-      "src": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/assets/printer-CSlGt1od.mp3"
+      "src": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/assets/printer-Bp2q_Vwq.mp3"
     },
     {
       "type": "playing",
-      "src": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/assets/printer-CSlGt1od.mp3",
+      "src": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/assets/printer-Bp2q_Vwq.mp3",
       "time": 0,
-      "duration": 1.02
+      "duration": 1.5
     },
     {
       "type": "ended",
-      "src": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/assets/printer-CSlGt1od.mp3",
-      "time": 1.02,
-      "duration": 1.02
+      "src": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/assets/printer-Bp2q_Vwq.mp3",
+      "time": 1.5,
+      "duration": 1.5
     }
   ],
   "voice": [
@@ -56,6 +56,21 @@
       "duration": 2.8
     }
   ],
+  "sonidoElegido": {
+    "file": "printer.mp3",
+    "status": "Fragmento elegido por Oscar para el sonido de la tiquera.",
+    "source": {
+      "url": "https://www.youtube.com/shorts/ImvTCMCx51E",
+      "title": "Remember This Sound? Dot-Matrix Printer Nostalgia",
+      "author": "We Fix Stupid Computers",
+      "startSeconds": 6,
+      "endSeconds": 7.5
+    },
+    "durationSeconds": 1.5,
+    "channels": 1,
+    "sha256": "cab47fc9f0297c7c02522ce034452550ddb511ad9ef149ade95109c8e32f908b",
+    "processing": "Recorte de 1,5 s, sin cambiar velocidad ni tono; fundidos de 5 ms al inicio y 20 ms al final para evitar chasquidos."
+  },
   "repeticionesCompletas": 3,
   "errors": []
 }

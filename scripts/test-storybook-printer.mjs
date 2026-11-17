@@ -1,4 +1,7 @@
-import {writeFileSync,mkdirSync} from 'node:fs';
+import {writeFileSync,mkdirSync,readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+const expectedPrinter=JSON.parse(readFileSync('assets/audio/manifest.json','utf8')).printer;
+const printerFinished=e=>e.src?.includes('/printer-')&&e.type==='ended'&&Math.abs(e.time-expectedPrinter.durationSeconds)<0.15;
 const url=process.argv[2]??'https://tuturno-storybook.pages.dev/?path=/story/venezuela-v20-flujo-aprobado--closing';
 // Requiere una instancia de Chrome de pruebas con depuración remota, sin desactivar el bloqueo de reproducción automática.
 const debuggerUrl=process.env.CHROME_DEBUG_URL??'http://127.0.0.1:9234';
@@ -29,14 +32,16 @@ try{
  const result=await evaluate('window.__ticketTest',context);const printer=result.events.filter(e=>e.src?.includes('/printer-'));const voice=result.events.filter(e=>e.src?.includes('/tutu_9_'));
  console.log(JSON.stringify({early,late,printer,voice,errors,resultErrors:result.errors},null,2));
  if(Number(early.opacity)!==0||Number(late.opacity)!==1||late.transform===early.transform)throw Error('El tiquete no salió animado.');
- if(!printer.some(e=>e.type==='ended'&&e.time>=0.9)||!voice.some(e=>e.type==='ended'))throw Error('No terminaron los audios de impresora y voz.');
+ if(!printer.some(printerFinished)||!voice.some(e=>e.type==='ended'))throw Error('No terminaron los audios de impresora y voz.');
  if(errors.length||result.errors.length)throw Error('Hubo errores JavaScript.');
+ const served=await fetch(printer.find(printerFinished).src).then(r=>{if(!r.ok)throw Error('No se pudo descargar el audio publicado.');return r.arrayBuffer()});
+ if(createHash('sha256').update(Buffer.from(served)).digest('hex')!==expectedPrinter.sha256)throw Error('El audio publicado no coincide con el fragmento elegido.');
  await click('Repetir animación');await pause(3800);
  const twice=await evaluate('window.__ticketTest',context);
- if(twice.events.filter(e=>e.src?.includes('/printer-')&&e.type==='ended'&&e.time>=0.9).length<2)throw Error('La segunda impresión no terminó de sonar.');
+ if(twice.events.filter(printerFinished).length<2)throw Error('La segunda impresión no terminó de sonar.');
  await click('Volver');await pause(400);await click('Siguiente');await pause(3800);
  const returned=await evaluate('window.__ticketTest',context);
- if(returned.events.filter(e=>e.src?.includes('/printer-')&&e.type==='ended'&&e.time>=0.9).length<3)throw Error('La impresión se interrumpió al volver a entrar.');
+ if(returned.events.filter(printerFinished).length<3)throw Error('La impresión se interrumpió al volver a entrar.');
  if(errors.length||returned.errors.length)throw Error('Hubo errores al repetir o volver a entrar.');
- const out='docs/verification/storybook-printer';mkdirSync(out,{recursive:true});const shot=await call('Page.captureScreenshot',{format:'png'});writeFileSync(out+'/tiquetera.png',Buffer.from(shot.data,'base64'));writeFileSync(out+'/resultado.json',JSON.stringify({correcto:true,url,fecha:new Date().toISOString(),early,late,printer,voice,repeticionesCompletas:returned.events.filter(e=>e.src?.includes('/printer-')&&e.type==='ended'&&e.time>=0.9).length,errors},null,2)+'\n');console.log('CORRECTO: salida de papel, impresora completa y voz en Storybook.');
+ const out='docs/verification/storybook-printer';mkdirSync(out,{recursive:true});const shot=await call('Page.captureScreenshot',{format:'png'});writeFileSync(out+'/tiquetera.png',Buffer.from(shot.data,'base64'));writeFileSync(out+'/resultado.json',JSON.stringify({correcto:true,url,fecha:new Date().toISOString(),early,late,printer,voice,sonidoElegido:expectedPrinter,repeticionesCompletas:returned.events.filter(printerFinished).length,errors},null,2)+'\n');console.log('CORRECTO: salida de papel, impresora completa y voz en Storybook.');
 }finally{ws.close();await fetch(debuggerUrl+'/json/close/'+page.id).catch(()=>{})}

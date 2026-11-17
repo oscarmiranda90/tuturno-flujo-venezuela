@@ -140,6 +140,17 @@
   ],
   "printer": {
     "file": "printer.mp3",
-    "status": "Propuesta de motor de impresora generado para revisión; no se añade otra categoría de sonido."
+    "status": "Fragmento elegido por Oscar para el sonido de la tiquera.",
+    "source": {
+      "url": "https://www.youtube.com/shorts/ImvTCMCx51E",
+      "title": "Remember This Sound? Dot-Matrix Printer Nostalgia",
+      "author": "We Fix Stupid Computers",
+      "startSeconds": 6,
+      "endSeconds": 7.5
+    },
+    "durationSeconds": 1.5,
+    "channels": 1,
+    "sha256": "cab47fc9f0297c7c02522ce034452550ddb511ad9ef149ade95109c8e32f908b",
+    "processing": "Recorte de 1,5 s, sin cambiar velocidad ni tono; fundidos de 5 ms al inicio y 20 ms al final para evitar chasquidos."
   }
 }
