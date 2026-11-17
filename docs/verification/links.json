@@ -1,0 +1,149 @@
+{
+  "verified": 31,
+  "results": [
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/screens/1.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/screens/2.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/screens/3.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/screens/4a.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/screens/4b.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/screens/4c.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/screens/5.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/screens/6.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/screens/7.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/screens/7b.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/screens/8.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/screens/9.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/#tiquetera",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/screens/10.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/screens/11.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/screens/11b.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/screens/12.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/screens/12c.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/screens/12d.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/#tutu",
+      "status": 200
+    },
+    {
+      "url": "https://www.figma.com/design/3xFhB0S4URrLZu0bzcqYuy?node-id=1-2",
+      "status": "file confirmed by Figma MCP; final image quota unavailable"
+    },
+    {
+      "url": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/#ideas",
+      "status": 200
+    },
+    {
+      "url": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/#logos",
+      "status": 200
+    },
+    {
+      "url": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/tutu/cara.png",
+      "status": 200
+    },
+    {
+      "url": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/audios.zip",
+      "status": 200
+    },
+    {
+      "url": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/ideas.zip",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela/blob/main/docs/TICKET-LAYERS.md",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://github.com/oscarmiranda90/tuturno-flujo-venezuela",
+      "status": 200,
+      "verifiedThrough": "authenticated GitHub API"
+    },
+    {
+      "url": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/audios/printer.mp3",
+      "status": 200
+    },
+    {
+      "url": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/logos.zip",
+      "status": 200
+    },
+    {
+      "url": "https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/entrega/tutu.zip",
+      "status": 200
+    }
+  ]
+}

@@ -147,7 +147,7 @@ export function VenezuelaFlow({
     ...(savedSan
       ? restoreSan(savedSan, initialScreen)
       : initialState(initialScreen)),
-    ...(initialVariant === "other" ? { idea: 5 as const } : {}),
+    ...(initialVariant === "other" ? { idea: 5 as const } : initialVariant === "selected" ? { idea: 0 as const } : {}),
     wheel: initialVariant === "wheel7" ? 7 : null,
     rule:
       initialVariant === "wheel7" || initialVariant === "guide3"
