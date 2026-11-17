@@ -45,13 +45,15 @@ export function useTutuAudio(){
  const media=useRef<ReturnType<typeof createWebVoicePlayer>|null>(null);
  if(!media.current)media.current=createWebVoicePlayer(setStatus);
  const printerMedia=useRef<HTMLAudioElement|null>(null);
- const stop=useCallback(()=>{media.current?.stop();printerMedia.current?.pause()},[]);
+ // Cambiar la narración no debe interrumpir el sonido de la impresión que acaba de empezar.
+ const stopVoice=useCallback(()=>{media.current?.stop()},[]);
+ const stop=useCallback(()=>{stopVoice();printerMedia.current?.pause()},[stopVoice]);
  const play=useCallback((k:string)=>{if(!preference.current&&!readerActive()&&APPROVED_TUTU_AUDIO[k])media.current?.play(APPROVED_TUTU_AUDIO[k])},[]);
- const select=useCallback((k:string|null)=>{stop();skipNextAuto.current=false;current.current=k;setKey(k)},[stop]);
- useEffect(()=>{if(!key||muted)return;if(skipNextAuto.current){skipNextAuto.current=false;return}const t=setTimeout(()=>play(key),key==='tutu_4a_ve'?0:380);return()=>{clearTimeout(t);stop()}},[key,muted,play,stop]);
+ const select=useCallback((k:string|null)=>{stopVoice();skipNextAuto.current=false;current.current=k;setKey(k)},[stopVoice]);
+ useEffect(()=>{if(!key||muted)return;if(skipNextAuto.current){skipNextAuto.current=false;return}const t=setTimeout(()=>play(key),key==='tutu_4a_ve'?0:380);return()=>{clearTimeout(t);stopVoice()}},[key,muted,play,stopVoice]);
  const toggle=useCallback(()=>{preference.current=!preference.current;setMuted(preference.current);try{localStorage.setItem(MUTE,String(preference.current))}catch{}stop();if(!preference.current&&current.current){skipNextAuto.current=true;play(current.current)}},[play,stop]);
  const replay=useCallback(()=>{if(preference.current){preference.current=false;setMuted(false);try{localStorage.setItem(MUTE,'false')}catch{}}if(current.current){skipNextAuto.current=true;play(current.current)}},[play]);
  const printer=useCallback(()=>{if(preference.current||readerActive())return;printerMedia.current??=new Audio(printerUri);printerMedia.current.currentTime=0;void printerMedia.current.play().catch(()=>{})},[]);
  useEffect(()=>{const hide=()=>{if(document.hidden)stop()};document.addEventListener('visibilitychange',hide);return()=>{document.removeEventListener('visibilitychange',hide);media.current?.dispose();printerMedia.current?.pause()}},[stop]);
- return {select,stop,toggle,replay,printer,muted,audioKey:key,playing:status.playing,blocked:status.blocked,error:status.error};
+ return {select,stop,stopVoice,toggle,replay,printer,muted,audioKey:key,playing:status.playing,blocked:status.blocked,error:status.error};
 }

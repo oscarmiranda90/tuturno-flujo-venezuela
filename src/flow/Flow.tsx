@@ -271,8 +271,8 @@ export function VenezuelaFlow({
     const shouldSpeak = ["4b", "9", "10", "11"].includes(voice) || guided || (stage === "4a" && reacting);
     // La narración utiliza la voz aprobada y los textos correspondientes de la guía.
     audioRef.current.select(shouldSpeak ? matchedVoice : null);
-    return () => audioRef.current.stop();
-  }, [voice, guided, matchedVoice, replay, reacting]);
+    return () => audioRef.current.stopVoice();
+  }, [voice, guided, matchedVoice, reacting]);
   const support = () => {
     if (services?.supportUrl)
       void Linking.openURL(services.supportUrl).catch(() =>
