@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useId, useRef, useState } from "react";
 import {
   Image,
   Keyboard,
@@ -135,6 +135,7 @@ export function RegistrationV3({
   const [stage, setStage] = useState<Stage>(previewState.stage);
   const [sheet, setSheet] = useState<Sheet>(previewState.sheet);
   const [slide, setSlide] = useState(previewState.slide);
+  const portraitId = useId().replace(/:/g, "");
   const [code, setCode] = useState(
     preview && (initialPreview === "otp" || initialPreview === "otp-country")
       ? "482"
@@ -344,33 +345,43 @@ export function RegistrationV3({
                     edition === "v19" && { width: "68%", height: 346 + heroInset, right: -7 },
                   ]}
                 >
-                  <Svg
-                    width="100%"
-                    height="100%"
-                    viewBox="0 0 610 865"
-                    preserveAspectRatio="xMidYMid slice"
-                  >
-                    <Defs>
-                      <SvgGradient id="portrait-feather" x1="0" y1="0" x2="610" y2="0" gradientUnits="userSpaceOnUse">
-                        <Stop offset="0" stopColor="white" stopOpacity={0} />
-                        <Stop offset="0.16" stopColor="white" stopOpacity={0} />
-                        <Stop offset="0.34" stopColor="white" stopOpacity={0.5} />
-                        <Stop offset="0.56" stopColor="white" stopOpacity={1} />
-                      </SvgGradient>
-                      <Mask id="portrait-mask">
-                        <Rect width={610} height={865} fill="url(#portrait-feather)" />
-                      </Mask>
-                    </Defs>
-                    <SvgImage
-                      href={people[slide].image}
-                      preserveAspectRatio="xMidYMin slice"
-                      x={40 - (people[slide].portraitScale - 1) * 305}
-                      y={people[slide].portraitY}
-                      width={610 * people[slide].portraitScale}
-                      height={865 * people[slide].portraitScale}
-                      mask="url(#portrait-mask)"
-                    />
-                  </Svg>
+                  {people.map((person, index) => {
+                    const state = index === slide ? "active"
+                      : index === (slide + people.length - 1) % people.length
+                        ? "previous" : "hidden";
+                    const maskId = `${portraitId}-portrait-${index}`;
+                    return (
+                      <div key={person.name} className="login-portrait" data-state={state} aria-hidden="true">
+                        <Svg
+                          width="100%"
+                          height="100%"
+                          viewBox="0 0 610 865"
+                          preserveAspectRatio="xMidYMid slice"
+                        >
+                          <Defs>
+                            <SvgGradient id={`${maskId}-feather`} x1="0" y1="0" x2="610" y2="0" gradientUnits="userSpaceOnUse">
+                              <Stop offset="0" stopColor="white" stopOpacity={0} />
+                              <Stop offset="0.16" stopColor="white" stopOpacity={0} />
+                              <Stop offset="0.34" stopColor="white" stopOpacity={0.5} />
+                              <Stop offset="0.56" stopColor="white" stopOpacity={1} />
+                            </SvgGradient>
+                            <Mask id={maskId}>
+                              <Rect width={610} height={865} fill={`url(#${maskId}-feather)`} />
+                            </Mask>
+                          </Defs>
+                          <SvgImage
+                            href={person.image}
+                            preserveAspectRatio="xMidYMin slice"
+                            x={40 - (person.portraitScale - 1) * 305}
+                            y={person.portraitY}
+                            width={610 * person.portraitScale}
+                            height={865 * person.portraitScale}
+                            mask={`url(#${maskId})`}
+                          />
+                        </Svg>
+                      </div>
+                    );
+                  })}
                 </View>
                 {edition === "v19" && <LinearGradient
                   colors={["#081349", "#081349D0", "#08134900"]}
@@ -402,25 +413,20 @@ export function RegistrationV3({
                     turnos de {country === "VE" ? "San" : "cadena"} entregados
                   </Text>
                   <View style={[s.quote, edition === "v19" && { maxWidth: 205 }]}>
-                    <Text style={s.quoteText}>“{people[slide].quote}”</Text>
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        gap: 5,
-                      }}
-                    >
-                      <Svg width={13} height={13} viewBox="0 0 16 16">
-                        <Circle cx={8} cy={8} r={8} fill={green} />
-                        <Path
-                          d="M4 8 L7 11 L12 5"
-                          stroke="white"
-                          strokeWidth={2}
-                          fill="none"
-                        />
-                      </Svg>
-                      <Text style={s.quoteName}>{people[slide].name}</Text>
-                    </View>
+                    <div className="login-testimonials">
+                      {people.map((person, index) => (
+                        <div key={person.name} className="login-testimonial" data-active={index === slide} aria-hidden={index !== slide}>
+                          <Text style={s.quoteText}>“{person.quote}”</Text>
+                          <View style={{ flexDirection: "row", alignItems: "center", gap: 5 }}>
+                            <Svg width={13} height={13} viewBox="0 0 16 16">
+                              <Circle cx={8} cy={8} r={8} fill={green} />
+                              <Path d="M4 8 L7 11 L12 5" stroke="white" strokeWidth={2} fill="none" />
+                            </Svg>
+                            <Text style={s.quoteName}>{person.name}</Text>
+                          </View>
+                        </div>
+                      ))}
+                    </div>
                   </View>
                 </View>
               </View>

@@ -13,3 +13,11 @@ El orden es Mary, Carolina, Deivy, Bernardo y Yenifer. Se muestra una persona ca
 | Yenifer Abreu | Anzoátegui | Con ese SAN pude comprar mi primer kit para hacer manos y pies. |
 
 [Fotografías y procedencia](../assets/registration-v3/testimonios/) · [Código del inicio](../src/screens/auth/RegistrationV3.tsx)
+
+## Transición del carrusel
+
+Las cinco fotos se cargan al mostrar el inicio. Cada cinco segundos, la siguiente aparece con un fundido de 480 ms sobre la fotografía anterior, que permanece opaca durante el relevo para evitar destellos del fondo. El degradado y los controles permanecen fijos. Las máscaras tienen identificadores propios para no interferir con otras vistas del catálogo.
+
+El testimonio anterior sale en 100 ms y el siguiente entra en 180 ms, después de esa salida, para evitar frases superpuestas. Todos ocupan la misma celda, cuya altura contempla la frase más larga. Con movimiento reducido, el fundido de la foto dura 200 ms y el del texto 120 ms, sin desplazamientos.
+
+[Verificación de la transición](verification/transicion-login/README.md).

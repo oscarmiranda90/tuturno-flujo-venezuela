@@ -1,0 +1,267 @@
+{
+  "url": "https://tuturno-storybook.pages.dev/?path=/story/venezuela-v20-flujo-aprobado--start",
+  "type": "webkit",
+  "date": "2026-11-17T23:19:56.697Z",
+  "passed": true,
+  "durations": "0.48s",
+  "reduced": "0.2s",
+  "imagesDecoded": 5,
+  "samples": [
+    {
+      "time": 1385,
+      "name": "“Con mi turno compré los materiales para arrancar con mis arepas. El sazón lo pongo yo.”\nMary Delgado · Caracas",
+      "photo": 0,
+      "opacities": [
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "counterY": 135,
+      "cardY": 497,
+      "overflow": false
+    },
+    {
+      "time": 6118,
+      "name": "“La receta ya la tenía. Con mi turno armé el kit para mis pizzas.”\nCarolina Nieves · Caracas",
+      "photo": 1,
+      "opacities": [
+        1,
+        0.062847,
+        0,
+        0,
+        0
+      ],
+      "counterY": 135,
+      "cardY": 497,
+      "overflow": false,
+      "phase": "change"
+    },
+    {
+      "time": 6220,
+      "name": "“La receta ya la tenía. Con mi turno armé el kit para mis pizzas.”\nCarolina Nieves · Caracas",
+      "photo": 1,
+      "opacities": [
+        1,
+        0.736124,
+        0,
+        0,
+        0
+      ],
+      "counterY": 135,
+      "cardY": 497,
+      "overflow": false,
+      "phase": "mid"
+    },
+    {
+      "time": 6720,
+      "name": "“La receta ya la tenía. Con mi turno armé el kit para mis pizzas.”\nCarolina Nieves · Caracas",
+      "photo": 1,
+      "opacities": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "counterY": 135,
+      "cardY": 497,
+      "overflow": false,
+      "phase": "settled"
+    },
+    {
+      "time": 11118,
+      "name": "“Con mi turno reuní para los termos y el café. ¡Listo para acompañar la mañana de mis panas!”\nDeivy Márquez · Miranda",
+      "photo": 2,
+      "opacities": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "counterY": 135,
+      "cardY": 497,
+      "overflow": false,
+      "phase": "change"
+    },
+    {
+      "time": 11219,
+      "name": "“Con mi turno reuní para los termos y el café. ¡Listo para acompañar la mañana de mis panas!”\nDeivy Márquez · Miranda",
+      "photo": 2,
+      "opacities": [
+        0,
+        1,
+        0.703798,
+        0,
+        0
+      ],
+      "counterY": 135,
+      "cardY": 497,
+      "overflow": false,
+      "phase": "mid"
+    },
+    {
+      "time": 11719,
+      "name": "“Con mi turno reuní para los termos y el café. ¡Listo para acompañar la mañana de mis panas!”\nDeivy Márquez · Miranda",
+      "photo": 2,
+      "opacities": [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "counterY": 135,
+      "cardY": 497,
+      "overflow": false,
+      "phase": "settled"
+    },
+    {
+      "time": 16117,
+      "name": "“¡Con TuTurno completé para invertir en mi negocio!”\nBernardo Caldeira · Caracas",
+      "photo": 3,
+      "opacities": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "counterY": 135,
+      "cardY": 497,
+      "overflow": false,
+      "phase": "change"
+    },
+    {
+      "time": 16218,
+      "name": "“¡Con TuTurno completé para invertir en mi negocio!”\nBernardo Caldeira · Caracas",
+      "photo": 3,
+      "opacities": [
+        0,
+        0,
+        1,
+        0.703798,
+        0
+      ],
+      "counterY": 135,
+      "cardY": 497,
+      "overflow": false,
+      "phase": "mid"
+    },
+    {
+      "time": 16718,
+      "name": "“¡Con TuTurno completé para invertir en mi negocio!”\nBernardo Caldeira · Caracas",
+      "photo": 3,
+      "opacities": [
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "counterY": 135,
+      "cardY": 497,
+      "overflow": false,
+      "phase": "settled"
+    },
+    {
+      "time": 21117,
+      "name": "“Con ese SAN pude comprar mi primer kit para hacer manos y pies.”\nYenifer Abreu · Anzoátegui",
+      "photo": 4,
+      "opacities": [
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "counterY": 135,
+      "cardY": 497,
+      "overflow": false,
+      "phase": "change"
+    },
+    {
+      "time": 21218,
+      "name": "“Con ese SAN pude comprar mi primer kit para hacer manos y pies.”\nYenifer Abreu · Anzoátegui",
+      "photo": 4,
+      "opacities": [
+        0,
+        0,
+        0,
+        1,
+        0.703798
+      ],
+      "counterY": 135,
+      "cardY": 497,
+      "overflow": false,
+      "phase": "mid"
+    },
+    {
+      "time": 21718,
+      "name": "“Con ese SAN pude comprar mi primer kit para hacer manos y pies.”\nYenifer Abreu · Anzoátegui",
+      "photo": 4,
+      "opacities": [
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "counterY": 135,
+      "cardY": 497,
+      "overflow": false,
+      "phase": "settled"
+    },
+    {
+      "time": 26120,
+      "name": "“Con mi turno compré los materiales para arrancar con mis arepas. El sazón lo pongo yo.”\nMary Delgado · Caracas",
+      "photo": 0,
+      "opacities": [
+        0.009047,
+        0,
+        0,
+        0,
+        1
+      ],
+      "counterY": 135,
+      "cardY": 497,
+      "overflow": false,
+      "phase": "change"
+    },
+    {
+      "time": 26222,
+      "name": "“Con mi turno compré los materiales para arrancar con mis arepas. El sazón lo pongo yo.”\nMary Delgado · Caracas",
+      "photo": 0,
+      "opacities": [
+        0.712193,
+        0,
+        0,
+        0,
+        1
+      ],
+      "counterY": 135,
+      "cardY": 497,
+      "overflow": false,
+      "phase": "mid"
+    },
+    {
+      "time": 26722,
+      "name": "“Con mi turno compré los materiales para arrancar con mis arepas. El sazón lo pongo yo.”\nMary Delgado · Caracas",
+      "photo": 0,
+      "opacities": [
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "counterY": 135,
+      "cardY": 497,
+      "overflow": false,
+      "phase": "settled"
+    }
+  ],
+  "errors": []
+}
