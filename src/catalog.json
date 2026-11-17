@@ -1,0 +1,167 @@
+[
+  {
+    "id": "1",
+    "screen": "1",
+    "variant": "base"
+  },
+  {
+    "id": "2",
+    "screen": "2",
+    "variant": "base"
+  },
+  {
+    "id": "3",
+    "screen": "3",
+    "variant": "base"
+  },
+  {
+    "id": "4a",
+    "screen": "4a",
+    "variant": "base"
+  },
+  {
+    "id": "4a-selected",
+    "screen": "4a",
+    "variant": "selected"
+  },
+  {
+    "id": "4b",
+    "screen": "4b",
+    "variant": "base"
+  },
+  {
+    "id": "4c",
+    "screen": "4c",
+    "variant": "base"
+  },
+  {
+    "id": "4c-1",
+    "screen": "4c",
+    "variant": "guide"
+  },
+  {
+    "id": "4c-2",
+    "screen": "4c",
+    "variant": "guide2"
+  },
+  {
+    "id": "4c-3",
+    "screen": "4c",
+    "variant": "guide3"
+  },
+  {
+    "id": "5",
+    "screen": "5",
+    "variant": "base"
+  },
+  {
+    "id": "5-guide",
+    "screen": "5",
+    "variant": "guide"
+  },
+  {
+    "id": "6",
+    "screen": "6",
+    "variant": "base"
+  },
+  {
+    "id": "6-1",
+    "screen": "6",
+    "variant": "guide"
+  },
+  {
+    "id": "6-2",
+    "screen": "6",
+    "variant": "guide2"
+  },
+  {
+    "id": "6-3",
+    "screen": "6",
+    "variant": "guide3"
+  },
+  {
+    "id": "7",
+    "screen": "7",
+    "variant": "base"
+  },
+  {
+    "id": "7-guide",
+    "screen": "7",
+    "variant": "guide"
+  },
+  {
+    "id": "7b",
+    "screen": "7b",
+    "variant": "base"
+  },
+  {
+    "id": "7b-guide",
+    "screen": "7b",
+    "variant": "guide"
+  },
+  {
+    "id": "8",
+    "screen": "8",
+    "variant": "base"
+  },
+  {
+    "id": "8-guide",
+    "screen": "8",
+    "variant": "guide"
+  },
+  {
+    "id": "8-ready",
+    "screen": "8",
+    "variant": "ready"
+  },
+  {
+    "id": "9",
+    "screen": "9",
+    "variant": "base"
+  },
+  {
+    "id": "10",
+    "screen": "10",
+    "variant": "base"
+  },
+  {
+    "id": "10-other",
+    "screen": "10",
+    "variant": "other"
+  },
+  {
+    "id": "11",
+    "screen": "11",
+    "variant": "base"
+  },
+  {
+    "id": "11b",
+    "screen": "11b",
+    "variant": "base"
+  },
+  {
+    "id": "12",
+    "screen": "12",
+    "variant": "base"
+  },
+  {
+    "id": "12-other",
+    "screen": "12",
+    "variant": "other"
+  },
+  {
+    "id": "12c",
+    "screen": "12c",
+    "variant": "base"
+  },
+  {
+    "id": "12d",
+    "screen": "12d",
+    "variant": "base"
+  },
+  {
+    "id": "13",
+    "screen": "13",
+    "variant": "base"
+  }
+]

@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {readFileSync,existsSync} from 'node:fs';
+import {initialState,paymentTerms,previous,paymentFailed,restoreSan} from '../src/flow/state.ts';
+assert.deepEqual(paymentTerms('weekly'),{quota:10,service:1.74,total:11.74,seats:10});
+assert.deepEqual(paymentTerms('fortnightly'),{quota:20,service:3.48,total:23.48,seats:5});
+for(const screen of ['4c','6']) for(const rule of [1,2]) assert.equal(previous({...initialState(screen),rule}).rule,rule-1);
+assert.equal(previous(initialState('5')).rule,2);
+const accepted={...initialState('12'),idea:4,frequency:'fortnightly',termsRead:true,accepted:[true,true,true]};
+assert.deepEqual(paymentFailed(accepted),{...accepted,screen:'12c'});
+const restored=restoreSan(accepted,'4a');assert.equal(restored.screen,'4a');assert.equal(restored.idea,4);assert.equal(restored.frequency,'fortnightly');assert.deepEqual(restored.accepted,[true,true,true]);
+assert.deepEqual(restoreSan({accepted:[true,true,true],termsRead:false},'4a').accepted,[false,false,false]);
+const scripts=JSON.parse(readFileSync('assets/audio/manifest.json','utf8'));assert.equal(scripts.voices.length,15);
+for(const voice of scripts.voices)assert(existsSync('assets/audio/'+voice.file),voice.file);
+const lock=JSON.parse(readFileSync('package-lock.json','utf8'));assert(!Object.keys(lock.packages).some(k=>/(^|\/)node_modules\/(expo(?:-[^/]+)?|@expo\/[^/]+)$/.test(k)),'Expo dependency found');
+console.log('Flow contracts passed: pricing, backward steps, retained consent/San,15 recordings and zero Expo dependencies.');

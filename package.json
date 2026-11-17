@@ -1,0 +1,38 @@
+{
+  "name": "tuturno-flujo-venezuela",
+  "version": "20.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "typecheck": "tsc --noEmit",
+    "check:language": "node scripts/check-language.mjs",
+    "check": "npm run typecheck && npm run check:language && node scripts/check-flow.mjs",
+    "deploy": "npm run build && wrangler deploy --config wrangler.jsonc"
+  },
+  "dependencies": {
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native-reanimated": "4.5.1",
+    "react-native-safe-area-context": "5.7.0",
+    "react-native-svg": "15.15.4",
+    "react-native-web": "0.21.2",
+    "react-native-worklets": "0.10.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.29.0",
+    "@babel/plugin-transform-export-namespace-from": "7.27.1",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "@vitejs/plugin-react": "5.1.4",
+    "react-native": "0.86.3",
+    "typescript": "6.0.3",
+    "vite": "7.3.8",
+    "wrangler": "4.160.1"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}

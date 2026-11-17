@@ -1,0 +1,299 @@
+[
+  {
+    "screen": "1",
+    "page": 6,
+    "xref": 268,
+    "width": 720,
+    "height": 1600,
+    "file": "docs/references/1.png",
+    "sha256": "28d4cdc7e3a7a80defcde0d698ce055a8ba5a80dcf6059469371bea6e6e6733c"
+  },
+  {
+    "screen": "2",
+    "page": 7,
+    "xref": 300,
+    "width": 720,
+    "height": 1600,
+    "file": "docs/references/2.png",
+    "sha256": "3b0bb720e68eaf5c647a17aaeaadff9d613595f5e1ad82237e4c8d9891c6f3aa"
+  },
+  {
+    "screen": "3",
+    "page": 8,
+    "xref": 332,
+    "width": 720,
+    "height": 1600,
+    "file": "docs/references/3.png",
+    "sha256": "3013d7603e94b7d4855748c5d44506afcbdc63f8cdf7458918830b90bd0c2ba8"
+  },
+  {
+    "screen": "4a",
+    "page": 9,
+    "xref": 367,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/4a.png",
+    "sha256": "86f266a787c2995e7dd0e622fb0aa649e69aa584092ef5522f2270efb9ebfd2c"
+  },
+  {
+    "screen": "4a-selected",
+    "page": 9,
+    "xref": 369,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/4a-selected.png",
+    "sha256": "313ee06d438417bdd2a129b925143b733a9262ada22673c009c03bb27014eebf"
+  },
+  {
+    "screen": "4b",
+    "page": 10,
+    "xref": 401,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/4b.png",
+    "sha256": "48bc0743d41eb9928cf6fb2d3f52b5ab3b64e98ad8b1b66a1d06417618945011"
+  },
+  {
+    "screen": "4c",
+    "page": 11,
+    "xref": 442,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/4c.png",
+    "sha256": "edc6b2a8428189632b4fd3aa7ae137dbf62476f44ed93f7099bd59d0e5fa88a7"
+  },
+  {
+    "screen": "4c-1",
+    "page": 11,
+    "xref": 444,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/4c-1.png",
+    "sha256": "f633bac21820043f9cf493175ebf14a4cb640347f4e6b2dc05b5f93d416e1549"
+  },
+  {
+    "screen": "4c-2",
+    "page": 11,
+    "xref": 446,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/4c-2.png",
+    "sha256": "864acf77bbb92da3d6307c28ee097141a78ce124fc563145d8e560a16abbda2c"
+  },
+  {
+    "screen": "4c-3",
+    "page": 11,
+    "xref": 448,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/4c-3.png",
+    "sha256": "c48ffd118d90b91eacc0f2a33e85c556866938f580c3e6e56b135b3d055123cb"
+  },
+  {
+    "screen": "5",
+    "page": 12,
+    "xref": 483,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/5.png",
+    "sha256": "4dc39949ebc234a5141e9bf11b4855a68a1f76d72a285798e4986df2216f133b"
+  },
+  {
+    "screen": "5-guide",
+    "page": 12,
+    "xref": 485,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/5-guide.png",
+    "sha256": "489b00a9aea169e30bd09e298af69d4ee9b4d52e4bcbf27d0017bb48b67b740e"
+  },
+  {
+    "screen": "6",
+    "page": 13,
+    "xref": 526,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/6.png",
+    "sha256": "2d55689be2b7fbfb10757381553010f0c864b80f8e5ddcfa52094a0394d5f0d4"
+  },
+  {
+    "screen": "6-1",
+    "page": 13,
+    "xref": 528,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/6-1.png",
+    "sha256": "cebdf9f593734d2a5072997add3505750e277d8dff35e65c4641b77b4f74b8b3"
+  },
+  {
+    "screen": "6-2",
+    "page": 13,
+    "xref": 530,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/6-2.png",
+    "sha256": "f886069349c8091824d3fdd5e11894d4fb324f0150b2b4d31e5ca4fe55f50de6"
+  },
+  {
+    "screen": "6-3",
+    "page": 13,
+    "xref": 532,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/6-3.png",
+    "sha256": "40c0c46e33662089e31071f59826ca42577d87878d02192e0338b8c000d29524"
+  },
+  {
+    "screen": "7",
+    "page": 14,
+    "xref": 572,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/7.png",
+    "sha256": "fe9b85bf62a5c13069df5d3da03f112cabfff5f9453cc28917dddb0b11988811"
+  },
+  {
+    "screen": "7-guide",
+    "page": 14,
+    "xref": 574,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/7-guide.png",
+    "sha256": "e009615814c754d1702bddab7d2e6d55c90ab863fdd1a6518bd36da7b2b50700"
+  },
+  {
+    "screen": "7b",
+    "page": 15,
+    "xref": 614,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/7b.png",
+    "sha256": "35b0d7327fe912b7fb11697e2a0e71736ef0b378bfe98f8bc183ae1f86fadc1e"
+  },
+  {
+    "screen": "7b-guide",
+    "page": 15,
+    "xref": 616,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/7b-guide.png",
+    "sha256": "c990ae216a9b368db7ad50c06f7a4354e272bd4abe1007dc5fb2fa5f5c7ed580"
+  },
+  {
+    "screen": "8",
+    "page": 16,
+    "xref": 654,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/8.png",
+    "sha256": "4efc6a3b5218a11c588bd992f5cdd04681b3dd601205acc1fd7a45849435960b"
+  },
+  {
+    "screen": "8-guide",
+    "page": 16,
+    "xref": 656,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/8-guide.png",
+    "sha256": "cd23faf14d31b04241d2f4f2a71f327a9aca6f994b3eeb255eabffba803c7c11"
+  },
+  {
+    "screen": "8-ready",
+    "page": 16,
+    "xref": 658,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/8-ready.png",
+    "sha256": "cf84168105496e9619227aea317c499e7681cce21826ba2033320488ed547048"
+  },
+  {
+    "screen": "9",
+    "page": 17,
+    "xref": 690,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/9.png",
+    "sha256": "48a247762d6b28a77b79a12b6d8d605d3bc0f27d06b6a0c68df05c68e795a1ea"
+  },
+  {
+    "screen": "10",
+    "page": 18,
+    "xref": 735,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/10.png",
+    "sha256": "55a86d1896e5fd82138ff50613b64d1d5f57faed32467e8ac56195cf369ca624"
+  },
+  {
+    "screen": "10-other",
+    "page": 18,
+    "xref": 737,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/10-other.png",
+    "sha256": "5733d52c2f4b4d37cd3e3666ef7fb848f566f636811c7ae08296c1cc57ec9dff"
+  },
+  {
+    "screen": "11",
+    "page": 19,
+    "xref": 774,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/11.png",
+    "sha256": "69887ba72f5f3c492535301c2d4dfa3801d75af1ef78b2cde45cc2b00546badf"
+  },
+  {
+    "screen": "11b",
+    "page": 20,
+    "xref": 806,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/11b.png",
+    "sha256": "fdf3435d0620e9e34d2dbc08e44c385a001a8ac13745252ce4bfa8369049df2b"
+  },
+  {
+    "screen": "12",
+    "page": 21,
+    "xref": 846,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/12.png",
+    "sha256": "0f14c05900c7c781f3ca63078f1c85f35e06a95e15c4ab21cd85b8fafd8b8b60"
+  },
+  {
+    "screen": "12-other",
+    "page": 21,
+    "xref": 848,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/12-other.png",
+    "sha256": "39054934c4a2e570c83e49281ec711c197845a10171b035feed7eccfa5ec0a16"
+  },
+  {
+    "screen": "12c",
+    "page": 22,
+    "xref": 880,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/12c.png",
+    "sha256": "a9311be4d319eccf3886661246f824fbc05e241255b7eba8a3d13fcc048e25fe"
+  },
+  {
+    "screen": "12d",
+    "page": 23,
+    "xref": 912,
+    "width": 1080,
+    "height": 2400,
+    "file": "docs/references/12d.png",
+    "sha256": "4daf96955dcee48b761265f3c506904c19b898cf05d127d401ebaaa976024235"
+  },
+  {
+    "screen": "13",
+    "page": 24,
+    "xref": 944,
+    "width": 720,
+    "height": 1559,
+    "file": "docs/references/13.png",
+    "sha256": "4135f2c95f62797920af1373cc0f7f848d2980225957ae1fdbb9b2efa47aaa91"
+  }
+]

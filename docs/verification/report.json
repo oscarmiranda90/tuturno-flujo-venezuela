@@ -1,0 +1,25 @@
+{
+  "expoPackages": [],
+  "interactionPass": true,
+  "pdfPages": 25,
+  "fieldsFilled": 64,
+  "privateNotesInSeparateManual": true,
+  "figma": {
+    "fileKey": "3xFhB0S4URrLZu0bzcqYuy",
+    "textLayers": 650,
+    "vectors": 528,
+    "screenSections": 33,
+    "paletteBindings": 716,
+    "nextButtonInstances": 10,
+    "finalScreenshot": "Unavailable: Starter MCP quota exhausted"
+  },
+  "dispenserRecomposition": "Exact source pixels, verified before runtime layer substitution",
+  "checks": [
+    "TypeScript",
+    "neutral Spanish",
+    "pricing/backtracking/consent state",
+    "15 mono voice assets",
+    "no Expo dependencies",
+    "full browser walkthrough"
+  ]
+}

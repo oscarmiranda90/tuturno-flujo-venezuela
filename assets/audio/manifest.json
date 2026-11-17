@@ -1,0 +1,145 @@
+{
+  "guide": "v20 page4",
+  "voiceId": "J3IVA4gky83c6u110Yk6",
+  "voices": [
+    {
+      "screen": "4a",
+      "file": "tutu_4a_ve.mp3",
+      "text": "¡Increíble! Lo vas a lograr.",
+      "sha256": "52f7057f48bcc4ee8c936049ab76d8f4119f8b8c0c6512917d094cae4284a959",
+      "durationSeconds": 1.417438,
+      "channels": 1,
+      "timingAdaptation": "Tempo1.7 to finish before the required1.5s transition; pitch preserved."
+    },
+    {
+      "screen": "4b",
+      "file": "tutu_4b_ve.mp3",
+      "text": "¿Seguimos? Activa los avisos y te acompaño paso a paso, hasta el día que te toca cobrar.",
+      "sha256": "1cacf5c7f56813d5a82147462c019616f01cb1fd11086430ea2e4a8cbef06a89",
+      "durationSeconds": 5.92,
+      "channels": 1,
+      "timingAdaptation": null
+    },
+    {
+      "screen": "4c · 1",
+      "file": "tutu_4c_1_ve.mp3",
+      "text": "Todos ponen lo mismo. €10 cada semana.",
+      "sha256": "5ee8a8233cf701fab0b75a52dd1a9a71b5bfe4cfbd37d9b46b7bbd4cdfaf51f1",
+      "durationSeconds": 3.44,
+      "channels": 1,
+      "timingAdaptation": null
+    },
+    {
+      "screen": "4c · 2",
+      "file": "tutu_4c_2_ve.mp3",
+      "text": "Uno cobra todo junto. Los €100 de una vez.",
+      "sha256": "baf9f613954199a70ef52f3050d76dabbb3fff72c2f76ac36f9e59def0437b4e",
+      "durationSeconds": 3.76,
+      "channels": 1,
+      "timingAdaptation": null
+    },
+    {
+      "screen": "4c · 3",
+      "file": "tutu_4c_3_ve.mp3",
+      "text": "Después le toca al siguiente. Todos cobran. Tú también.",
+      "sha256": "0d2ff0f10dcccb3aa692cfdc41ab4d8fe966b7ca72c07af3431d544d02bb903d",
+      "durationSeconds": 4.08,
+      "channels": 1,
+      "timingAdaptation": null
+    },
+    {
+      "screen": "5",
+      "file": "tutu_5_ve.mp3",
+      "text": "Todo a una cuenta. Garantía y servicio ya van en tu cuota.",
+      "sha256": "4c4c0d8e3b2220daf1d24cf6330e5e6df956778ce2174897b9af91c810cbde8f",
+      "durationSeconds": 4.16,
+      "channels": 1,
+      "timingAdaptation": null
+    },
+    {
+      "screen": "6 · 1",
+      "file": "tutu_6_1_ve.mp3",
+      "text": "De una sola cuenta. TuTurno te manda los €100.",
+      "sha256": "8fa2a3872de4ea18d75e7f2935f213c67d5a8bff4fe22bc43fa437d0c90dd99c",
+      "durationSeconds": 4.4,
+      "channels": 1,
+      "timingAdaptation": null
+    },
+    {
+      "screen": "6 · 2",
+      "file": "tutu_6_2_ve.mp3",
+      "text": "Es por el grupo. Así todos cobran completo.",
+      "sha256": "0569f5dbbc067abbdfad5e3f5aac60be136bce9c5dd638f62cce8b693a5ba601",
+      "durationSeconds": 3.2,
+      "channels": 1,
+      "timingAdaptation": null
+    },
+    {
+      "screen": "6 · 3",
+      "file": "tutu_6_3_ve.mp3",
+      "text": "¡Pruébalo tú! Toca y mira cómo llega tu turno.",
+      "sha256": "9594d2e39b43703c2cfc3bd607aa3762ab2b3ba9932d6af39600e03490b6fb38",
+      "durationSeconds": 3.36,
+      "channels": 1,
+      "timingAdaptation": null
+    },
+    {
+      "screen": "7",
+      "file": "tutu_7_ve.mp3",
+      "text": "Lo que pagas hoy. Tu primera cuota, con garantía y servicio.",
+      "sha256": "c76fdbce52520298f68ef870bccedcb53b7e07cebc4dc8ee126e6480f6ab33ab",
+      "durationSeconds": 4.24,
+      "channels": 1,
+      "timingAdaptation": null
+    },
+    {
+      "screen": "7b",
+      "file": "tutu_7b_ve.mp3",
+      "text": "¡Así de fácil! Prepárate, que ya casi vas con el de verdad.",
+      "sha256": "ed9cea6c7ab874c0a5bdde17fb63533cc88a1e90eaa2382ee093f488481044c1",
+      "durationSeconds": 3.84,
+      "channels": 1,
+      "timingAdaptation": null
+    },
+    {
+      "screen": "8",
+      "file": "tutu_8_ve.mp3",
+      "text": "Solo una vez. Falta lo mejor: tu turno.",
+      "sha256": "fba09ba63846bbd8ada4e49f05996d5b78faf10866d3e97816bbf6fe857b1071",
+      "durationSeconds": 3.76,
+      "channels": 1,
+      "timingAdaptation": null
+    },
+    {
+      "screen": "9",
+      "file": "tutu_9_ve.mp3",
+      "text": "¡Ya sabes cómo cobrar tus €100!",
+      "sha256": "a0820397aa50798e909ba5ed65f621d81939274f464546b96fcb481a06ba40d4",
+      "durationSeconds": 2.8,
+      "channels": 1,
+      "timingAdaptation": null
+    },
+    {
+      "screen": "10",
+      "file": "tutu_10_ve.mp3",
+      "text": "¡Ahora sí, el de verdad!",
+      "sha256": "a84177ec80b5b501e899015a1904aa3b01c6c38fa9dc152356b9f7b652edfef1",
+      "durationSeconds": 2.0,
+      "channels": 1,
+      "timingAdaptation": null
+    },
+    {
+      "screen": "11",
+      "file": "tutu_11_ve.mp3",
+      "text": "¡Ya casi tienes tu turno!",
+      "sha256": "0a8ead2aa3af447f511c6b638570d6488f2811dc86f3248f4ec5f5d355841826",
+      "durationSeconds": 1.92,
+      "channels": 1,
+      "timingAdaptation": null
+    }
+  ],
+  "printer": {
+    "file": "printer.mp3",
+    "status": "Proposed procedural printer motor for review; no third sound category."
+  }
+}

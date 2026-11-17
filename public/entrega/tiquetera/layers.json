@@ -1,0 +1,11 @@
+{
+  "canvas": [
+    960,
+    804
+  ],
+  "reconstruction": "cuerpo + vidrio + boca exactly reconstruct the approved source pixels",
+  "glass": "Specular surface/window reflection extracted losslessly from the approved artwork; no new machine design.",
+  "runtime": "src/components/turn/TurnTicketDispenser.tsx",
+  "paper": "The runtime paper is vector and independently animated;papelito.png is the supplied still reference.",
+  "confetti": "A static vector particle preview; runtime trajectories live in the component."
+}

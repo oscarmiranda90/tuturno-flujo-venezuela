@@ -1,0 +1,135 @@
+{
+  "voice_id": "J3IVA4gky83c6u110Yk6",
+  "model_id": "eleven_v3",
+  "recordings": {
+    "5": {
+      "file": "tutu_5_ve.mp3",
+      "spokenText": "Todo a una cuenta. Garantía y servicio ya van en tu cuota.",
+      "sha256": "4c4c0d8e3b2220daf1d24cf6330e5e6df956778ce2174897b9af91c810cbde8f",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "4.160000"
+      }
+    },
+    "7": {
+      "file": "tutu_7_ve.mp3",
+      "spokenText": "Lo que pagas hoy. Tu primera cuota, con garantía y servicio.",
+      "sha256": "c76fdbce52520298f68ef870bccedcb53b7e07cebc4dc8ee126e6480f6ab33ab",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "4.240000"
+      }
+    },
+    "9": {
+      "file": "tutu_9_ve.mp3",
+      "spokenText": "¡Ya sabes cómo cobrar tus cien euros!",
+      "sha256": "a0820397aa50798e909ba5ed65f621d81939274f464546b96fcb481a06ba40d4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "2.800000"
+      }
+    },
+    "4a": {
+      "file": "tutu_4a_ve.mp3",
+      "spokenText": "¡Increíble! Lo vas a lograr.",
+      "sha256": "52f7057f48bcc4ee8c936049ab76d8f4119f8b8c0c6512917d094cae4284a959",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "1.417438"
+      },
+      "postprocess": "pitch-preserving atempo1.7"
+    },
+    "4b": {
+      "file": "tutu_4b_ve.mp3",
+      "spokenText": "¿Seguimos? Activa los avisos y te acompaño paso a paso, hasta el día que te toca cobrar.",
+      "sha256": "1cacf5c7f56813d5a82147462c019616f01cb1fd11086430ea2e4a8cbef06a89",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "5.920000"
+      }
+    },
+    "4c_1": {
+      "file": "tutu_4c_1_ve.mp3",
+      "spokenText": "Todos ponen lo mismo. Diez euros cada semana.",
+      "sha256": "5ee8a8233cf701fab0b75a52dd1a9a71b5bfe4cfbd37d9b46b7bbd4cdfaf51f1",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "3.440000"
+      }
+    },
+    "4c_2": {
+      "file": "tutu_4c_2_ve.mp3",
+      "spokenText": "Uno cobra todo junto. Los cien euros de una vez.",
+      "sha256": "baf9f613954199a70ef52f3050d76dabbb3fff72c2f76ac36f9e59def0437b4e",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "3.760000"
+      }
+    },
+    "4c_3": {
+      "file": "tutu_4c_3_ve.mp3",
+      "spokenText": "Después le toca al siguiente. Todos cobran. Tú también.",
+      "sha256": "0d2ff0f10dcccb3aa692cfdc41ab4d8fe966b7ca72c07af3431d544d02bb903d",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "format": {
+        "duration": "4.080000"
+      }
+    }
+  }
+}

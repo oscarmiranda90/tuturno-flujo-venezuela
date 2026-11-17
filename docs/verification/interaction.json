@@ -1,0 +1,289 @@
+{
+  "passed": true,
+  "actions": [
+    {
+      "action": "Continuar →",
+      "at": 1794940480141
+    },
+    {
+      "assertion": "Revisa tu correo",
+      "at": 1794940480467
+    },
+    {
+      "action": "Autocompletar código 482915",
+      "at": 1794940480594
+    },
+    {
+      "assertion": "Crea tu clave",
+      "at": 1794940480911
+    },
+    {
+      "action": "6",
+      "at": 1794940481034
+    },
+    {
+      "action": "2",
+      "at": 1794940481348
+    },
+    {
+      "action": "8",
+      "at": 1794940481658
+    },
+    {
+      "action": "1",
+      "at": 1794940481972
+    },
+    {
+      "action": "9",
+      "at": 1794940482284
+    },
+    {
+      "action": "4",
+      "at": 1794940482604
+    },
+    {
+      "assertion": "Repite tu clave",
+      "at": 1794940482918
+    },
+    {
+      "action": "6",
+      "at": 1794940483043
+    },
+    {
+      "action": "2",
+      "at": 1794940483356
+    },
+    {
+      "action": "8",
+      "at": 1794940483670
+    },
+    {
+      "action": "1",
+      "at": 1794940483985
+    },
+    {
+      "action": "9",
+      "at": 1794940484303
+    },
+    {
+      "action": "4",
+      "at": 1794940484615
+    },
+    {
+      "assertion": "¿Qué harías con €100",
+      "at": 1794940484930
+    },
+    {
+      "action": "Montar mi negocio",
+      "at": 1794940485064
+    },
+    {
+      "assertion": "¡Increíble!",
+      "at": 1794940485393
+    },
+    {
+      "assertion": "¿Seguimos?",
+      "at": 1794940486624
+    },
+    {
+      "action": "Ahora no",
+      "at": 1794940486762
+    },
+    {
+      "assertion": "Todos ponen lo mismo",
+      "at": 1794940487816
+    },
+    {
+      "action": "Silenciar voz de Tutu",
+      "at": 1794940487966
+    },
+    {
+      "action": "Siguiente",
+      "at": 1794940488284
+    },
+    {
+      "assertion": "Uno cobra todo junto",
+      "at": 1794940488750
+    },
+    {
+      "action": "Activar voz de Tutu",
+      "at": 1794940489005
+    },
+    {
+      "action": "Siguiente",
+      "at": 1794940489330
+    },
+    {
+      "assertion": "Todos cobran. Tú también.",
+      "at": 1794940489803
+    },
+    {
+      "action": "Siguiente",
+      "at": 1794940489932
+    },
+    {
+      "assertion": "Garantía y servicio\nya van en tu cuota.",
+      "at": 1794940491079
+    },
+    {
+      "action": "Siguiente",
+      "at": 1794940491213
+    },
+    {
+      "assertion": "De una sola cuenta",
+      "at": 1794940492360
+    },
+    {
+      "action": "Siguiente",
+      "at": 1794940492491
+    },
+    {
+      "assertion": "Es por el grupo",
+      "at": 1794940492986
+    },
+    {
+      "action": "Siguiente",
+      "at": 1794940493118
+    },
+    {
+      "assertion": "¡Pruébalo tú!",
+      "at": 1794940493585
+    },
+    {
+      "action": "Siguiente",
+      "at": 1794940493715
+    },
+    {
+      "action": "Toca para simular tu turno",
+      "at": 1794940494203
+    },
+    {
+      "action": "Siguiente",
+      "at": 1794940496845
+    },
+    {
+      "assertion": "Práctica · No se cobra nada",
+      "at": 1794940497332
+    },
+    {
+      "assertion": "Tu primera cuota, con\ngarantía y servicio.",
+      "at": 1794940498140
+    },
+    {
+      "action": "Siguiente",
+      "at": 1794940498271
+    },
+    {
+      "action": "Pagar €11,74",
+      "at": 1794940498764
+    },
+    {
+      "assertion": "PRÁCTICA\nSUPERADA",
+      "at": 1794940501912
+    },
+    {
+      "assertion": "¡Así de fácil!",
+      "at": 1794940503055
+    },
+    {
+      "action": "Siguiente",
+      "at": 1794940503211
+    },
+    {
+      "assertion": "Aquí todos están verificados",
+      "at": 1794940503710
+    },
+    {
+      "assertion": "Falta lo mejor:\ntu turno.",
+      "at": 1794940504544
+    },
+    {
+      "action": "Siguiente",
+      "at": 1794940507209
+    },
+    {
+      "action": "Siguiente",
+      "at": 1794940507703
+    },
+    {
+      "assertion": "¡Ya sabes cómo cobrar tus €100!",
+      "at": 1794940508184
+    },
+    {
+      "action": "Repetir animación",
+      "at": 1794940508318
+    },
+    {
+      "action": "Cobrar mi turno",
+      "at": 1794940510056
+    },
+    {
+      "assertion": "La más elegida",
+      "at": 1794940510373
+    },
+    {
+      "action": "Escoger San quincenal",
+      "at": 1794940510635
+    },
+    {
+      "assertion": "Lo que aceptas",
+      "at": 1794940510976
+    },
+    {
+      "assertion": "Llegaste al final",
+      "at": 1794940511321
+    },
+    {
+      "action": "A. He leído y acepto los Términos Generales de TU TURNO y los Términos y Condiciones para Venezuela, y autorizo el tratamiento de mis datos personales conforme a la Cláusula Octava, incluida su transferencia a servidores en Estados Unidos.",
+      "at": 1794940511594
+    },
+    {
+      "action": "B. Autorizo el uso de mis datos biométricos (selfie y prueba de vida) para verificar mi identidad.",
+      "at": 1794940511917
+    },
+    {
+      "action": "C. Acepto que el servicio empieza de inmediato.",
+      "at": 1794940512241
+    },
+    {
+      "action": "Acepto",
+      "at": 1794940512574
+    },
+    {
+      "assertion": "€23,48",
+      "at": 1794940512891
+    },
+    {
+      "action": "Pagar €23,48",
+      "at": 1794940513144
+    },
+    {
+      "assertion": "Volver al pago",
+      "at": 1794940513459
+    },
+    {
+      "action": "Simular regreso con pago fallido",
+      "at": 1794940513588
+    },
+    {
+      "assertion": "Tu pago no se completó.",
+      "at": 1794940513913
+    },
+    {
+      "action": "¿Hoy no tienes la plata? Te lo recordamos después.",
+      "at": 1794940514165
+    },
+    {
+      "assertion": "Listo, te avisamos",
+      "at": 1794940514489
+    },
+    {
+      "action": "Entendido",
+      "at": 1794940514622
+    },
+    {
+      "assertion": "€23,48",
+      "at": 1794940514936
+    }
+  ]
+}
