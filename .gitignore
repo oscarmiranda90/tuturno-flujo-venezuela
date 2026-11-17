@@ -18,3 +18,7 @@ android/**/build/
 android/app/src/main/assets/
 *.keystore
 *.jks
+
+# Plugin de Figma compilado; las fuentes originales viven en assets/fonts.
+/figma-plugin/code.js
+/figma-plugin/Fuentes/

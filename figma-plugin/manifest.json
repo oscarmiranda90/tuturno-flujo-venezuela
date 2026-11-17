@@ -1,0 +1,10 @@
+{
+  "name": "TuTurno · Pantallas editables v20",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page",
+  "networkAccess": { "allowedDomains": ["none"] },
+  "relaunchButtons": [{ "command": "abrir", "name": "Generar pantallas TuTurno", "multipleSelection": true }]
+}

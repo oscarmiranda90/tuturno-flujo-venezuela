@@ -1242,3 +1242,18 @@ San Experto (segundo San).
 El flujo de Colombia.
 ¡Listo! después del pago y la verificación real.
 
+
+## Plugin de Figma · pantallas editables
+
+[Descargar TuTurno-Plugin-Figma-v20.zip](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/figma-v20.0.0/TuTurno-Plugin-Figma-v20.zip)
+
+Genera 37 pantallas y estados del código v20 como capas editables, incluidos los cinco testimonios del login. Permite importar una pantalla, el login con el paseo guiado o todo el catálogo, y ordenar los marcos en columnas. Funciona sin conexión e incluye las fuentes originales.
+
+Descomprime el ZIP y, en Figma Desktop, selecciona **Plugins → Development → Import plugin from manifest…**. Abre `figma-plugin/manifest.json` y ejecuta **TuTurno · Pantallas editables v20**. [Instrucciones completas](figma-plugin/LEEME.md) · [Alcance y verificación](docs/verification/figma-plugin/README.md).
+
+```sh
+npm run figma:compilar
+npm run figma:verificar
+```
+
+El compilador utiliza el catálogo incorporado en `figma-plugin/recursos/pantallas.json` y genera `figma-plugin/code.js` y el ZIP en `descargas/`. Para actualizar el catálogo desde el código, inicia la vista previa en el puerto 5210 y ejecuta `npm run figma:exportar` con Playwright disponible; `TUTURNO_PLAYWRIGHT_PATH` puede apuntar al archivo de entrada de `playwright-core`. `TUTURNO_FIGMA_URL` permite cambiar la dirección de la vista previa. Después, vuelve a compilar y verificar.

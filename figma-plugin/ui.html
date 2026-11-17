@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{color-scheme:light dark;font-family:Inter,system-ui,sans-serif;font-size:12px;color:var(--figma-color-text,#202124);background:var(--figma-color-bg,#fff)}*{box-sizing:border-box}body{margin:0;padding:20px;display:flex;min-height:500px;flex-direction:column;gap:18px}h1{font-size:18px;line-height:1.3;margin:0 0 8px}p{line-height:1.6;margin:0;color:var(--figma-color-text-secondary,#626772)}label{display:block;font-weight:600;margin-bottom:8px}select,input,button{font:inherit}select,input{width:100%;padding:10px;border:1px solid var(--figma-color-border,#d8dce3);border-radius:6px;color:var(--figma-color-text,#202124);background:var(--figma-color-bg,#fff)}input{width:88px}select:focus-visible,input:focus-visible,button:focus-visible{outline:2px solid var(--figma-color-border-brand,#1685f8);outline-offset:2px}.details{padding:12px;border-radius:6px;background:var(--figma-color-bg-secondary,#f4f5f7);font-size:11px;line-height:1.65}.bottom{margin-top:auto;display:flex;flex-direction:column;gap:10px}button{padding:12px;border:0;border-radius:6px;cursor:pointer;background:var(--figma-color-bg-brand,#087be7);color:var(--figma-color-text-onbrand,#fff);font-weight:600}button.secondary{background:transparent;color:var(--figma-color-text,#202124);border:1px solid var(--figma-color-border,#d8dce3)}button:disabled{opacity:.5;cursor:default}progress{width:100%;height:5px;accent-color:var(--figma-color-bg-brand,#087be7)}#status{line-height:1.5;min-height:36px}#status[data-error="true"]{color:var(--figma-color-text-danger,#bb2636)}[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header><h1>TuTurno · Venezuela v20</h1><p>Genera las pantallas del código actual como capas editables de Figma.</p></header>
+<div><label for="screen">Pantallas</label><select id="screen" disabled><option>Cargando catálogo…</option></select></div>
+<div><label for="columns">Columnas en el lienzo</label><input id="columns" type="number" min="1" max="6" step="1" value="4"></div>
+<div class="details">37 pantallas y estados · 360 × 800 px<br>Textos, formas, degradados y vectores editables.<br>Fotografías y recursos originales como rellenos de imagen.<br>Funciona sin conexión. Cada ejecución crea un lote nuevo.</div>
+<footer class="bottom"><div id="status" role="status" aria-live="polite">Cargando catálogo…</div><progress id="progress" max="1" value="0" hidden></progress><button id="generate" disabled>Generar pantallas editables</button><button class="secondary" id="cancel" hidden>Cancelar generación</button></footer>
+<script>
+const screen=document.getElementById('screen'),columns=document.getElementById('columns'),generate=document.getElementById('generate'),cancel=document.getElementById('cancel'),status=document.getElementById('status'),progress=document.getElementById('progress');
+let validIds=new Set();let busy=false;
+const post=message=>parent.postMessage({pluginMessage:message},'*');
+function setBusy(next){busy=next;generate.disabled=next;screen.disabled=next;columns.disabled=next;cancel.hidden=!next;progress.hidden=!next;}
+generate.addEventListener('click',()=>{const count=Number(columns.value);if(busy)return;if(!validIds.has(screen.value)||!Number.isInteger(count)||count<1||count>6){status.textContent='Elige una pantalla y entre una y seis columnas.';status.dataset.error='true';return;}status.dataset.error='false';setBusy(true);status.textContent='Preparando las pantallas…';progress.value=0;post({type:'generate',screen:screen.value,columns:count});});
+cancel.addEventListener('click',()=>{cancel.disabled=true;post({type:'cancel'});status.textContent='Cancelando el lote actual…';});
+window.addEventListener('message',event=>{const m=event.data.pluginMessage;if(!m)return;if(m.type==='catalog'){screen.replaceChildren();const options=[{id:'all',name:`Todo el catálogo (${m.count} estados)`},{id:'tour',name:'Login y paseo guiado'},...m.screens];for(const item of options){const option=document.createElement('option');option.value=item.id;option.textContent=item.name;screen.appendChild(option);}validIds=new Set(options.map(i=>i.id));screen.disabled=false;generate.disabled=false;status.textContent='Listo para generar. No necesitas seleccionar capas.';}
+if(m.type==='status'){status.textContent=m.message;status.dataset.error=String(!!m.error);if(typeof m.progress==='number')progress.value=m.progress;if(m.done){setBusy(false);cancel.disabled=false;}}});
+post({type:'ready'});
+</script>
+</body></html>

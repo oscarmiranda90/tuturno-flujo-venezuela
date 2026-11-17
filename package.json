@@ -13,7 +13,10 @@
     "deploy": "npm run build && wrangler deploy --config wrangler.jsonc",
     "android:preparar": "node scripts/prepare-android.mjs",
     "android:apk": "node scripts/build-apk.mjs",
-    "android:verificar": "node scripts/test-apk.mjs"
+    "android:verificar": "node scripts/test-apk.mjs",
+    "figma:exportar": "node scripts/export-figma-scenes.mjs",
+    "figma:compilar": "node scripts/build-figma-plugin.mjs",
+    "figma:verificar": "node scripts/test-figma-plugin.mjs"
   },
   "dependencies": {
     "html-to-image": "1.11.13",
