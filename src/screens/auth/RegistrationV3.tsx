@@ -181,7 +181,7 @@ export function RegistrationV3({
   const availableHeight = (bounds?.height ?? window.height) - insets.top - insets.bottom;
   const density = Math.max(0, Math.min(1, (availableHeight - 520) / 260));
   const formOnly = keyboardOpen || availableHeight < 440;
-  const controlStyle: ViewStyle = {height:44 + 12*density, marginTop:6 + 6*density};
+  const controlStyle: ViewStyle = {height:44 + 12*density, marginTop:3 + 9*density};
   const formScale = stage === "start" || Platform.OS === "web" ? 1 :
     Math.min(1, availableHeight / 740, (bounds?.width ?? window.width) / 360);
   useEffect(() => {
@@ -505,7 +505,7 @@ export function RegistrationV3({
                   </Text>
                 </Text>
                 </>}
-                <Text style={[s.label, {marginTop:formOnly?0:8 + 18*density,marginBottom:4 + 4*density,fontSize:13 + density}]}>Prueba cómo cobras tu turno</Text>
+                <Text style={[s.label, {marginTop:formOnly?0:4 + 22*density,marginBottom:4 + 4*density,fontSize:13 + density}]}>Prueba cómo cobras tu turno</Text>
                 <View style={{ position: "relative" }}>
                   <View
                     pointerEvents="none"
