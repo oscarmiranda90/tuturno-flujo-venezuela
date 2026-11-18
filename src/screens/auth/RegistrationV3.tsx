@@ -328,6 +328,10 @@ export function RegistrationV3({
         behavior={Platform.OS === "ios" ? "padding" : undefined}
       >
         <ScrollView
+          contentInsetAdjustmentBehavior="never"
+          automaticallyAdjustContentInsets={false}
+          bounces={false}
+          overScrollMode="never"
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={{
             flexGrow: 1,
@@ -519,7 +523,7 @@ export function RegistrationV3({
                 {error ? <Text style={s.error}>{error}</Text> : null}
                 <Button
                   label="Continuar  →"
-                  disabled={!isValidEmail(email) || busy}
+                  disabled={(adapter !== fixture && !isValidEmail(email)) || busy}
                   onPress={begin}
                 />
                 <ProviderButton

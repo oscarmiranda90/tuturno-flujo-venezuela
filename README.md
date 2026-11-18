@@ -205,7 +205,7 @@ Usa Node.js 22.18 o posterior. Las pruebas del flujo utilizan el compilador Type
 
 `npm run check` verifica los tipos, el español neutro, los precios, el retroceso por los pasos del paseo, la conservación de los consentimientos, los quince audios locales y la ausencia de dependencias de Expo.
 
-Para revisar el registro usa cualquier código de seis dígitos, por ejemplo `123456`. Crea y repite cualquier clave de seis dígitos, incluso `111111`. El entorno de revisión no envía correos, no guarda la clave, no cobra ni crea un estado de pago exitoso. Puedes abrir estados concretos con `?screen=4c&variant=guide2` y revisar una idea con `?screen=12&idea=2`. Al abrir normalmente después del registro, el recorrido vuelve a 4a y conserva el San elegido. `?lector=1` permite que una integración accesible suprima la voz. La reproducción automática del navegador puede necesitar una primera pulsación. El silencio se conserva entre pantallas.
+Para revisar el registro puedes escribir cualquier texto en el correo o dejarlo vacío; usa cualquier código de seis dígitos, por ejemplo `123456`. Crea y repite cualquier clave de seis dígitos, incluso `111111`. El entorno de revisión no envía correos, no guarda la clave, no cobra ni crea un estado de pago exitoso. Puedes abrir estados concretos con `?screen=4c&variant=guide2` y revisar una idea con `?screen=12&idea=2`. Al abrir normalmente después del registro, el recorrido vuelve a 4a y conserva el San elegido. `?lector=1` permite que una integración accesible suprima la voz. La reproducción automática del navegador puede necesitar una primera pulsación. El silencio se conserva entre pantallas.
 
 ## Integración con producción
 
