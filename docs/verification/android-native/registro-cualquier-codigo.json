@@ -1,5 +1,7 @@
 {
-  "correoNativo": true,
+  "correoVacio": true,
+  "codigoUsado": "123456",
+  "claveUsada": "111111",
   "codigoOtp": true,
   "claveYConfirmacion": true,
   "entradaPaseo": true,

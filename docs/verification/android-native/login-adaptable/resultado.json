@@ -1,0 +1,16 @@
+[
+  {
+    "name": "compacto",
+    "size": "720x1280",
+    "density": "320",
+    "logo": "[132,78][336,158]",
+    "correoVisible": true
+  },
+  {
+    "name": "alto",
+    "size": "1080x2400",
+    "density": "420",
+    "logo": "[173,102][443,208]",
+    "correoVisible": true
+  }
+]
