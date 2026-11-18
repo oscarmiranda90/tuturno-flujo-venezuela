@@ -484,7 +484,9 @@ export function RegistrationV3({
                       {
                         flex: 1,
                         fontSize:22 + 6*density,
-                        lineHeight:24 + 8*density,
+                        lineHeight:28 + 8*density,
+                        paddingBottom:2,
+                        includeFontPadding:true,
                       },
                     ]}
                   >
