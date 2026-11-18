@@ -79,6 +79,7 @@ import {
 import { V19_VOICE_KEYS, type V19Voice } from "./voice";
 import { horizontalRect } from "./layout";
 import { Entrance, WheelConfetti } from "./motion";
+import { PaymentHandoff } from "./PaymentHandoff";
 import {WelcomeV20,HowV20,PracticeV20,VerificationV20} from "./v20";
 import {
   initialState,
@@ -221,6 +222,7 @@ export function VenezuelaFlow({
     setS(previous);
   };
   const stage = s.screen;
+  const spotlightVisible = guided && ["4c", "5", "6", "7", "7b", "8"].includes(stage);
   const voice =
     stage === "6" ? `6-${s.rule + 1}` : stage === "4c" ? `4c-${s.rule + 1}` : stage === "11b" ? "11" : stage;
   const matchedVoice = V19_VOICE_KEYS[voice as V19Voice] ?? null;
@@ -678,11 +680,13 @@ export function VenezuelaFlow({
       )}
     </>
   );
+  if (stage === "13") return <PaymentHandoff onBack={() => move("12")} onFailed={review ? () => setS(paymentFailed) : undefined} />;
   return (
     <PulseContext.Provider value={guided && !reduce ? focus : null}>
       <Frame
         review={review}
         sceneKey={stage}
+        systemBarDim={spotlightVisible || stage === "4b" || stage === "12d" || referralSheet ? 0.66 : 0}
         overlay={
           stage === "4b" || stage === "12d" || referralSheet
             ? overlays
@@ -1221,39 +1225,7 @@ export function VenezuelaFlow({
             />
           </>
         )}
-        {stage === "13" && (
-          <>
-            <At x={0} y={28} w={360} h={760}>
-              <Image
-                source={require("../../assets/venezuela-v19/chinchin-reference.png")}
-                style={{ width: 360, height: 760 }}
-                resizeMode="contain"
-                accessibilityLabel="Referencia de la pasarela externa ChinChin"
-              />
-            </At>
-            {review && (
-              <At x={15} y={748} w={330} h={35}>
-                <Pressable
-                  accessibilityRole="button"
-                  accessibilityLabel="Simular regreso con pago fallido"
-                  onPress={() => setS(paymentFailed)}
-                  style={{
-                    flex: 1,
-                    backgroundColor: "white",
-                    borderRadius: 18,
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <T size={12} weight={700}>
-                    Volver al pago · caso fallido
-                  </T>
-                </Pressable>
-              </At>
-            )}
-          </>
-        )}
-        {guided && ["4c", "5", "6", "7", "7b", "8"].includes(stage) && (
+        {spotlightVisible && (
           <>
             <Spotlight rect={focus} reduce={reduce} />
             <Bubble

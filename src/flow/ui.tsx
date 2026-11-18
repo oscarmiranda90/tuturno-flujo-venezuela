@@ -413,12 +413,14 @@ export function Frame({
   darkIndicator = false,
   sceneKey,
   overlay,
+  systemBarDim = 0,
 }: {
   children: ReactNode;
   review?: boolean;
   darkIndicator?: boolean;
   sceneKey?: string;
   overlay?: ReactNode;
+  systemBarDim?: number;
 }) {
   const glowId=useId();
   const window = useWindowDimensions();
@@ -561,6 +563,12 @@ export function Frame({
           </View>
         </View>
       </ScrollView>
+      {systemBarDim > 0 && (
+        <>
+          <View pointerEvents="none" style={{ position: "absolute", top: 0, left: 0, right: 0, height: top, backgroundColor: C.veil, opacity: systemBarDim }} />
+          <View pointerEvents="none" style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: bottom, backgroundColor: C.veil, opacity: systemBarDim }} />
+        </>
+      )}
       {overlay && (
         <>
           {native && (
