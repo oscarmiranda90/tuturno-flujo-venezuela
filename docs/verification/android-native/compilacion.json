@@ -1,0 +1,16 @@
+{
+  "sha256": "ea832b526c2cd39dc18dcb0ae33ac4d1c2bf574973b3afed898ce895d3c0ba10",
+  "bytes": 60784654,
+  "compilacion": {
+    "commit": "8d54d0da0ed0019f18cd14389bc72ac6858b3cf7",
+    "version": "20.0.2",
+    "motor": "React Native / Hermes"
+  },
+  "audiosEmpaquetados": 16,
+  "motor": "React Native / Hermes",
+  "sinHTML": true,
+  "arquitecturas": [
+    "arm64-v8a",
+    "x86_64"
+  ]
+}

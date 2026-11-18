@@ -1,0 +1,16 @@
+  AudioPlaybackConfiguration piid:111 deviceIds:[2] type:android.media.MediaPlayer u/pid:10235/13931 state:stopped attr:AudioAttributes: usage=USAGE_UNKNOWN content=CONTENT_TYPE_UNKNOWN flags=0x800(FLAG_MUTE_HAPTIC)  tags= bundle=null sessionId:105 mutedState:none  FormatInfo{isSpatialized=false, channelMask=0x1, sampleRate=44100}
+  AudioPlaybackConfiguration piid:119 deviceIds:[2] type:android.media.MediaPlayer u/pid:10235/13931 state:stopped attr:AudioAttributes: usage=USAGE_UNKNOWN content=CONTENT_TYPE_UNKNOWN flags=0x800(FLAG_MUTE_HAPTIC)  tags= bundle=null sessionId:113 mutedState:none  FormatInfo{isSpatialized=false, channelMask=0x1, sampleRate=44100}
+  11-18 08:53:00:644 new player piid:111 uid/pid:10235/13931 package:com.tuturno.flujo.v20 type:android.media.MediaPlayer attr:AudioAttributes: usage=USAGE_UNKNOWN content=CONTENT_TYPE_UNKNOWN flags=0x800(FLAG_MUTE_HAPTIC)  tags= bundle=null session:105
+  11-18 08:53:00:693 player piid:111 event:started
+  11-18 08:53:00:723 port updated portId:[25] mapped to player piid:111
+  11-18 08:53:00:725 player piid:111 format update:FormatInfo{isSpatialized=false, channelMask=0x1, sampleRate=44100}
+  11-18 08:53:00:725 player piid:111 event:muted updated source:none 
+  11-18 08:53:00:729 player piid:111 event:device updated deviceIds:[2]
+  11-18 08:53:01:049 new player piid:119 uid/pid:10235/13931 package:com.tuturno.flujo.v20 type:android.media.MediaPlayer attr:AudioAttributes: usage=USAGE_UNKNOWN content=CONTENT_TYPE_UNKNOWN flags=0x800(FLAG_MUTE_HAPTIC)  tags= bundle=null session:113
+  11-18 08:53:01:055 player piid:119 event:started
+  11-18 08:53:01:069 port updated portId:[26] mapped to player piid:119
+  11-18 08:53:01:070 player piid:119 event:muted updated source:none 
+  11-18 08:53:01:070 player piid:119 format update:FormatInfo{isSpatialized=false, channelMask=0x1, sampleRate=44100}
+  11-18 08:53:01:088 player piid:119 event:device updated deviceIds:[2]
+  11-18 08:53:02:248 player piid:111 event:stopped
+  11-18 08:53:03:957 player piid:119 event:stopped

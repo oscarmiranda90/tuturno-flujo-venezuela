@@ -12,7 +12,7 @@ Se entrega un plugin local de Figma Design con 37 pantallas y estados de 360 × 
 
 - Extracción de los 37 estados desde Chromium con el código actual, fuentes cargadas y movimiento reducido; sin errores JavaScript. Se incluyen cinco referencias visuales del origen.
 - `npm run figma:compilar`: JavaScript válido y ZIP con manifiesto, código, panel, instrucciones y fuentes; sin llamadas de red ni claves.
-- `npm run figma:verificar`: contrato con un anfitrión simulado de la API. Comprueba 37 pantallas, 881 capas de texto, 327 importaciones SVG, pinturas normalizadas, imágenes PNG válidas, repetición, validación, fuentes ausentes, fallos y cancelación.
+- `npm run figma:verificar`: contrato con un anfitrión simulado de la API. Comprueba 37 pantallas, 879 capas de texto, 327 importaciones SVG, pinturas normalizadas, imágenes PNG válidas, repetición, validación, fuentes ausentes, fallos y cancelación.
 - Comprobación de tipos del runtime contra las declaraciones oficiales de `figma/plugin-typings` y revisión del panel en Chromium.
 - `npm run check` y `npm run build` de la aplicación. Se conserva la advertencia existente sobre el tamaño del paquete web.
 

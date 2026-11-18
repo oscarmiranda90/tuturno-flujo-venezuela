@@ -1,0 +1,7 @@
+{
+  "correoNativo": true,
+  "codigoOtp": true,
+  "claveYConfirmacion": true,
+  "entradaPaseo": true,
+  "servicios": "Simulados; no se envían correos ni se guarda la clave."
+}

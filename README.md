@@ -1,8 +1,9 @@
 # TuTurno · Venezuela v20
 
-Implementación web independiente de la guía del CEO del 17 de noviembre de 2026. Incluye inicio de sesión, registro, paseo guiado de práctica, selección del San, consentimientos, acceso al pago y estados de pago fallido y recordatorio. Sigue las referencias suministradas de 360 × 800, las fuentes Outfit 400–800 e Inter para el texto legal y la paleta de la guía.
+Implementación en **React Native sin Expo**, con APK Android nativo y vista web para Storybook, de la guía del CEO del 17 de noviembre de 2026. Incluye inicio de sesión, registro, paseo guiado de práctica, selección del San, consentimientos, acceso al pago y estados de pago fallido y recordatorio. Sigue las referencias suministradas de 360 × 800, las fuentes Outfit 400–800 e Inter para el texto legal y la paleta de la guía.
 
-- [Descargar APK para Android](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.1/TuTurno-v20-Android.apk)
+- [Descargar APK para Android](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.2/TuTurno-v20-Android.apk)
+- [Integración en React Native para Limonbyte](docs/INTEGRACION-REACT-NATIVE.md)
 - [Ver el recorrido](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev)
 - [Storybook v20](https://tuturno-storybook.pages.dev/?path=/story/venezuela-v20-flujo-aprobado--flow)
 - [Catálogo de 33 estados](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev/catalog)
@@ -17,13 +18,13 @@ Implementación web independiente de la guía del CEO del 17 de noviembre de 202
 
 ## App Android: descargar e instalar
 
-[**Descargar TuTurno v20 para Android (.apk)**](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.1/TuTurno-v20-Android.apk) · [Huella SHA256](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.1/TuTurno-v20-Android.apk.sha256) · [Versión y archivos de descarga](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/tag/android-v20.0.1)
+[**Descargar TuTurno v20 para Android (.apk)**](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.2/TuTurno-v20-Android.apk) · [Huella SHA256](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.2/TuTurno-v20-Android.apk.sha256) · [Versión y archivos de descarga](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/tag/android-v20.0.2)
 
 1. Descarga el APK desde tu teléfono Android y abre el archivo.
 2. Si Android lo solicita, permite instalar aplicaciones desde el navegador o el gestor de archivos que estés usando.
 3. Abre **TuTurno · v20**. Para probar el registro utiliza el código **482915** y crea una clave de seis dígitos, por ejemplo **628194**.
 
-El APK nativo requiere Android 8.0 o posterior y admite ARM64 y x86_64. Incluye las pantallas, las fuentes, las imágenes y los quince audios de este repositorio; el recorrido se puede revisar sin conexión. Los enlaces externos sí requieren internet. Conserva los adaptadores de revisión: no envía correos, no guarda el PIN ni realiza cobros. Está firmado como compilación de revisión.
+El APK nativo requiere Android 8.0 o posterior y admite ARM64 y x86_64. Incluye las pantallas, las fuentes, las imágenes y las quince voces y el sonido de la tiquetera de este repositorio; el recorrido se puede revisar sin conexión. Los enlaces externos sí requieren internet. Conserva los adaptadores de revisión: no envía correos, no guarda el PIN ni realiza cobros. Está firmado como compilación de revisión.
 
 ### Volver a generar el APK
 
@@ -35,13 +36,13 @@ npm run check
 npm run android:apk
 ```
 
-El resultado queda en `descargas/TuTurno-v20-Android.apk`, junto con su archivo `.sha256`. El proyecto `android/` ejecuta React Native 0.86.3 con Fabric y Hermes. Metro compila los mismos componentes de `src/flow/` y `src/screens/` que usa la vista web. No incorpora WebView ni Expo. Los archivos `.native.ts(x)` implementan audio, almacenamiento, degradados, portapapeles y transiciones nativas. Respeta los márgenes de las barras del sistema y del teclado. Las claves de firma y los archivos locales de compilación se excluyen de Git.
+El resultado queda en `descargas/TuTurno-v20-Android.apk`, junto con su archivo `.sha256`. El proyecto `android/` ejecuta React Native 0.86.3 con Fabric y Hermes. Metro compila los mismos componentes de `src/flow/` y `src/screens/` que usa la vista web. No incorpora WebView ni Expo. Los archivos `.native.ts(x)` implementan audio, almacenamiento, degradados, portapapeles y transiciones nativas. Respeta los márgenes de las barras del sistema y del teclado. Las claves de firma y los archivos locales de compilación se excluyen de Git. `TUTURNO_REVIEW_KEYSTORE` permite indicar la firma de revisión existente para instalar actualizaciones encima del APK anterior; si se omite se usa la firma de desarrollo local.
 
 ### Comprobación del APK
 
-La versión se revisa en un emulador Android, en modo avión: registro, paseo guiado, voz y silencio persistente, impresión del tiquete y confeti según la guía v20. Las [capturas y el resultado del recorrido](docs/verification/android/) quedan en el repositorio. No se ha probado en un teléfono físico.
+La compilación nativa se revisa en un emulador Android, en modo avión. Las comprobaciones cubren las 33 pantallas, reproductores nativos, silencio persistente e impresión del tiquete. Las [capturas y el resultado del recorrido](docs/verification/android-native/) quedan en el repositorio. No se ha probado en un teléfono físico.
 
-Para repetir la revisión, instala y abre el APK en un emulador, activa el modo avión y ejecuta `npm run android:verificar` con `adb` disponible. Puedes seleccionar el dispositivo con `ANDROID_SERIAL` y la ruta de `adb` con `ADB`. `:app:lintDebug` comprueba además la compatibilidad de las API de Android.
+Para repetir la revisión, instala y abre el APK en un emulador, activa el modo avión y ejecuta `npm run android:verificar` con `adb` disponible; activa temporalmente movimiento reducido, recorre las 33 pantallas y verifica que contienen textos nativos, sin WebView ni errores de ejecución. Al terminar restaura la configuración del dispositivo. Puedes seleccionar el dispositivo con `ANDROID_SERIAL` y la ruta de `adb` con `ADB`. `:app:lintRelease` comprueba además la compatibilidad de las API de Android.
 
 ## Vista previa de las pantallas
 
@@ -1245,7 +1246,7 @@ El flujo de Colombia.
 
 ## Plugin de Figma · pantallas editables
 
-[Descargar TuTurno-Plugin-Figma-v20.zip](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/figma-v20.0.0/TuTurno-Plugin-Figma-v20.zip)
+[Descargar TuTurno-Plugin-Figma-v20.zip](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/figma-v20.0.1/TuTurno-Plugin-Figma-v20.zip)
 
 Genera 37 pantallas y estados del código v20 como capas editables, incluidos los cinco testimonios del login. Permite importar una pantalla, el login con el paseo guiado o todo el catálogo, y ordenar los marcos en columnas. Funciona sin conexión e incluye las fuentes originales.
 
