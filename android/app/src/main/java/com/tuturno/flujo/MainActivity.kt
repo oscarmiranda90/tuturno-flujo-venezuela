@@ -1,8 +1,8 @@
 package com.tuturno.flujo
 import android.os.Bundle
 import android.graphics.Color
-import androidx.activity.SystemBarStyle
-import androidx.activity.enableEdgeToEdge
+import android.os.Build
+import androidx.core.view.WindowCompat
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
@@ -11,10 +11,19 @@ class MainActivity : ReactActivity() {
  override fun onCreate(savedInstanceState: Bundle?) {
   super.onCreate(savedInstanceState)
   // Configurar también Android anteriores a 15; React Native aplica los márgenes al contenido.
-  enableEdgeToEdge(
-   statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT),
-   navigationBarStyle = SystemBarStyle.dark(Color.TRANSPARENT),
-  )
+  WindowCompat.setDecorFitsSystemWindows(window, false)
+  @Suppress("DEPRECATION")
+  window.statusBarColor = Color.TRANSPARENT
+  @Suppress("DEPRECATION")
+  window.navigationBarColor = Color.TRANSPARENT
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+   window.isStatusBarContrastEnforced = false
+   window.isNavigationBarContrastEnforced = false
+  }
+  WindowCompat.getInsetsController(window, window.decorView).apply {
+   isAppearanceLightStatusBars = false
+   isAppearanceLightNavigationBars = false
+  }
  }
  override fun getMainComponentName(): String = "TuTurno"
  override fun createReactActivityDelegate(): ReactActivityDelegate = object : DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled) {
