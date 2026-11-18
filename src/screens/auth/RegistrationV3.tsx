@@ -438,6 +438,7 @@ export function RegistrationV3({
                     turnos de {country === "VE" ? "San" : "cadena"} entregados
                   </Text>
                   <View style={[s.quote, {maxWidth:205, minHeight:60 + 24*density, marginTop:5 + 9*density, paddingLeft:8 + 4*density}]}>
+                    <View pointerEvents="none" style={{position:"absolute",left:0,top:0,bottom:0,width:2,backgroundColor:green}} />
                     <Testimonials height={60 + 24*density}>
                       {people.map((person, index) => (
                         <TestimonialLayer key={person.name} active={index === slide}>
@@ -1432,8 +1433,6 @@ const s = StyleSheet.create({
   },
   quote: {
     minHeight: 84,
-    borderLeftWidth: 2,
-    borderLeftColor: green,
     paddingLeft: 12,
     marginTop: 14,
     maxWidth: 250,

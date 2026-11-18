@@ -3,7 +3,7 @@ import {execFileSync} from 'node:child_process';
 import {mkdirSync,writeFileSync,readFileSync} from 'node:fs';
 // Ejecutar únicamente sobre un dispositivo de revisión: inicia pantallas y conserva el San existente.
 const adb=process.env.ADB??'adb',serial=process.env.ANDROID_SERIAL??'emulator-5554';
-const app='com.tuturno.flujo.v20',out='docs/verification/android-native';
+const app='com.tuturno.flujo.v20',out=process.env.TUTURNO_VERIFY_OUT??'docs/verification/android-native';
 mkdirSync(out,{recursive:true});
 const command=(...args)=>execFileSync(adb,['-s',serial,...args],{encoding:'utf8',timeout:30000}).trim();
 const pause=ms=>new Promise(r=>setTimeout(r,ms));
@@ -27,6 +27,8 @@ for(const entry of entries){
  const xml=command('shell','cat','/sdcard/tuturno-native.xml');
  assert(!xml.includes('android.webkit.WebView'),'Se encontró un WebView');
  assert(xml.includes('android.widget.TextView'),'La pantalla no contiene textos nativos: '+entry.id);
+ const scrollables=[...xml.matchAll(/<node\s+([^>]+)>?/g)].map(m=>m[1]).filter(n=>n.includes('package="'+app+'"')&&n.includes('scrollable="true"'));
+ assert(entry.screen==='11'||entry.screen==='11b'||scrollables.length===0,'Scroll exterior en '+entry.id);
  writeFileSync(out+'/'+entry.id+'.xml',xml);
  writeFileSync(out+'/'+entry.id+'.png',execFileSync(adb,['-s',serial,'exec-out','screencap','-p']));
  report.push({pantalla:entry.id,correcto:true,textosNativos:(xml.match(/android.widget.TextView/g)??[]).length});

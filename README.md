@@ -24,6 +24,8 @@ Implementación en **React Native sin Expo**, con APK Android nativo y vista web
 2. Si Android lo solicita, permite instalar aplicaciones desde el navegador o el gestor de archivos que estés usando.
 3. Abre **TuTurno · v20**. Para probar el registro utiliza cualquier código de seis dígitos y crea y repite cualquier clave de seis dígitos, por ejemplo **111111**.
 
+El login y las 33 pantallas se ajustan al ancho y al alto disponibles, sin desplazamiento exterior. El panel de términos conserva su lectura interna.
+
 El APK nativo requiere Android 8.0 o posterior y admite ARM64 y x86_64. Incluye las pantallas, las fuentes, las imágenes y las quince voces y el sonido de la tiquetera de este repositorio; el recorrido se puede revisar sin conexión. Los enlaces externos sí requieren internet. Conserva los adaptadores de revisión: no envía correos, no guarda el PIN ni realiza cobros. Está firmado como compilación de revisión.
 
 ### Volver a generar el APK
