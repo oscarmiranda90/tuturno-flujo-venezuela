@@ -8,5 +8,5 @@ await mkdir('android/app/src/main/res/raw',{recursive:true});
 const {voices}=JSON.parse(await (await import('node:fs/promises')).readFile('assets/audio/manifest.json','utf8'));
 for(const file of [...voices.map(v=>v.file),'printer.mp3'])await cp('assets/audio/'+file,'android/app/src/main/res/raw/'+file);
 const commit=process.env.TUTURNO_SOURCE_COMMIT??execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
-await writeFile('android/app/src/main/assets/compilacion.json',JSON.stringify({commit,version:'20.0.3',motor:'React Native / Hermes'},null,2));
+await writeFile('android/app/src/main/assets/compilacion.json',JSON.stringify({commit,version:'20.0.4',motor:'React Native / Hermes'},null,2));
 console.log('Fuentes y 16 audios nativos preparados.');
