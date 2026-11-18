@@ -170,15 +170,13 @@ export function RegistrationV3({
   const insets = useSafeAreaInsets();
   const window = useWindowDimensions();
   const [bounds, setBounds] = useState<{width:number;height:number}|null>(null);
-  const [keyboardTop, setKeyboardTop] = useState<number | null>(null);
-  const keyboardOpen = keyboardTop !== null;
-  const [keyboardCardHeight, setKeyboardCardHeight] = useState(134);
+  const [keyboardOpen, setKeyboardOpen] = useState(false);
   useEffect(() => {
-    const show = Keyboard.addListener("keyboardDidShow", (event) => setKeyboardTop(event.endCoordinates.screenY));
-    const hide = Keyboard.addListener("keyboardDidHide", () => setKeyboardTop(null));
+    const show = Keyboard.addListener("keyboardDidShow", () => setKeyboardOpen(true));
+    const hide = Keyboard.addListener("keyboardDidHide", () => setKeyboardOpen(false));
     return () => {show.remove();hide.remove();};
   }, []);
-  const availableHeight = Math.min(bounds?.height ?? window.height, keyboardTop ?? Infinity) - insets.top - (keyboardOpen ? 0 : insets.bottom);
+  const availableHeight = (bounds?.height ?? window.height) - insets.top - insets.bottom;
   const density = Math.max(0, Math.min(1, (availableHeight - 520) / 260));
   const formOnly = keyboardOpen || availableHeight < 440;
   const controlStyle: ViewStyle = {height:44 + 12*density, marginTop:3 + 9*density};
@@ -335,19 +333,18 @@ export function RegistrationV3({
         s.root,
         {
           paddingTop: heroInset > 0 ? 0 : insets.top,
-          paddingBottom: keyboardOpen ? 0 : insets.bottom,
+          paddingBottom: insets.bottom,
         },
       ]}
     >
-      <View style={keyboardOpen ? {height:availableHeight} : {flex:1}}>
+      <View style={{flex:1}}>
         <View collapsable={false} style={formScale < 1 ? {width:(bounds?.width ?? window.width)/formScale,height:(availableHeight + (heroInset > 0 ? insets.top : 0))/formScale,transform:[{scale:formScale}],transformOrigin:"top left"} : {flex:1}}>
         <View style={{flex:1}}>
           {stage === "start" ? (
             <>
               <View style={[s.hero, {
-                display:formOnly && !keyboardOpen?"none":"flex",
-                minHeight: 0,
-                height: keyboardOpen ? Math.max(0, availableHeight - keyboardCardHeight - 6) : 190 + 101*density + heroInset,
+                display:formOnly?"none":"flex",
+                height: 190 + 101*density + heroInset,
                 paddingTop: 8 + 7*density + heroInset,
                 paddingHorizontal: 16 + 4*density,
               }]}>
@@ -355,7 +352,7 @@ export function RegistrationV3({
                   pointerEvents="none"
                   style={[
                     s.photo,
-                    edition === "v19" && { width: "68%", height: keyboardOpen ? "100%" : 245 + 101*density + heroInset, right: -7 },
+                    edition === "v19" && { width: "68%", height: 245 + 101*density + heroInset, right: -7 },
                   ]}
                 >
                   {people.map((person, index) => {
@@ -420,7 +417,7 @@ export function RegistrationV3({
                     ? "El primer San digital del país"
                     : "La primera cadena digital del país"}
                 </Text>
-                {!keyboardOpen && <View style={[s.heroBottom, {paddingBottom:8 + 18*density}]}>
+                <View style={[s.heroBottom, {paddingBottom:8 + 18*density}]}>
                   <Text style={[s.counter, {fontSize:28 + 8*density,lineHeight:32 + 10*density}]}>{deliveredCount}</Text>
                   <Text style={[s.heroSub, {fontSize:12 + 2*density, fontFamily:"Outfit_500Medium"}]}>
                     turnos de {country === "VE" ? "San" : "cadena"} entregados
@@ -441,9 +438,9 @@ export function RegistrationV3({
                       ))}
                     </Testimonials>
                   </View>
-                </View>}
+                </View>
               </View>
-              <View onLayout={({nativeEvent:{layout}}) => {if (keyboardOpen) setKeyboardCardHeight(layout.height);}} style={[s.startCard, keyboardOpen && {position:"absolute",bottom:0,left:0,right:0}, {flex:formOnly?undefined:1,flexGrow:formOnly?0:1,flexShrink:0,padding:10 + 8*density, paddingTop:10 + 23*density, marginBottom:6 + 6*density}]}>
+              <View style={[s.startCard, {padding:10 + 8*density, paddingTop:10 + 23*density, marginBottom:6 + 6*density}]}>
                 {!formOnly && <>
 
                 <View
