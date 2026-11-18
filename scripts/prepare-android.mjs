@@ -1,13 +1,12 @@
 import {cp,mkdir,rm,writeFile} from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
-
-// El APK incorpora la misma compilación web, incluidos sus quince audios.
-execFileSync('npm',['run','build','--','--base=/app/','--outDir=dist-android','--emptyOutDir'],{stdio:'inherit'});
+// Solo recursos nativos: Metro genera el código Hermes durante assembleRelease.
 await rm('android/app/src/main/assets',{recursive:true,force:true});
-await mkdir('android/app/src/main/assets',{recursive:true});
-await cp('dist-android/index.html','android/app/src/main/assets/index.html');
-await cp('dist-android/assets','android/app/src/main/assets/assets',{recursive:true});
+await mkdir('android/app/src/main/assets/fonts',{recursive:true});
+await cp('assets/fonts','android/app/src/main/assets/fonts',{recursive:true});
+await mkdir('android/app/src/main/res/raw',{recursive:true});
+const {voices}=JSON.parse(await (await import('node:fs/promises')).readFile('assets/audio/manifest.json','utf8'));
+for(const file of [...voices.map(v=>v.file),'printer.mp3'])await cp('assets/audio/'+file,'android/app/src/main/res/raw/'+file);
 const commit=process.env.TUTURNO_SOURCE_COMMIT??execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
-if(!/^[a-f0-9]{40}$/.test(commit))throw new Error('La revisión de origen debe ser una huella Git válida.');
-await writeFile('android/app/src/main/assets/compilacion.json',JSON.stringify({repositorio:'https://github.com/oscarmiranda90/tuturno-flujo-venezuela',commit,version:'20.0.1'},null,2));
-console.log('Recursos Android preparados; no se copian credenciales ni los paquetes de entrega.');
+await writeFile('android/app/src/main/assets/compilacion.json',JSON.stringify({commit,version:'20.0.2',motor:'React Native / Hermes'},null,2));
+console.log('Fuentes y 16 audios nativos preparados.');

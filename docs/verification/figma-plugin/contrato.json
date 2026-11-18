@@ -1,14 +1,14 @@
 {
-  "fecha": "2026-11-17T23:49:43.387Z",
+  "fecha": "2026-11-18T12:37:31.169Z",
   "correcto": true,
   "anfitrion": "Simulación de la API; no es una ejecución en el editor de Figma",
-  "sourceCommit": "1638b06b7afb04908d31c73ea3e7c2e704535e0c",
+  "sourceCommit": "aa726b658cceeabc55d448dc02b26dc2a1ed6e35",
   "cases": [
     {
       "caso": "Todo el catálogo, capas editables y ejecuciones independientes",
       "correcto": true,
       "pantallas": 37,
-      "textos": 881,
+      "textos": 879,
       "ilustracionesVectoriales": 327
     },
     {

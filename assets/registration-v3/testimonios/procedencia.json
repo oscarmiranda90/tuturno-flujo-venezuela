@@ -42,5 +42,10 @@
       "fuenteImagen": "https://tu-turno.app/wp-content/themes/tuturno-ve/assets/_astro/yenifer-abreu.DMv71B6d_Z1wCJqO.webp",
       "sha256": "a005fb5ade17970278edad1768dddea42a76e4235bb6af1f26d75704d32b59d2"
     }
-  ]
+  ],
+  "correccion_aprobada_v20": {
+    "persona": "Mary Delgado",
+    "frase": "Con mi turno compré el horno y hoy vendo mis postres.",
+    "motivo": "Indicación expresa del CEO: conservar la frase aprobada en la v20; la frase de origen se documenta únicamente como procedencia."
+  }
 }

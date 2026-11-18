@@ -238,7 +238,7 @@ export function VenezuelaFlow({
     audio.error,
   ]);
   useEffect(() => {
-    if(location.pathname === "/catalog") return;
+    if(typeof location !== "undefined" && location.pathname === "/catalog") return;
     void AsyncStorage.setItem(
       STORAGE,
       JSON.stringify({ ...s, order, referral }),
@@ -380,7 +380,7 @@ export function VenezuelaFlow({
     const registration = (
       <RegistrationV3
         edition="v19"
-        referenceKeyboard={review && !(typeof location !== "undefined" && new URLSearchParams(location.search).get("android") === "1")}
+        referenceKeyboard={review && Platform.OS === "web" && !(typeof location !== "undefined" && new URLSearchParams(location.search).get("android") === "1")}
         initialCountry="VE"
         initialEmail={review && stage === "2" ? "nuevo@ejemplo.com" : ""}
         initialPreview={

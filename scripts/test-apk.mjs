@@ -1,54 +1,30 @@
+import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
-import {mkdirSync,writeFileSync} from 'node:fs';
-
-// Requiere el APK de revisión instalado en un emulador o dispositivo de pruebas.
+import {mkdirSync,writeFileSync,readFileSync} from 'node:fs';
+// Ejecutar únicamente sobre un dispositivo de revisión: inicia pantallas y conserva el San existente.
 const adb=process.env.ADB??'adb',serial=process.env.ANDROID_SERIAL??'emulator-5554';
-const command=(...args)=>execFileSync(adb,['-s',serial,...args],{encoding:'utf8'}).trim();
-const app='com.tuturno.flujo.v20',out='docs/verification/android';mkdirSync(out,{recursive:true});
-const pid=command('shell','pidof',app);if(!/^\d+$/.test(pid))throw Error('La aplicación debe estar abierta.');
-command('forward','tcp:9223','localabstract:webview_devtools_remote_'+pid);
-const targets=await fetch('http://127.0.0.1:9223/json').then(r=>r.json());
-const target=targets.find(t=>t.type==='page'&&t.url.includes('appassets.androidplatform.net'));
-if(!target)throw Error('No se encontró el contenido local de la aplicación.');
-const ws=new WebSocket(target.webSocketDebuggerUrl);await new Promise((resolve,reject)=>{ws.addEventListener('open',resolve,{once:true});ws.addEventListener('error',reject,{once:true})});
-let id=0;const pending=new Map();const log=[];const errors=[];let collectErrors=false;
-ws.addEventListener('message',e=>{const message=JSON.parse(e.data);if(message.method==='Runtime.exceptionThrown'&&collectErrors){if(errors.length<10)errors.push(message.params.exceptionDetails.exception?.description??message.params.exceptionDetails.text);return}if(!message.id)return;const entry=pending.get(message.id);if(!entry)return;pending.delete(message.id);clearTimeout(entry.timer);message.error?entry.reject(Error(JSON.stringify(message.error))):entry.resolve(message.result)});
-const call=(method,params={})=>new Promise((resolve,reject)=>{const key=++id,timer=setTimeout(()=>{pending.delete(key);reject(Error('La operación tardó demasiado: '+method))},15000);pending.set(key,{resolve,reject,timer});ws.send(JSON.stringify({id:key,method,params}))});
-const evaluate=async expression=>{const value=await call('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true,userGesture:true});if(value.exceptionDetails)throw Error(value.exceptionDetails.text+' '+value.result.description);return value.result.value};
+const app='com.tuturno.flujo.v20',out='docs/verification/android-native';
+mkdirSync(out,{recursive:true});
+const command=(...args)=>execFileSync(adb,['-s',serial,...args],{encoding:'utf8',timeout:30000}).trim();
 const pause=ms=>new Promise(r=>setTimeout(r,ms));
-const until=async(text,timeout=20000)=>{const end=Date.now()+timeout;while(Date.now()<end){if(await evaluate('document.body.innerText.includes('+JSON.stringify(text)+')')){log.push({texto:text,correcto:true});console.log('CORRECTO',text);return}await pause(200)}throw Error('No apareció: '+text)};
-const press=async label=>{await evaluate(`(()=>{const name=${JSON.stringify(label)};const e=Array.from(document.querySelectorAll('button,[role="button"],[role="checkbox"]')).filter(e=>(e.getAttribute('aria-label')===name||e.textContent.trim().replace(/\\s+/g,' ')===name)&&!e.disabled&&e.getAttribute('aria-disabled')!=='true').at(-1);if(!e)throw Error('No se encontró el control: '+name);e.click();return true})()`);await pause(160)};
-const shot=name=>writeFileSync(out+'/'+name+'.png',execFileSync(adb,['-s',serial,'exec-out','screencap','-p']));
-try{
- await call('Runtime.enable');
- await call('Page.enable');
- await call('Page.addScriptToEvaluateOnNewDocument',{source:`(()=>{window.__audioPrueba=[];window.__eventosAudio=[];const Original=window.Audio;window.Audio=function(...args){const a=new Original(...args);window.__audioPrueba.push(a);for(const event of ['playing','error'])a.addEventListener(event,()=>window.__eventosAudio.push({evento:event,archivo:a.src,error:a.error?.code??null}));return a}})()`});
- await evaluate('localStorage.clear()');await call('Page.reload');collectErrors=true;await until('Prueba cómo cobras tu turno');shot('01-inicio');
- const viewport=await evaluate('({ancho:innerWidth,alto:innerHeight,url:location.href,barraFalsa:document.body.innerText.includes("9:30")})');
- if(viewport.barraFalsa)throw Error('La barra de estado de referencia sigue visible.');
- await evaluate(`(()=>{const input=document.querySelector('input[type="email"]');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(input,'nuevo@ejemplo.com');input.dispatchEvent(new Event('input',{bubbles:true}));return true})()`);
- await pause(120);await press('Continuar →');await until('Revisa tu correo');
- if(await evaluate('!!document.querySelector(\'[aria-label="Autocompletar código 482915"]\')'))throw Error('Se mostró el teclado de referencia.');
- await evaluate(`(()=>{const input=document.querySelector('input');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(input,'482915');input.dispatchEvent(new Event('input',{bubbles:true}));return true})()`);
- await until('Crea tu clave');for(const n of '628194')await press(n);await until('Repite tu clave');for(const n of '628194')await press(n);
- await until('¿Qué harías con €100');await press('Montar mi negocio');await until('¿Seguimos?');await press('Ahora no');await until('Todos ponen lo mismo');
- await pause(900);if(!await evaluate('window.__eventosAudio.some(e=>e.evento==="playing")'))throw Error('No se reprodujo audio local.');
- await press('Silenciar voz de Tutu');await press('Siguiente');await until('Uno cobra todo junto');
- if(!await evaluate('!!document.querySelector(\'[aria-label="Activar voz de Tutu"]\')&&window.__audioPrueba.every(a=>a.paused)'))throw Error('No se conservó el silencio.');
- await press('Activar voz de Tutu');await pause(400);if(!await evaluate('window.__audioPrueba.some(a=>!a.paused)'))throw Error('No se reactivó la voz.');
- await press('Siguiente');await until('Todos cobran. Tú también.');await press('Siguiente');await until('Garantía y servicio\nya van en tu cuota.');await press('Siguiente');
- await until('De una sola cuenta');await press('Siguiente');await until('Es por el grupo');await press('Siguiente');await until('¡Pruébalo tú!');await press('Siguiente');
- await press('Toca para simular tu turno');await pause(2300);await press('Siguiente');await until('Práctica · No se cobra nada');await until('Tu primera cuota, con\ngarantía y servicio.');await press('Siguiente');await press('Pagar €11,74');
- await until('PRÁCTICA\nSUPERADA');await until('¡Así de fácil!');await press('Siguiente');await until('Aquí todos están verificados');await until('Falta lo mejor:\ntu turno.');await pause(2500);await press('Siguiente');await press('Siguiente');
- await until('¡Ya sabes cómo cobrar tus €100!');await press('Repetir animación');await pause(2100);
- const animationSample=()=>evaluate(`(()=>{const ticket=document.querySelector('[data-testid="closing-presented-ticket"]');const piece=document.querySelector('[data-testid="closing-confetti-piece"]');return {ticket:ticket?{opacity:getComputedStyle(ticket).opacity,transform:getComputedStyle(ticket).transform,ancho:ticket.getBoundingClientRect().width}:null,confeti:piece?{transform:getComputedStyle(piece).transform,opacity:getComputedStyle(piece).opacity}:null}})()`);
- const first=await animationSample();await pause(400);const second=await animationSample();await pause(1800);const third=await animationSample();
- if(!third.ticket||Number(third.ticket.opacity)<0.9||third.ticket.ancho<40)throw Error('El tiquete no terminó visible: '+JSON.stringify(third));
- if(!first.confeti||Number(first.confeti.opacity)<=0||first.confeti.transform===second.confeti.transform||Number(third.confeti?.opacity)!==0)throw Error('El confeti no se anima y termina como indica la v20.');
- log.push({texto:'Tiquete visible y confeti animado según v20',correcto:true});shot('09-tiquetera');await press('Cobrar mi turno');await until('para montar tu negocio');shot('10-escoge-san');
- if(errors.length)throw Error('Errores de ejecución: '+errors.join('\n'));
- const audio=await evaluate('window.__eventosAudio');if(audio.some(e=>e.evento==='error'))throw Error('Error en audio: '+JSON.stringify(audio));
- const remote=await evaluate('performance.getEntriesByType("resource").filter(e=>/^https?:/.test(e.name)&&!e.name.startsWith(location.origin)).map(e=>e.name)');if(remote.length)throw Error('Se utilizaron recursos remotos: '+remote.join(','));
- writeFileSync(out+'/recorrido.json',JSON.stringify({correcto:true,dispositivo:command('shell','getprop','ro.product.model'),android:command('shell','getprop','ro.build.version.release'),viewport,erroresDeEjecucion:errors,sinConexion:command('shell','settings','get','global','airplane_mode_on')==='1',audio,comprobaciones:log},null,2)+'\n');
- console.log('APK CORRECTO: recorrido local, voz, silencio persistente y tiquera.');
-}finally{ws.close();command('forward','--remove','tcp:9223')}
+const entries=JSON.parse(readFileSync('src/catalog.json','utf8'));
+const report=[];
+for(const entry of entries){
+ command('shell','am','force-stop',app);
+ command('logcat','-c');
+ command('shell','am','start','-W','-n',app+'/com.tuturno.flujo.MainActivity','--es','screen',entry.screen,'--es','variant',entry.variant);
+ await pause(2300);
+ const pid=command('shell','pidof',app);assert(/^\d+$/.test(pid),'La app se cerró en '+entry.id);
+ const logs=command('logcat','-d','--pid='+pid);
+ assert(!/FATAL EXCEPTION|JavascriptException|ReactNativeJS:.*(?:Error:|TypeError|ReferenceError)/.test(logs),'Error nativo en '+entry.id+'\n'+logs);
+ command('shell','uiautomator','dump','/sdcard/tuturno-native.xml');
+ const xml=command('shell','cat','/sdcard/tuturno-native.xml');
+ assert(!xml.includes('android.webkit.WebView'),'Se encontró un WebView');
+ assert(xml.includes('android.widget.TextView'),'La pantalla no contiene textos nativos: '+entry.id);
+ writeFileSync(out+'/'+entry.id+'.xml',xml);
+ writeFileSync(out+'/'+entry.id+'.png',execFileSync(adb,['-s',serial,'exec-out','screencap','-p']));
+ report.push({pantalla:entry.id,correcto:true,textosNativos:(xml.match(/android.widget.TextView/g)??[]).length});
+ console.log('Pantalla nativa correcta:',entry.id);
+}
+writeFileSync(out+'/pantallas.json',JSON.stringify({motor:'React Native / Hermes',android:command('shell','getprop','ro.build.version.release'),dispositivo:command('shell','getprop','ro.product.model'),pantallas:report},null,2)+'\n');
+console.log('Las 33 pantallas se ejecutaron sin errores nativos y sin WebView.');

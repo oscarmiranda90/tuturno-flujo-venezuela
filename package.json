@@ -16,25 +16,34 @@
     "android:verificar": "node scripts/test-apk.mjs",
     "figma:exportar": "node scripts/export-figma-scenes.mjs",
     "figma:compilar": "node scripts/build-figma-plugin.mjs",
-    "figma:verificar": "node scripts/test-figma-plugin.mjs"
+    "figma:verificar": "node scripts/test-figma-plugin.mjs",
+    "native:start": "react-native start",
+    "native:android": "react-native run-android"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@react-native-clipboard/clipboard": "1.16.3",
     "html-to-image": "1.11.13",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-native-reanimated": "4.5.1",
     "react-native-safe-area-context": "5.7.0",
+    "react-native-sound": "0.13.0",
     "react-native-svg": "15.15.4",
     "react-native-web": "0.21.2",
-    "react-native-worklets": "0.10.1"
+    "react-native-worklets": "0.10.1",
+    "react-native": "0.86.3"
   },
   "devDependencies": {
     "@babel/core": "7.29.0",
     "@babel/plugin-transform-export-namespace-from": "7.27.1",
+    "@react-native-community/cli": "20.1.0",
+    "@react-native-community/cli-platform-android": "20.1.0",
+    "@react-native/babel-preset": "0.86.3",
+    "@react-native/metro-config": "0.86.3",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.7",
     "@vitejs/plugin-react": "5.1.4",
-    "react-native": "0.86.3",
     "typescript": "6.0.3",
     "vite": "7.3.8",
     "wrangler": "4.160.1"

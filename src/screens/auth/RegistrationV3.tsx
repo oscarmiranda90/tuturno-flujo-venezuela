@@ -12,6 +12,7 @@ import {
   TextInput,
   View,
 } from "react-native";
+import { PortraitLayer, Testimonials, TestimonialLayer } from "../../platform/carousel";
 import * as Clipboard from "../../platform/clipboard";
 import * as Haptics from "../../platform/haptics";
 import { LinearGradient } from "../../platform/gradient";
@@ -66,7 +67,7 @@ const people = [
     image: require("../../../assets/registration-v3/testimonios/mary-delgado.jpg"),
     portraitScale: 1,
     portraitY: 0,
-    quote: "Con mi turno compré los materiales para arrancar con mis arepas. El sazón lo pongo yo.",
+    quote: "Con mi turno compré el horno y hoy vendo mis postres.",
     name: "Mary Delgado · Caracas",
   },
   {
@@ -351,7 +352,7 @@ export function RegistrationV3({
                         ? "previous" : "hidden";
                     const maskId = `${portraitId}-portrait-${index}`;
                     return (
-                      <div key={person.name} className="login-portrait" data-state={state} aria-hidden="true">
+                      <PortraitLayer key={person.name} state={state}>
                         <Svg
                           width="100%"
                           height="100%"
@@ -379,7 +380,7 @@ export function RegistrationV3({
                             mask={`url(#${maskId})`}
                           />
                         </Svg>
-                      </div>
+                      </PortraitLayer>
                     );
                   })}
                 </View>
@@ -413,9 +414,9 @@ export function RegistrationV3({
                     turnos de {country === "VE" ? "San" : "cadena"} entregados
                   </Text>
                   <View style={[s.quote, edition === "v19" && { maxWidth: 205 }]}>
-                    <div className="login-testimonials">
+                    <Testimonials>
                       {people.map((person, index) => (
-                        <div key={person.name} className="login-testimonial" data-active={index === slide} aria-hidden={index !== slide}>
+                        <TestimonialLayer key={person.name} active={index === slide}>
                           <Text style={s.quoteText}>“{person.quote}”</Text>
                           <View style={{ flexDirection: "row", alignItems: "center", gap: 5 }}>
                             <Svg width={13} height={13} viewBox="0 0 16 16">
@@ -424,9 +425,9 @@ export function RegistrationV3({
                             </Svg>
                             <Text style={s.quoteName}>{person.name}</Text>
                           </View>
-                        </div>
+                        </TestimonialLayer>
                       ))}
-                    </div>
+                    </Testimonials>
                   </View>
                 </View>
               </View>

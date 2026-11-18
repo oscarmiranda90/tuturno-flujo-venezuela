@@ -23,11 +23,11 @@ Implementación web independiente de la guía del CEO del 17 de noviembre de 202
 2. Si Android lo solicita, permite instalar aplicaciones desde el navegador o el gestor de archivos que estés usando.
 3. Abre **TuTurno · v20**. Para probar el registro utiliza el código **482915** y crea una clave de seis dígitos, por ejemplo **628194**.
 
-El APK universal requiere Android 8.0 o posterior. Incluye las pantallas, las fuentes, las imágenes y los quince audios de este repositorio; el recorrido se puede revisar sin conexión. Los enlaces externos sí requieren internet. Conserva los adaptadores de revisión: no envía correos, no guarda el PIN ni realiza cobros. Está firmado como compilación de revisión.
+El APK nativo requiere Android 8.0 o posterior y admite ARM64 y x86_64. Incluye las pantallas, las fuentes, las imágenes y los quince audios de este repositorio; el recorrido se puede revisar sin conexión. Los enlaces externos sí requieren internet. Conserva los adaptadores de revisión: no envía correos, no guarda el PIN ni realiza cobros. Está firmado como compilación de revisión.
 
 ### Volver a generar el APK
 
-Necesitas Node.js 22.18 o posterior, JDK 17 o 21 y Android SDK con la plataforma 36 y las herramientas de compilación 36.0.0. Configura `JAVA_HOME` y `ANDROID_HOME` para esas instalaciones.
+Necesitas Node.js 22.18 o posterior, JDK 21 y Android SDK con la plataforma 36 y las herramientas de compilación 36.0.0 y NDK 27.1.12297006. Configura `JAVA_HOME` y `ANDROID_HOME` para esas instalaciones.
 
 ```sh
 npm ci
@@ -35,7 +35,7 @@ npm run check
 npm run android:apk
 ```
 
-El resultado queda en `descargas/TuTurno-v20-Android.apk`, junto con su archivo `.sha256`. El proyecto Android de `android/` empaqueta la compilación Vite local mediante WebViewAssetLoader; no utiliza Expo ni carga el sitio remoto para mostrar las pantallas. Respeta los márgenes de las barras del sistema y del teclado. Las claves de firma y los archivos locales de compilación se excluyen de Git.
+El resultado queda en `descargas/TuTurno-v20-Android.apk`, junto con su archivo `.sha256`. El proyecto `android/` ejecuta React Native 0.86.3 con Fabric y Hermes. Metro compila los mismos componentes de `src/flow/` y `src/screens/` que usa la vista web. No incorpora WebView ni Expo. Los archivos `.native.ts(x)` implementan audio, almacenamiento, degradados, portapapeles y transiciones nativas. Respeta los márgenes de las barras del sistema y del teclado. Las claves de firma y los archivos locales de compilación se excluyen de Git.
 
 ### Comprobación del APK
 
@@ -200,7 +200,7 @@ npm run build
 npm run preview
 ```
 
-Usa Node.js 22.18 o posterior. Las pruebas del flujo utilizan el compilador TypeScript instalado, incluso en distribuciones de Node sin soporte nativo para TypeScript. El servidor de desarrollo escucha en el puerto 5210. React 19 y React Native Web generan la interfaz del navegador; Vite compila el sitio. React Native aporta los tipos de desarrollo de los componentes visuales compartidos. El proyecto no contiene dependencias ni API de Expo ni configuración de Metro. La carpeta `android/` contiene únicamente el contenedor que empaqueta esta misma web como APK; no hay proyecto de iOS.
+Usa Node.js 22.18 o posterior. Las pruebas del flujo utilizan el compilador TypeScript instalado, incluso en distribuciones de Node sin soporte nativo para TypeScript. El servidor de desarrollo escucha en el puerto 5210. React 19 y React Native Web generan la interfaz del navegador; Vite compila el sitio. React Native también ejecuta esos componentes directamente en Android mediante `index.js`, `src/NativeApp.tsx` y Metro. `npm run native:start` inicia Metro y `npm run native:android` instala la compilación de desarrollo. No hay dependencias de Expo. Limonbyte puede integrar los componentes de React Native y los adaptadores `.native` en su aplicación. Este repositorio no incluye todavía un proyecto Xcode ni una compilación iOS verificada.
 
 `npm run check` verifica los tipos, el español neutro, los precios, el retroceso por los pasos del paseo, la conservación de los consentimientos, los quince audios locales y la ausencia de dependencias de Expo.
 

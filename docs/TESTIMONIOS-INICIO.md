@@ -6,7 +6,7 @@ El orden es Mary, Carolina, Deivy, Bernardo y Yenifer. Se muestra una persona ca
 
 | Persona | Ciudad | Frase |
 | --- | --- | --- |
-| Mary Delgado | Caracas | Con mi turno compré los materiales para arrancar con mis arepas. El sazón lo pongo yo. |
+| Mary Delgado | Caracas | Con mi turno compré el horno y hoy vendo mis postres. |
 | Carolina Nieves | Caracas | La receta ya la tenía. Con mi turno armé el kit para mis pizzas. |
 | Deivy Márquez | Miranda | Con mi turno reuní para los termos y el café. ¡Listo para acompañar la mañana de mis panas! |
 | Bernardo Caldeira | Caracas | ¡Con TuTurno completé para invertir en mi negocio! |
@@ -21,3 +21,5 @@ Las cinco fotos se cargan al mostrar el inicio. Cada cinco segundos, la siguient
 El testimonio anterior sale en 100 ms y el siguiente entra en 180 ms, después de esa salida, para evitar frases superpuestas. Todos ocupan la misma celda, cuya altura contempla la frase más larga. Con movimiento reducido, el fundido de la foto dura 200 ms y el del texto 120 ms, sin desplazamientos.
 
 [Verificación de la transición](verification/transicion-login/README.md).
+
+La fotografía de Mary procede de la web; su frase sigue el texto aprobado de la v20 por indicación del CEO, en lugar de la frase de la web.

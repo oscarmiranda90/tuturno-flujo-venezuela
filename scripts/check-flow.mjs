@@ -16,3 +16,12 @@ const scripts=JSON.parse(readFileSync('assets/audio/manifest.json','utf8'));asse
 for(const voice of scripts.voices)assert(existsSync('assets/audio/'+voice.file),voice.file);
 const lock=JSON.parse(readFileSync('package-lock.json','utf8'));assert(!Object.keys(lock.packages).some(k=>/(^|\/)node_modules\/(expo(?:-[^/]+)?|@expo\/[^/]+)$/.test(k)),'Se encontró una dependencia de Expo');
 console.log('Verificación del flujo correcta: precios, retroceso, conservación de consentimientos y San, 15 audios y ninguna dependencia de Expo.');
+
+const pkg=JSON.parse(readFileSync('package.json','utf8'));
+assert.equal(pkg.dependencies['react-native'],'0.86.3');
+assert(readFileSync('android/app/src/main/java/com/tuturno/flujo/MainActivity.kt','utf8').includes('ReactActivity()'));
+assert(!readFileSync('android/app/build.gradle','utf8').includes('androidx.webkit'));
+const login=readFileSync('src/screens/auth/RegistrationV3.tsx','utf8');
+assert(login.includes('Con mi turno compré el horno y hoy vendo mis postres.'));
+assert(!login.includes('<div'));
+console.log('Contrato nativo correcto: React Native, actividad nativa y frase aprobada de Mary.');

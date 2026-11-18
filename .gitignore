@@ -22,3 +22,6 @@ android/app/src/main/assets/
 # Plugin de Figma compilado; las fuentes originales viven en assets/fonts.
 /figma-plugin/code.js
 /figma-plugin/Fuentes/
+
+android/app/src/main/res/raw/
+android/app/.cxx/

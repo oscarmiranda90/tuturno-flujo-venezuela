@@ -12,4 +12,4 @@ Ejecuta `npm run check:language` cuando cambies textos. `npm run check` comprueb
 
 ## Alcance
 
-Este repositorio contiene el flujo web y un contenedor Android con WebViewAssetLoader, sin Expo. `npm run android:apk` genera el APK con sus recursos locales. Storybook muestra el mismo flujo publicado mediante el puente de revisión. Las observaciones privadas de Oscar se guardan en su manual separado y no se publican aquí.
+Este repositorio contiene pantallas compartidas de React Native, una aplicación Android nativa con Hermes y una vista web de revisión, sin Expo. El APK nunca debe usar WebView. `npm run android:apk` genera la aplicación nativa con sus recursos locales. Storybook muestra el mismo flujo publicado mediante el puente de revisión. Las observaciones privadas de Oscar se guardan en su manual separado y no se publican aquí.
