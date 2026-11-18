@@ -1,5 +1,6 @@
 import React, { useEffect, useId, useRef, useState } from "react";
 import {
+  Dimensions,
   Image,
   Keyboard,
   Modal,
@@ -170,14 +171,20 @@ export function RegistrationV3({
   const insets = useSafeAreaInsets();
   const window = useWindowDimensions();
   const [bounds, setBounds] = useState<{width:number;height:number}|null>(null);
-  const [keyboardOpen, setKeyboardOpen] = useState(false);
+  const [keyboardLimit, setKeyboardLimit] = useState<number | null>(null);
+  const keyboardOpen = keyboardLimit !== null;
+  const [keyboardCardHeight, setKeyboardCardHeight] = useState(0);
   useEffect(() => {
-    const show = Keyboard.addListener("keyboardDidShow", () => setKeyboardOpen(true));
-    const hide = Keyboard.addListener("keyboardDidHide", () => setKeyboardOpen(false));
+    const show = Keyboard.addListener("keyboardDidShow", ({endCoordinates}) => {
+      setKeyboardLimit(Math.min(endCoordinates.screenY, Dimensions.get("screen").height - endCoordinates.height));
+    });
+    const hide = Keyboard.addListener("keyboardDidHide", () => setKeyboardLimit(null));
     return () => {show.remove();hide.remove();};
   }, []);
   const availableHeight = (bounds?.height ?? window.height) - insets.top - insets.bottom;
-  const density = Math.max(0, Math.min(1, (availableHeight - 520) / 260));
+  const density = keyboardOpen ? 0 : Math.max(0, Math.min(1, (availableHeight - 520) / 260));
+  const keyboardForm = stage === "start" && keyboardOpen;
+  const keyboardSpace = Math.max(0, Math.min(bounds?.height ?? window.height, keyboardLimit ?? Infinity) - insets.top);
   const formOnly = keyboardOpen || availableHeight < 440;
   const controlStyle: ViewStyle = {height:44 + 12*density, marginTop:3 + 9*density};
   const formScale = Platform.OS === "web" || (stage === "start" && keyboardOpen) ? 1 : stage === "start"
@@ -337,9 +344,9 @@ export function RegistrationV3({
         },
       ]}
     >
-      <View style={{flex:1}}>
+      <View collapsable={false} style={{flex:1}}>
         <View collapsable={false} style={formScale < 1 ? {width:(bounds?.width ?? window.width)/formScale,height:(availableHeight + (heroInset > 0 ? insets.top : 0))/formScale,transform:[{scale:formScale}],transformOrigin:"top left"} : {flex:1}}>
-        <View style={{flex:1}}>
+        <View collapsable={false} style={{flex:1}}>
           {stage === "start" ? (
             <>
               <View style={[s.hero, {
@@ -440,7 +447,7 @@ export function RegistrationV3({
                   </View>
                 </View>
               </View>
-              <View style={[s.startCard, {padding:10 + 8*density, paddingTop:10 + 23*density, marginBottom:6 + 6*density}]}>
+              <View collapsable={false} testID="login-card" onLayout={({nativeEvent:{layout}}) => {if (keyboardForm) setKeyboardCardHeight(layout.height);}} style={[s.startCard, {padding:10 + 8*density, paddingTop:10 + 23*density, marginBottom:6 + 6*density}, keyboardForm && [s.keyboardCard, {top:keyboardSpace / 2, transform:[{translateY:-keyboardCardHeight / 2}]}]]}>
                 {!formOnly && <>
 
                 <View
@@ -1445,6 +1452,24 @@ const s = StyleSheet.create({
     marginTop: -1,
     marginBottom: 12,
     flex: 1,
+  },
+  keyboardCard: {
+    position: "absolute",
+    flex: 0,
+    width: "88%",
+    maxWidth: 400,
+    alignSelf: "center",
+    marginHorizontal: 0,
+    marginTop: 0,
+    marginBottom: 0,
+    padding: 20,
+    paddingTop: 20,
+    borderRadius: 24,
+    shadowColor: "#081349",
+    shadowOpacity: 0.12,
+    shadowRadius: 16,
+    shadowOffset: {width: 0, height: 6},
+    elevation: 3,
   },
   heading: {
     fontFamily: "Outfit_700Bold",
