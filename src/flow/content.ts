@@ -14,7 +14,7 @@ export const IDEAS = ["Montar mi negocio", "Hacer crecer mi negocio", "Comprar a
 export const PURPOSES = ["montar tu negocio", "hacer crecer tu negocio", "comprar algo que necesitas", "salir de una deuda", "resolver una emergencia", null] as const;
 export const VOICE = {
  "4a":["¡Increíble!","Lo vas a lograr."],
- "4b":["¿Seguimos?","Activa los avisos y te acompaño paso a paso, hasta el día que te toca cobrar."],
+ "4b":["¿Quieres recibir avisos?","Activa los avisos y te acompaño paso a paso, hasta el día que te toca cobrar."],
  "4c-1":["Todos ponen lo mismo","€10 cada semana."],
  "4c-2":["Uno cobra todo junto","Los €100 de una vez."],
  "4c-3":["Después le toca al siguiente","Todos cobran. Tú también."],

@@ -504,7 +504,7 @@ export function VenezuelaFlow({
                 x={126}
                 y={36}
                 w={212}
-                h={106}
+                h={120}
                 style={{
                   backgroundColor: C.bubble,
                   borderRadius: 20,
