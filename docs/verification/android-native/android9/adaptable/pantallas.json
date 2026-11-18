@@ -1,0 +1,174 @@
+{
+  "motor": "React Native / Hermes",
+  "android": "9",
+  "dispositivo": "Android SDK built for arm64",
+  "modoAvion": "0",
+  "escalaAnimaciones": "0",
+  "pantallas": [
+    {
+      "pantalla": "1",
+      "correcto": true,
+      "textosNativos": 13
+    },
+    {
+      "pantalla": "2",
+      "correcto": true,
+      "textosNativos": 14
+    },
+    {
+      "pantalla": "3",
+      "correcto": true,
+      "textosNativos": 17
+    },
+    {
+      "pantalla": "4a",
+      "correcto": true,
+      "textosNativos": 9
+    },
+    {
+      "pantalla": "4a-selected",
+      "correcto": true,
+      "textosNativos": 10
+    },
+    {
+      "pantalla": "4b",
+      "correcto": true,
+      "textosNativos": 11
+    },
+    {
+      "pantalla": "4c",
+      "correcto": true,
+      "textosNativos": 7
+    },
+    {
+      "pantalla": "4c-1",
+      "correcto": true,
+      "textosNativos": 10
+    },
+    {
+      "pantalla": "4c-2",
+      "correcto": true,
+      "textosNativos": 10
+    },
+    {
+      "pantalla": "4c-3",
+      "correcto": true,
+      "textosNativos": 10
+    },
+    {
+      "pantalla": "5",
+      "correcto": true,
+      "textosNativos": 13
+    },
+    {
+      "pantalla": "5-guide",
+      "correcto": true,
+      "textosNativos": 16
+    },
+    {
+      "pantalla": "6",
+      "correcto": true,
+      "textosNativos": 27
+    },
+    {
+      "pantalla": "6-1",
+      "correcto": true,
+      "textosNativos": 30
+    },
+    {
+      "pantalla": "6-2",
+      "correcto": true,
+      "textosNativos": 30
+    },
+    {
+      "pantalla": "6-3",
+      "correcto": true,
+      "textosNativos": 30
+    },
+    {
+      "pantalla": "7",
+      "correcto": true,
+      "textosNativos": 20
+    },
+    {
+      "pantalla": "7-guide",
+      "correcto": true,
+      "textosNativos": 23
+    },
+    {
+      "pantalla": "7b",
+      "correcto": true,
+      "textosNativos": 20
+    },
+    {
+      "pantalla": "7b-guide",
+      "correcto": true,
+      "textosNativos": 23
+    },
+    {
+      "pantalla": "8",
+      "correcto": true,
+      "textosNativos": 10
+    },
+    {
+      "pantalla": "8-guide",
+      "correcto": true,
+      "textosNativos": 13
+    },
+    {
+      "pantalla": "8-ready",
+      "correcto": true,
+      "textosNativos": 10
+    },
+    {
+      "pantalla": "9",
+      "correcto": true,
+      "textosNativos": 9
+    },
+    {
+      "pantalla": "10",
+      "correcto": true,
+      "textosNativos": 30
+    },
+    {
+      "pantalla": "10-other",
+      "correcto": true,
+      "textosNativos": 28
+    },
+    {
+      "pantalla": "11",
+      "correcto": true,
+      "textosNativos": 13
+    },
+    {
+      "pantalla": "11b",
+      "correcto": true,
+      "textosNativos": 11
+    },
+    {
+      "pantalla": "12",
+      "correcto": true,
+      "textosNativos": 21
+    },
+    {
+      "pantalla": "12-other",
+      "correcto": true,
+      "textosNativos": 20
+    },
+    {
+      "pantalla": "12c",
+      "correcto": true,
+      "textosNativos": 23
+    },
+    {
+      "pantalla": "12d",
+      "correcto": true,
+      "textosNativos": 24
+    },
+    {
+      "pantalla": "13",
+      "correcto": true,
+      "textosNativos": 1
+    }
+  ]
+}

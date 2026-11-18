@@ -1,7 +1,15 @@
-# Registro libre de prueba · Android 20.0.3
+# Recorrido adaptable sin scroll exterior · Android 20.0.4
 
-Se completó el registro en Android con correo vacío, código 123456 y clave 111111 repetida. En la web publicada se probaron los correos «cualquiercosa», vacío y «test@ejemplo.com», con códigos 123456, 000000 y 987654 respectivamente; los tres llegaron al paseo.
+El login adapta tamaños y espacios al alto disponible. Al abrir el teclado prioriza el formulario. Las pantallas de registro siguientes encajan proporcionalmente en el área segura. El contenedor compartido de las 33 pantallas calcula su escala con ancho y alto y no permite desplazamiento exterior. Solo el panel de términos conserva su lectura interna.
 
-Las capturas corresponden al emulador Android 17 con superficies de 360 × 640 dp y aproximadamente 411 × 914 dp. En la pantalla compacta el contenido continúa mediante desplazamiento vertical. Se restauraron resolución, densidad y animaciones del emulador al finalizar.
+## Comprobaciones
 
-El login inicializa los márgenes seguros con las medidas nativas, evita ajustes automáticos de contenido y no permite rebote. En ambos tamaños el retrato llega hasta el borde superior. No se reprodujo la franja azul de la fotografía del teléfono físico: falta conocer su modelo y la versión instalada. Estas capturas no validan ese dispositivo ni versiones anteriores de Android.
+- Android 17: login en 360 × 640 dp y aproximadamente 411 × 914 dp. Capturas en este directorio.
+- Android 17: catálogo completo de 33 pantallas en 320 × 568 dp, con jerarquías nativas y capturas en ../compacto-320.
+- Android 9: catálogo completo, recorte superior simulado y navegación de tres botones, con 1536 MB de memoria. Evidencia en ../android9/adaptable.
+- Navegador: 99 estados (33 pantallas en 320 × 568, 360 × 640 y 390 × 844), sin scroll exterior. Privacidad del login dentro del viewport. Resultados en web.json.
+- Registro: correos «cualquiercosa», vacío y «test@ejemplo.com»; códigos 123456, 000000 y 987654; clave 111111 repetida. Llegan al paseo.
+
+Las pruebas detectan vistas desplazables fuera de los términos. `npm run check` también comprueba el encaje geométrico en una matriz de tamaños. El APK final solo añade, respecto al barrido completo, un marcador de testimonio dibujado como vista simple para evitar una anomalía del borde en la pantalla más estrecha.
+
+La franja azul exacta de la fotografía del teléfono físico no se reprodujo. Se reforzó la configuración de borde a borde y se comprobó el login con y sin recorte en Android 9; no se afirma haber probado todas las capas de fabricantes. Las comprobaciones nativas se hicieron en emuladores.

@@ -1,0 +1,10 @@
+{
+  "correoLibre": true,
+  "android": 9,
+  "codigoUsado": "123456",
+  "claveUsada": "111111",
+  "codigoOtp": true,
+  "claveYConfirmacion": true,
+  "entradaPaseo": true,
+  "servicios": "Simulados; no se envían correos ni se guarda la clave."
+}
