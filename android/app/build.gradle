@@ -11,8 +11,8 @@ android {
   applicationId 'com.tuturno.flujo.v20'
   minSdk 26
   targetSdk 36
-  versionCode 200008
-  versionName '20.0.8'
+  versionCode 200009
+  versionName '20.0.9'
  }
  signingConfigs {
   debug {

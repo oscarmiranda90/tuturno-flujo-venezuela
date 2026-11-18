@@ -1,6 +1,5 @@
 import React, { useEffect, useId, useRef, useState } from "react";
 import {
-  Dimensions,
   Image,
   Keyboard,
   Modal,
@@ -9,6 +8,7 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  TouchableWithoutFeedback,
   View,
   useWindowDimensions,
   type ViewStyle,
@@ -171,23 +171,11 @@ export function RegistrationV3({
   const insets = useSafeAreaInsets();
   const window = useWindowDimensions();
   const [bounds, setBounds] = useState<{width:number;height:number}|null>(null);
-  const [keyboardLimit, setKeyboardLimit] = useState<number | null>(null);
-  const keyboardOpen = keyboardLimit !== null;
-  const [keyboardCardHeight, setKeyboardCardHeight] = useState(0);
-  useEffect(() => {
-    const show = Keyboard.addListener("keyboardDidShow", ({endCoordinates}) => {
-      setKeyboardLimit(Math.min(endCoordinates.screenY, Dimensions.get("screen").height - endCoordinates.height));
-    });
-    const hide = Keyboard.addListener("keyboardDidHide", () => setKeyboardLimit(null));
-    return () => {show.remove();hide.remove();};
-  }, []);
   const availableHeight = (bounds?.height ?? window.height) - insets.top - insets.bottom;
-  const density = keyboardOpen ? 0 : Math.max(0, Math.min(1, (availableHeight - 520) / 260));
-  const keyboardForm = stage === "start" && keyboardOpen;
-  const keyboardSpace = Math.max(0, Math.min(bounds?.height ?? window.height, keyboardLimit ?? Infinity) - insets.top);
-  const formOnly = keyboardOpen || availableHeight < 440;
+  const density = Math.max(0, Math.min(1, (availableHeight - 520) / 260));
+  const formOnly = availableHeight < 440;
   const controlStyle: ViewStyle = {height:44 + 12*density, marginTop:3 + 9*density};
-  const formScale = Platform.OS === "web" || (stage === "start" && keyboardOpen) ? 1 : stage === "start"
+  const formScale = Platform.OS === "web" ? 1 : stage === "start"
     ? Math.min(1, availableHeight / 520, (bounds?.width ?? window.width) / 320)
     : Math.min(1, availableHeight / 740, (bounds?.width ?? window.width) / 360);
   useEffect(() => {
@@ -334,6 +322,7 @@ export function RegistrationV3({
   // El dibujo se extiende bajo la barra de estado nativa; solo el contenido consume el margen seguro.
   const heroInset = stage === "start" && !formOnly && Platform.OS !== "web" ? insets.top / formScale : 0;
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
     <View
       onLayout={({nativeEvent:{layout}}) => setBounds(previous => previous?.width === layout.width && previous?.height === layout.height ? previous : {width:layout.width,height:layout.height})}
       style={[
@@ -344,9 +333,9 @@ export function RegistrationV3({
         },
       ]}
     >
-      <View collapsable={false} style={{flex:1}}>
+      <View style={{flex:1}}>
         <View collapsable={false} style={formScale < 1 ? {width:(bounds?.width ?? window.width)/formScale,height:(availableHeight + (heroInset > 0 ? insets.top : 0))/formScale,transform:[{scale:formScale}],transformOrigin:"top left"} : {flex:1}}>
-        <View collapsable={false} style={{flex:1}}>
+        <View style={{flex:1}}>
           {stage === "start" ? (
             <>
               <View style={[s.hero, {
@@ -447,7 +436,7 @@ export function RegistrationV3({
                   </View>
                 </View>
               </View>
-              <View collapsable={false} testID="login-card" onLayout={({nativeEvent:{layout}}) => {if (keyboardForm) setKeyboardCardHeight(layout.height);}} style={[s.startCard, {padding:10 + 8*density, paddingTop:10 + 23*density, marginBottom:6 + 6*density}, keyboardForm && [s.keyboardCard, {top:keyboardSpace / 2, transform:[{translateY:-keyboardCardHeight / 2}]}]]}>
+              <View style={[s.startCard, {padding:10 + 8*density, paddingTop:10 + 23*density, marginBottom:6 + 6*density}]}>
                 {!formOnly && <>
 
                 <View
@@ -535,6 +524,8 @@ export function RegistrationV3({
                     autoCapitalize="none"
                     keyboardType="email-address"
                     autoComplete="email"
+                    returnKeyType="go"
+                    onSubmitEditing={() => { if (adapter === fixture || isValidEmail(email)) begin(); }}
                     accessibilityLabel="Correo electrónico"
                     style={[s.email, {paddingLeft:43,height:44 + 10*density,fontSize:14 + 2*density}]}
                   />
@@ -546,7 +537,6 @@ export function RegistrationV3({
                   disabled={(adapter !== fixture && !isValidEmail(email)) || busy}
                   onPress={begin}
                 />
-                {!keyboardOpen && <>
                 <ProviderButton
                   provider={mainProvider}
                   style={controlStyle}
@@ -563,7 +553,6 @@ export function RegistrationV3({
                     Política de privacidad
                   </Text>
                 </Text>
-                </>}
               </View>
             </>
           ) : (
@@ -1205,6 +1194,7 @@ export function RegistrationV3({
         </View>
       </Modal>
     </View>
+    </TouchableWithoutFeedback>
   );
 }
 function Flag({ country }: { country: RegistrationCountry }) {
@@ -1452,24 +1442,6 @@ const s = StyleSheet.create({
     marginTop: -1,
     marginBottom: 12,
     flex: 1,
-  },
-  keyboardCard: {
-    position: "absolute",
-    flex: 0,
-    width: "88%",
-    maxWidth: 400,
-    alignSelf: "center",
-    marginHorizontal: 0,
-    marginTop: 0,
-    marginBottom: 0,
-    padding: 20,
-    paddingTop: 20,
-    borderRadius: 24,
-    shadowColor: "#081349",
-    shadowOpacity: 0.12,
-    shadowRadius: 16,
-    shadowOffset: {width: 0, height: 6},
-    elevation: 3,
   },
   heading: {
     fontFamily: "Outfit_700Bold",
