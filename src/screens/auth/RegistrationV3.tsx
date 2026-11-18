@@ -11,6 +11,8 @@ import {
   Text,
   TextInput,
   View,
+  useWindowDimensions,
+  type ViewStyle,
 } from "react-native";
 import { PortraitLayer, Testimonials, TestimonialLayer } from "../../platform/carousel";
 import * as Clipboard from "../../platform/clipboard";
@@ -168,6 +170,20 @@ export function RegistrationV3({
   const [keypadWidth, setKeypadWidth] = useState(304);
   const input = useRef<TextInput>(null);
   const insets = useSafeAreaInsets();
+  const window = useWindowDimensions();
+  const [bounds, setBounds] = useState<{width:number;height:number}|null>(null);
+  const [keyboardOpen, setKeyboardOpen] = useState(false);
+  useEffect(() => {
+    const show = Keyboard.addListener("keyboardDidShow", () => setKeyboardOpen(true));
+    const hide = Keyboard.addListener("keyboardDidHide", () => setKeyboardOpen(false));
+    return () => {show.remove();hide.remove();};
+  }, []);
+  const availableHeight = (bounds?.height ?? window.height) - insets.top - insets.bottom;
+  const density = Math.max(0, Math.min(1, (availableHeight - 520) / 260));
+  const formOnly = keyboardOpen || availableHeight < 440;
+  const controlStyle: ViewStyle = {height:44 + 12*density, marginTop:6 + 6*density};
+  const formScale = stage === "start" || Platform.OS === "web" ? 1 :
+    Math.min(1, availableHeight / 740, (bounds?.width ?? window.width) / 360);
   useEffect(() => {
     if (stage !== "start" || (preview && initialPreview !== "start")) return;
     const id = setInterval(
@@ -310,9 +326,10 @@ export function RegistrationV3({
   const mainProvider: RegistrationProvider =
     Platform.OS === "ios" ? "apple" : "google";
   // El dibujo se extiende bajo la barra de estado nativa; solo el contenido consume el margen seguro.
-  const heroInset = stage === "start" && Platform.OS !== "web" ? insets.top : 0;
+  const heroInset = stage === "start" && !formOnly && Platform.OS !== "web" ? insets.top : 0;
   return (
     <View
+      onLayout={({nativeEvent:{layout}}) => setBounds(previous => previous?.width === layout.width && previous?.height === layout.height ? previous : {width:layout.width,height:layout.height})}
       style={[
         s.root,
         {
@@ -327,27 +344,30 @@ export function RegistrationV3({
         }}
         behavior={Platform.OS === "ios" ? "padding" : undefined}
       >
+        <View style={formScale < 1 ? {width:(bounds?.width ?? window.width)/formScale,height:availableHeight/formScale,transform:[{scale:formScale}],transformOrigin:"top left"} : {flex:1}}>
         <ScrollView
+          scrollEnabled={false}
           contentInsetAdjustmentBehavior="never"
           automaticallyAdjustContentInsets={false}
           bounces={false}
           overScrollMode="never"
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={{
-            flexGrow: 1,
+            flex: 1,
           }}
         >
           {stage === "start" ? (
             <>
-              <View style={[s.hero, {
-                height: (edition === "v19" ? 291 : 305) + heroInset,
-                paddingTop: 15 + heroInset,
+              {!formOnly && <View style={[s.hero, {
+                height: 190 + 101*density + heroInset,
+                paddingTop: 8 + 7*density + heroInset,
+                paddingHorizontal: 16 + 4*density,
               }]}>
                 <View
                   pointerEvents="none"
                   style={[
                     s.photo,
-                    edition === "v19" && { width: "68%", height: 346 + heroInset, right: -7 },
+                    edition === "v19" && { width: "68%", height: 245 + 101*density + heroInset, right: -7 },
                   ]}
                 >
                   {people.map((person, index) => {
@@ -400,42 +420,44 @@ export function RegistrationV3({
                   style={StyleSheet.absoluteFill}
                 />
                 <View style={s.brand}>
-                  <BrandMark size={38} />
+                  <BrandMark size={28 + 10*density} />
                   <Text
-                    style={[s.brandText, edition === "v19" && { fontSize: 28 }]}
+                    style={[s.brandText, {fontSize:22 + 6*density}]}
                   >
                     tu turno
                   </Text>
                 </View>
-                <Text style={s.slogan}>
+                <Text style={[s.slogan, {fontSize:11 + 2*density, marginTop:2 + 2*density}]}>
                   {country === "VE"
                     ? "El primer San digital del país"
                     : "La primera cadena digital del país"}
                 </Text>
-                <View style={[s.heroBottom, edition === "v19" && { paddingBottom: 26 }]}>
-                  <Text style={[s.counter, edition === "v19" && { fontSize: 36, lineHeight: 42 }]}>{deliveredCount}</Text>
-                  <Text style={[s.heroSub, edition === "v19" && { fontSize: 14, fontFamily: "Outfit_500Medium" }]}>
+                <View style={[s.heroBottom, {paddingBottom:8 + 18*density}]}>
+                  <Text style={[s.counter, {fontSize:28 + 8*density,lineHeight:32 + 10*density}]}>{deliveredCount}</Text>
+                  <Text style={[s.heroSub, {fontSize:12 + 2*density, fontFamily:"Outfit_500Medium"}]}>
                     turnos de {country === "VE" ? "San" : "cadena"} entregados
                   </Text>
-                  <View style={[s.quote, edition === "v19" && { maxWidth: 205 }]}>
-                    <Testimonials>
+                  <View style={[s.quote, {maxWidth:205, minHeight:60 + 24*density, marginTop:5 + 9*density, paddingLeft:8 + 4*density}]}>
+                    <Testimonials height={60 + 24*density}>
                       {people.map((person, index) => (
                         <TestimonialLayer key={person.name} active={index === slide}>
-                          <Text style={s.quoteText}>“{person.quote}”</Text>
+                          <Text style={[s.quoteText,{fontSize:11 + 2*density}]}>“{person.quote}”</Text>
                           <View style={{ flexDirection: "row", alignItems: "center", gap: 5 }}>
                             <Svg width={13} height={13} viewBox="0 0 16 16">
                               <Circle cx={8} cy={8} r={8} fill={green} />
                               <Path d="M4 8 L7 11 L12 5" stroke="white" strokeWidth={2} fill="none" />
                             </Svg>
-                            <Text style={s.quoteName}>{person.name}</Text>
+                            <Text style={[s.quoteName,{fontSize:10 + 2*density,marginTop:3 + 2*density}]}>{person.name}</Text>
                           </View>
                         </TestimonialLayer>
                       ))}
                     </Testimonials>
                   </View>
                 </View>
-              </View>
-              <View style={[s.startCard, edition === "v19" && { paddingTop: 33 }]}>
+              </View>}
+              <View style={[s.startCard, {padding:10 + 8*density, paddingTop:10 + 23*density, marginBottom:6 + 6*density, justifyContent:formOnly?"center":undefined}]}>
+                {!formOnly && <>
+
                 <View
                   style={{
                     flexDirection: "row",
@@ -461,13 +483,15 @@ export function RegistrationV3({
                       s.heading,
                       {
                         flex: 1,
+                        fontSize:22 + 6*density,
+                        lineHeight:24 + 8*density,
                       },
                     ]}
                   >
                     Tu turno está garantizado
                   </Text>
                 </View>
-                <Text style={s.subtitle}>
+                <Text style={[s.subtitle,{fontSize:12 + 4*density,marginTop:4 + 6*density}]}>
                   Si alguien falla,{" "}
                   <Text
                     style={{
@@ -478,14 +502,15 @@ export function RegistrationV3({
                     tú cobras completo.
                   </Text>
                 </Text>
-                <Text style={[s.label, edition === "v19" && { marginTop: 26 }]}>Prueba cómo cobras tu turno</Text>
+                </>}
+                <Text style={[s.label, {marginTop:formOnly?0:8 + 18*density,marginBottom:4 + 4*density,fontSize:13 + density}]}>Prueba cómo cobras tu turno</Text>
                 <View style={{ position: "relative" }}>
                   <View
                     pointerEvents="none"
                     style={{
                       position: "absolute",
                       left: 15,
-                      top: 18,
+                      top: 13 + 5*density,
                       zIndex: 1,
                     }}
                   >
@@ -517,26 +542,29 @@ export function RegistrationV3({
                     keyboardType="email-address"
                     autoComplete="email"
                     accessibilityLabel="Correo electrónico"
-                    style={[s.email, { paddingLeft: 43 }]}
+                    style={[s.email, {paddingLeft:43,height:44 + 10*density,fontSize:14 + 2*density}]}
                   />
                 </View>
                 {error ? <Text style={s.error}>{error}</Text> : null}
                 <Button
                   label="Continuar  →"
+                  style={controlStyle}
                   disabled={(adapter !== fixture && !isValidEmail(email)) || busy}
                   onPress={begin}
                 />
                 <ProviderButton
                   provider={mainProvider}
+                  style={controlStyle}
                   onPress={() => provider(mainProvider)}
                 />
                 <Link
                   label="Otras opciones  ›"
+                  style={{height:44,paddingVertical:0,justifyContent:"center"}}
                   onPress={() => setSheet("providers")}
                 />
-                <Text style={s.privacy}>
+                <Text style={[s.privacy,{fontSize:10 + density,marginVertical:2 + 2*density}]}>
                   Al continuar aceptas la{" "}
-                  <Text style={s.link} onPress={() => setSheet("privacy")}>
+                  <Text style={[s.link,{fontSize:10 + density}]} onPress={() => setSheet("privacy")}>
                     Política de privacidad
                   </Text>
                 </Text>
@@ -942,6 +970,7 @@ export function RegistrationV3({
             </>
           )}
         </ScrollView>
+        </View>
       </KeyboardAvoidingView>
       {referenceKeyboard && Platform.OS === "web" && stage === "otp" && (
         <View
@@ -1241,9 +1270,11 @@ function AuthIcon({ mail }: { mail: boolean }) {
 function ProviderButton({
   provider,
   onPress,
+  style,
 }: {
   provider: RegistrationProvider;
   onPress: () => void;
+  style?: ViewStyle;
 }) {
   const label = `Continuar con ${provider === "google" ? "Google" : provider === "apple" ? "Apple" : "Facebook"}`;
   const dark = provider !== "google";
@@ -1256,6 +1287,7 @@ function ProviderButton({
       style={[
         s.button,
         s.providerButton,
+        style,
         provider === "google"
           ? s.secondary
           : { backgroundColor: provider === "apple" ? "#000000" : "#1877F2" },
@@ -1314,7 +1346,9 @@ function Button({
   onPress,
   secondary,
   disabled,
+  style,
 }: {
+  style?: ViewStyle;
   label: string;
   onPress: () => void;
   secondary?: boolean;
@@ -1325,13 +1359,13 @@ function Button({
       accessibilityRole="button"
       disabled={disabled}
       onPress={onPress}
-      style={[s.button, secondary && s.secondary]}
+      style={[s.button, secondary && s.secondary, style]}
     >
       <Text style={s.buttonText}>{label}</Text>
     </Pressable>
   );
 }
-function Link({ label, onPress }: { label: string; onPress: () => void }) {
+function Link({ label, onPress, style }: { label: string; onPress: () => void; style?: ViewStyle }) {
   return (
     <Pressable
       accessibilityRole="button"
@@ -1339,6 +1373,7 @@ function Link({ label, onPress }: { label: string; onPress: () => void }) {
       style={{
         alignSelf: "center",
         padding: 12,
+        ...style,
       }}
     >
       <Text style={s.link}>{label}</Text>

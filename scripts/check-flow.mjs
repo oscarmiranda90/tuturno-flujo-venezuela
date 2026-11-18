@@ -25,3 +25,14 @@ const login=readFileSync('src/screens/auth/RegistrationV3.tsx','utf8');
 assert(login.includes('Con mi turno compré el horno y hoy vendo mis postres.'));
 assert(!login.includes('<div'));
 console.log('Contrato nativo correcto: React Native, actividad nativa y frase aprobada de Mary.');
+
+const layoutSource=readFileSync('src/flow/layout.ts','utf8');
+const layoutModule=ts.transpileModule(layoutSource,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext}}).outputText;
+const {frameLayout}=await import('data:text/javascript;base64,'+Buffer.from(layoutModule).toString('base64'));
+for(const width of [320,360,390,411,480,768])for(const height of [568,640,740,800,914,1024])for(const native of [true,false]){
+ const layout=frameLayout(width,height,native?48:0,native?24:0,native);
+ assert(layout.contentHeight<=layout.viewportHeight+0.01,`La pantalla se desborda: ${width} × ${height}`);
+ assert(layout.physicalWidth<=width);
+ assert(layout.scale>0&&layout.scale<=1);
+}
+console.log('Todas las medidas del recorrido caben en el ancho y el alto disponibles sin scroll exterior.');

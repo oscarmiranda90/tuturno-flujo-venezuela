@@ -11,7 +11,7 @@ export interface CanvasLayout {
 }
 export type HorizontalAnchor = "auto" | "left" | "center" | "right" | "stretch";
 
-/** Conserva el tamaño de diseño de textos e imágenes en teléfonos anchos. Las pantallas estrechas se escalan proporcionalmente y las de poca altura permiten desplazarse sin comprimir el contenido. */
+/** Conserva el tamaño de diseño de textos e imágenes en teléfonos anchos. El contenido se adapta al ancho y al alto disponibles, sin desplazamiento de la pantalla. */
 export function frameLayout(
   width: number,
   height: number,
@@ -21,9 +21,10 @@ export function frameLayout(
 ) {
   const availableWidth = Math.min(Math.max(1, width), 480);
   const viewportHeight = Math.max(1, height - top - bottom);
-  const scale = Math.min(1, availableWidth / REFERENCE_WIDTH);
   const trimTop = native ? STATUS_SPACE : 0;
   const trimBottom = native ? HOME_SPACE : 0;
+  const scale = Math.min(1, availableWidth / REFERENCE_WIDTH,
+    viewportHeight / (REFERENCE_HEIGHT - trimTop - trimBottom));
   const canvasHeight = Math.max(
     REFERENCE_HEIGHT,
     viewportHeight / scale + trimTop + trimBottom,

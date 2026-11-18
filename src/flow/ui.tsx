@@ -491,7 +491,7 @@ export function Frame({
         ref={scroll}
         style={{ flex: 1 }}
         contentContainerStyle={{ alignItems: "center" }}
-        scrollEnabled={metrics.contentHeight > metrics.viewportHeight + 0.5}
+        scrollEnabled={false}
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
         contentInsetAdjustmentBehavior="never"
