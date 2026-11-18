@@ -2,7 +2,7 @@
 
 Implementación en **React Native sin Expo**, con APK Android nativo y vista web para Storybook, de la guía del CEO del 17 de noviembre de 2026. Incluye inicio de sesión, registro, paseo guiado de práctica, selección del San, consentimientos, acceso al pago y estados de pago fallido y recordatorio. Sigue las referencias suministradas de 360 × 800, las fuentes Outfit 400–800 e Inter para el texto legal y la paleta de la guía.
 
-- [Descargar APK para Android](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.4/TuTurno-v20-Android.apk)
+- [Descargar APK para Android](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.5/TuTurno-v20-Android.apk)
 - [Integración en React Native para Limonbyte](docs/INTEGRACION-REACT-NATIVE.md)
 - [Ver el recorrido](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev)
 - [Storybook v20](https://tuturno-storybook.pages.dev/?path=/story/venezuela-v20-flujo-aprobado--flow)
@@ -18,7 +18,7 @@ Implementación en **React Native sin Expo**, con APK Android nativo y vista web
 
 ## App Android: descargar e instalar
 
-[**Descargar TuTurno v20 para Android (.apk)**](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.4/TuTurno-v20-Android.apk) · [Huella SHA256](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.4/TuTurno-v20-Android.apk.sha256) · [Versión y archivos de descarga](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/tag/android-v20.0.4)
+[**Descargar TuTurno v20 para Android (.apk)**](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.5/TuTurno-v20-Android.apk) · [Huella SHA256](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.5/TuTurno-v20-Android.apk.sha256) · [Versión y archivos de descarga](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/tag/android-v20.0.5)
 
 1. Descarga el APK desde tu teléfono Android y abre el archivo.
 2. Si Android lo solicita, permite instalar aplicaciones desde el navegador o el gestor de archivos que estés usando.
