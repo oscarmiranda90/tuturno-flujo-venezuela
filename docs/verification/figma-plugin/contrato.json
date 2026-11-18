@@ -1,8 +1,8 @@
 {
-  "fecha": "2026-11-18T12:37:31.169Z",
+  "fecha": "2026-11-18T12:42:27.028Z",
   "correcto": true,
   "anfitrion": "Simulación de la API; no es una ejecución en el editor de Figma",
-  "sourceCommit": "aa726b658cceeabc55d448dc02b26dc2a1ed6e35",
+  "sourceCommit": "d759b7cb3a3d24a1466e1af38b004c58a1dac2b1",
   "cases": [
     {
       "caso": "Todo el catálogo, capas editables y ejecuciones independientes",

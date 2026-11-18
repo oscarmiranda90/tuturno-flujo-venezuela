@@ -1,6 +1,6 @@
 # Plugin de Figma del flujo Venezuela v20
 
-Se entrega un plugin local de Figma Design con 37 pantallas y estados de 360 × 800 px, incluidas las cinco personas del inicio. El catálogo corresponde al código `1638b06`, después del ajuste de transición del login.
+Se entrega un plugin local de Figma Design con 37 pantallas y estados de 360 × 800 px, incluidas las cinco personas del inicio. El catálogo corresponde al código `d759b7c`, con la frase de Mary corregida según la v20.
 
 | Antes | Después | Motivo |
 | --- | --- | --- |

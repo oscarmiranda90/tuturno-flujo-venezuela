@@ -14,7 +14,7 @@ export function useTutuAudio(){
  const stopVoice=useCallback(()=>{generation.current++;voice.current?.release();voice.current=null;setPlaying(false)},[]);
  const stop=useCallback(()=>{pendingPrint.current=false;stopVoice();printerGeneration.current++;printerMedia.current?.release();printerMedia.current=null},[stopVoice]);
  const play=useCallback((k:string)=>{
-  stopVoice();if(preference.current||reader.current||!APPROVED_TUTU_AUDIO[k])return;
+  stopVoice();if(AppState.currentState!=='active'||preference.current||reader.current||!APPROVED_TUTU_AUDIO[k])return;
   const token=generation.current;setError(null);
   const sound=new Sound(APPROVED_TUTU_AUDIO[k],Sound.MAIN_BUNDLE,(failure)=>{
    if(token!==generation.current){sound.release();return}
@@ -23,7 +23,7 @@ export function useTutuAudio(){
   });voice.current=sound;
  },[stopVoice]);
  const select=useCallback((k:string|null)=>{stopVoice();current.current=k;setKey(k)},[stopVoice]);
- useEffect(()=>{let alive=true;Promise.all([storage.getItem(MUTE),AccessibilityInfo.isScreenReaderEnabled()]).then(([value,enabled])=>{if(!alive)return;preference.current=value==='true';reader.current=enabled;hydrated.current=true;setMuted(preference.current);setReady(true)});const sub=AccessibilityInfo.addEventListener('screenReaderChanged',enabled=>{reader.current=enabled;if(enabled)stop()});return()=>{alive=false;sub.remove()}},[stop]);
+ useEffect(()=>{let alive=true;Promise.all([storage.getItem(MUTE),AccessibilityInfo.isScreenReaderEnabled()]).then(([value,enabled])=>{if(!alive)return;preference.current=value==='true';reader.current=enabled;hydrated.current=true;setMuted(preference.current);setReady(true)}).catch(()=>{if(!alive)return;preference.current=true;hydrated.current=true;setMuted(true);setReady(true);setError('No se pudo recuperar la preferencia de audio.')});const sub=AccessibilityInfo.addEventListener('screenReaderChanged',enabled=>{reader.current=enabled;if(enabled)stop()});return()=>{alive=false;sub.remove()}},[stop]);
  useEffect(()=>{if(!ready||!key||muted)return;const timer=setTimeout(()=>play(key),key==='tutu_4a_ve'?0:380);return()=>{clearTimeout(timer);stopVoice()}},[key,ready,muted,play,stopVoice]);
  const toggle=useCallback(()=>{preference.current=!preference.current;setMuted(preference.current);void storage.setItem(MUTE,String(preference.current));stop()},[stop]);
  const replay=useCallback(()=>{if(preference.current){preference.current=false;setMuted(false);void storage.setItem(MUTE,'false')}else if(current.current)play(current.current)},[play]);
