@@ -2,11 +2,9 @@ import React, { useEffect, useId, useRef, useState } from "react";
 import {
   Image,
   Keyboard,
-  KeyboardAvoidingView,
   Modal,
   Platform,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -182,8 +180,9 @@ export function RegistrationV3({
   const density = Math.max(0, Math.min(1, (availableHeight - 520) / 260));
   const formOnly = keyboardOpen || availableHeight < 440;
   const controlStyle: ViewStyle = {height:44 + 12*density, marginTop:3 + 9*density};
-  const formScale = stage === "start" || Platform.OS === "web" ? 1 :
-    Math.min(1, availableHeight / 740, (bounds?.width ?? window.width) / 360);
+  const formScale = Platform.OS === "web" || (stage === "start" && keyboardOpen) ? 1 : stage === "start"
+    ? Math.min(1, availableHeight / 520, (bounds?.width ?? window.width) / 320)
+    : Math.min(1, availableHeight / 740, (bounds?.width ?? window.width) / 360);
   useEffect(() => {
     if (stage !== "start" || (preview && initialPreview !== "start")) return;
     const id = setInterval(
@@ -326,39 +325,25 @@ export function RegistrationV3({
   const mainProvider: RegistrationProvider =
     Platform.OS === "ios" ? "apple" : "google";
   // El dibujo se extiende bajo la barra de estado nativa; solo el contenido consume el margen seguro.
-  const heroInset = stage === "start" && !formOnly && Platform.OS !== "web" ? insets.top : 0;
+  const heroInset = stage === "start" && !formOnly && Platform.OS !== "web" ? insets.top / formScale : 0;
   return (
     <View
       onLayout={({nativeEvent:{layout}}) => setBounds(previous => previous?.width === layout.width && previous?.height === layout.height ? previous : {width:layout.width,height:layout.height})}
       style={[
         s.root,
         {
-          paddingTop: insets.top - heroInset,
+          paddingTop: heroInset > 0 ? 0 : insets.top,
           paddingBottom: insets.bottom,
         },
       ]}
     >
-      <KeyboardAvoidingView
-        style={{
-          flex: 1,
-        }}
-        behavior={Platform.OS === "ios" ? "padding" : undefined}
-      >
-        <View style={formScale < 1 ? {width:(bounds?.width ?? window.width)/formScale,height:availableHeight/formScale,transform:[{scale:formScale}],transformOrigin:"top left"} : {flex:1}}>
-        <ScrollView
-          scrollEnabled={false}
-          contentInsetAdjustmentBehavior="never"
-          automaticallyAdjustContentInsets={false}
-          bounces={false}
-          overScrollMode="never"
-          keyboardShouldPersistTaps="handled"
-          contentContainerStyle={{
-            flex: 1,
-          }}
-        >
+      <View style={{flex:1}}>
+        <View collapsable={false} style={formScale < 1 ? {width:(bounds?.width ?? window.width)/formScale,height:(availableHeight + (heroInset > 0 ? insets.top : 0))/formScale,transform:[{scale:formScale}],transformOrigin:"top left"} : {flex:1}}>
+        <View style={{flex:1}}>
           {stage === "start" ? (
             <>
-              {!formOnly && <View style={[s.hero, {
+              <View style={[s.hero, {
+                display:formOnly?"none":"flex",
                 height: 190 + 101*density + heroInset,
                 paddingTop: 8 + 7*density + heroInset,
                 paddingHorizontal: 16 + 4*density,
@@ -454,8 +439,8 @@ export function RegistrationV3({
                     </Testimonials>
                   </View>
                 </View>
-              </View>}
-              <View style={[s.startCard, {padding:10 + 8*density, paddingTop:10 + 23*density, marginBottom:6 + 6*density, justifyContent:formOnly?"center":undefined}]}>
+              </View>
+              <View style={[s.startCard, {padding:10 + 8*density, paddingTop:10 + 23*density, marginBottom:6 + 6*density}]}>
                 {!formOnly && <>
 
                 <View
@@ -554,6 +539,7 @@ export function RegistrationV3({
                   disabled={(adapter !== fixture && !isValidEmail(email)) || busy}
                   onPress={begin}
                 />
+                {!keyboardOpen && <>
                 <ProviderButton
                   provider={mainProvider}
                   style={controlStyle}
@@ -570,6 +556,7 @@ export function RegistrationV3({
                     Política de privacidad
                   </Text>
                 </Text>
+                </>}
               </View>
             </>
           ) : (
@@ -971,9 +958,9 @@ export function RegistrationV3({
               </View>
             </>
           )}
-        </ScrollView>
         </View>
-      </KeyboardAvoidingView>
+        </View>
+      </View>
       {referenceKeyboard && Platform.OS === "web" && stage === "otp" && (
         <View
           style={{
