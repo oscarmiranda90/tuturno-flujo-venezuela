@@ -2,7 +2,7 @@
 
 Implementación en **React Native sin Expo**, con APK Android nativo y vista web para Storybook, de la guía del CEO del 17 de noviembre de 2026. Incluye inicio de sesión, registro, paseo guiado de práctica, selección del San, consentimientos, acceso al pago y estados de pago fallido y recordatorio. Sigue las referencias suministradas de 360 × 800, las fuentes Outfit 400–800 e Inter para el texto legal y la paleta de la guía.
 
-- [Descargar APK para Android](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.2/TuTurno-v20-Android.apk)
+- [Descargar APK para Android](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.3/TuTurno-v20-Android.apk)
 - [Integración en React Native para Limonbyte](docs/INTEGRACION-REACT-NATIVE.md)
 - [Ver el recorrido](https://tuturno-flujo-venezuela.tiamat-agency.workers.dev)
 - [Storybook v20](https://tuturno-storybook.pages.dev/?path=/story/venezuela-v20-flujo-aprobado--flow)
@@ -18,11 +18,11 @@ Implementación en **React Native sin Expo**, con APK Android nativo y vista web
 
 ## App Android: descargar e instalar
 
-[**Descargar TuTurno v20 para Android (.apk)**](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.2/TuTurno-v20-Android.apk) · [Huella SHA256](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.2/TuTurno-v20-Android.apk.sha256) · [Versión y archivos de descarga](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/tag/android-v20.0.2)
+[**Descargar TuTurno v20 para Android (.apk)**](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.3/TuTurno-v20-Android.apk) · [Huella SHA256](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/download/android-v20.0.3/TuTurno-v20-Android.apk.sha256) · [Versión y archivos de descarga](https://github.com/oscarmiranda90/tuturno-flujo-venezuela/releases/tag/android-v20.0.3)
 
 1. Descarga el APK desde tu teléfono Android y abre el archivo.
 2. Si Android lo solicita, permite instalar aplicaciones desde el navegador o el gestor de archivos que estés usando.
-3. Abre **TuTurno · v20**. Para probar el registro utiliza el código **482915** y crea una clave de seis dígitos, por ejemplo **628194**.
+3. Abre **TuTurno · v20**. Para probar el registro utiliza cualquier código de seis dígitos y crea y repite cualquier clave de seis dígitos, por ejemplo **111111**.
 
 El APK nativo requiere Android 8.0 o posterior y admite ARM64 y x86_64. Incluye las pantallas, las fuentes, las imágenes y las quince voces y el sonido de la tiquetera de este repositorio; el recorrido se puede revisar sin conexión. Los enlaces externos sí requieren internet. Conserva los adaptadores de revisión: no envía correos, no guarda el PIN ni realiza cobros. Está firmado como compilación de revisión.
 
@@ -205,7 +205,7 @@ Usa Node.js 22.18 o posterior. Las pruebas del flujo utilizan el compilador Type
 
 `npm run check` verifica los tipos, el español neutro, los precios, el retroceso por los pasos del paseo, la conservación de los consentimientos, los quince audios locales y la ausencia de dependencias de Expo.
 
-Para revisar el registro usa el código `482915`. Crea y repite cualquier clave válida de seis dígitos, por ejemplo `628194`. El entorno de revisión no envía correos, no guarda la clave, no cobra ni crea un estado de pago exitoso. Puedes abrir estados concretos con `?screen=4c&variant=guide2` y revisar una idea con `?screen=12&idea=2`. Al abrir normalmente después del registro, el recorrido vuelve a 4a y conserva el San elegido. `?lector=1` permite que una integración accesible suprima la voz. La reproducción automática del navegador puede necesitar una primera pulsación. El silencio se conserva entre pantallas.
+Para revisar el registro usa cualquier código de seis dígitos, por ejemplo `123456`. Crea y repite cualquier clave de seis dígitos, incluso `111111`. El entorno de revisión no envía correos, no guarda la clave, no cobra ni crea un estado de pago exitoso. Puedes abrir estados concretos con `?screen=4c&variant=guide2` y revisar una idea con `?screen=12&idea=2`. Al abrir normalmente después del registro, el recorrido vuelve a 4a y conserva el San elegido. `?lector=1` permite que una integración accesible suprima la voz. La reproducción automática del navegador puede necesitar una primera pulsación. El silencio se conserva entre pantallas.
 
 ## Integración con producción
 
